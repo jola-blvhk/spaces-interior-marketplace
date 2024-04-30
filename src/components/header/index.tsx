@@ -12,17 +12,17 @@ const Header = () => {
     <div className="padding-section py-6 md:py-10 ">
       <div className="max-width-section flex justify-between items-center">
         <div>
-          <Image className="md:hidden w-7 h-7 " src={Hamburger} alt="menu" />
+          <Image className="md:hidden w-6 h-6 " src={Hamburger} alt="menu" />
           <h2 className="hidden md:block text-primary-black-90">
             Consult with us
           </h2>
         </div>
         {/* logo  */}
         <div className="text-center ml-8 md:ml-10">
-          <h2 className=" font-megrim  text-4xl font-bold tracking-tight text-secondary-green-100">
+          <h2 className=" font-megrim text-3xl  md:text-4xl font-bold tracking-tight text-secondary-green-100">
             SPACES
           </h2>
-          <p className="text-xs text-primary-black-90">Interior Market Place</p>
+          <p className=" text-[10px] md:text-xs text-primary-black-90">Interior Market Place</p>
         </div>
 
         {/* mobile profile and cart */}
