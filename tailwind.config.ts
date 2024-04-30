@@ -20,8 +20,7 @@ const config: Config = {
       },
       colors: {
         primary: {
-          "black-90": "#2F2F2F",
-          "white-100": "#FFFFFF",
+          "black-90": "#454545",
           "white-90": "#FAFAFA",
           "gray-80": "#B9B9B9",
           "gray-100": "#EEE",
