@@ -6,8 +6,10 @@ import Cart from "../../assets/icons/cart.svg";
 import ProfileGreen from "../../assets/icons/profile-green.svg";
 import CartGreen from "../../assets/icons/cart-green.svg";
 import Hamburger from "../../assets/icons/hamburger.svg";
+import { useAppSelector } from "@/redux";
 const Header = () => {
-  const isLoggedIn = true;
+  const authState = useAppSelector((state) => state.auth.authState);
+
   return (
     <div className="padding-section py-4  md:py-6  ">
       <div className="max-width-section flex justify-between items-center">
@@ -49,7 +51,7 @@ const Header = () => {
 
         {/*desktop profile, cart and auth */}
         <div className="hidden md:block">
-          {isLoggedIn && (
+          {authState && (
             <div className="flex items-center justify-between gap-[49px]">
               <Image
                 className=" cursor-pointer w-7 h-7 "
@@ -68,7 +70,7 @@ const Header = () => {
               />
             </div>
           )}
-          {!isLoggedIn && (
+          {!authState && (
             <div className="flex items-center justify-between gap-10">
               <button>Log in</button>
               <button className="border-2 border-black  bg-black text-white py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-white hover:text-black">
