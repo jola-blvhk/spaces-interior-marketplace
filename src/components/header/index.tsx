@@ -9,10 +9,14 @@ import Hamburger from "../../assets/icons/hamburger.svg";
 const Header = () => {
   const isLoggedIn = true;
   return (
-    <div className="padding-section py-6 md:py-10 ">
+    <div className="padding-section py-4  md:py-6  ">
       <div className="max-width-section flex justify-between items-center">
         <div>
-          <Image className=" cursor-pointer md:hidden w-7 h-7 " src={Hamburger} alt="menu" />
+          <Image
+            className=" cursor-pointer md:hidden w-6 h-6 "
+            src={Hamburger}
+            alt="menu"
+          />
           <h2 className="hidden md:block text-primary-black-90">
             Consult with us
           </h2>
@@ -22,14 +26,24 @@ const Header = () => {
           <h2 className=" font-megrim text-3xl  md:text-4xl font-bold tracking-tight text-secondary-green-100">
             SPACES
           </h2>
-          <p className=" text-[10px] md:text-xs text-primary-black-90">Interior Market Place</p>
+          <p className=" text-[10px] md:text-xs text-primary-black-90">
+            Interior Market Place
+          </p>
         </div>
 
         {/* mobile profile and cart */}
         <div className="block md:hidden">
           <div className="flex items-center justify-between gap-3">
-            <Image className=" cursor-pointer w-9 h-9 " src={ProfileGreen} alt="profile" />
-            <Image className=" cursor-pointer w-8 h-8" src={CartGreen} alt="cart" />
+            <Image
+              className=" cursor-pointer w-7 h-7 "
+              src={ProfileGreen}
+              alt="profile"
+            />
+            <Image
+              className=" cursor-pointer w-7 h-7"
+              src={CartGreen}
+              alt="cart"
+            />
           </div>
         </div>
 
@@ -37,9 +51,21 @@ const Header = () => {
         <div className="hidden md:block">
           {isLoggedIn && (
             <div className="flex items-center justify-between gap-[49px]">
-              <Image className=" cursor-pointer w-7 h-7 " src={Search} alt="search" />
-              <Image className=" cursor-pointer w-7 h-7" src={Profile} alt="profile" />
-              <Image className=" cursor-pointer w-7 h-7" src={Cart} alt="cart" />
+              <Image
+                className=" cursor-pointer w-7 h-7 "
+                src={Search}
+                alt="search"
+              />
+              <Image
+                className=" cursor-pointer w-7 h-7"
+                src={Profile}
+                alt="profile"
+              />
+              <Image
+                className=" cursor-pointer w-7 h-7"
+                src={Cart}
+                alt="cart"
+              />
             </div>
           )}
           {!isLoggedIn && (
