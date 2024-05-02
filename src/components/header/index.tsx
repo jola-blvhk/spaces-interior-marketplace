@@ -105,26 +105,26 @@ const Header = () => {
 
       {hamburgerState ? (
         <div className="bg-white  top-full  md:hidden overflow-hidden">
-          <ul className=" absolute top-full w-full grid justify-center bg-white z-[10000000000]">
+          <ul className=" absolute pb-8 top-full w-full grid justify-center bg-white z-[10000000000]">
             <Link
               href="/"
               onClick={() => {
                 dispatch(setHamburgerState(false));
               }}
             >
-              <li className="text-black hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-8 font-medium ">
+              <li className="text-black text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center  pt-8 pb-3 ">
                 Consult with us
               </li>
             </Link>
-            {/* <Link
+            <Link
               href="/"
               onClick={() => {
                 dispatch(setHamburgerState(false));
               }}
             >
-              <li className="text-black hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-8 font-medium ">
-                <button className="border-2 border-black  bg-black text-white py-[14px] px-[28.5px] w-fit text-center  rounded-[15px] hover:bg-white hover:text-black">
-                  Sign Up
+              <li className="text-black text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-3  ">
+                <button className="border border-[#DCDCDC]  bg-white text-black py-[14px]  w-[133px] text-center rounded-[10px] hover:bg-black hover:text-white">
+                  Log in
                 </button>
               </li>
             </Link>
@@ -134,15 +134,15 @@ const Header = () => {
                 dispatch(setHamburgerState(false));
               }}
             >
-              <li className="text-black hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-8 font-medium ">
-                <button className="border-2 border-black  bg-black text-white py-[14px] px-[28.5px] w-fit text-center  rounded-[15px] hover:bg-white hover:text-black">
+              <li className=" transition ease-in-out delay-150  py-3  ">
+                <button className="border  border-black  bg-black text-white py-[14px]  text-sm w-[133px] text-center  rounded-[10px] hover:bg-white hover:text-black">
                   Sign Up
                 </button>
               </li>
-            </Link> */}
+            </Link>
           </ul>
           <div
-            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-black opacity-60"
+            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-black opacity-10"
             onClick={() => {
               dispatch(setHamburgerState(false));
             }}
