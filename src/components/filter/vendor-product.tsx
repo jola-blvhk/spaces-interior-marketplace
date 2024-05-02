@@ -12,7 +12,7 @@ const VendorProductFilter = () => {
         className={`relative w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === "vendor"
             ? "text-primary-white-100"
-            : "text-primary-black-100"
+            : "text-primary-black-90"
         }`}
         onClick={() => setSelectedSection("vendor")}
         tabIndex={0} // This makes the div focusable
@@ -31,7 +31,7 @@ const VendorProductFilter = () => {
         className={`relative w-full h-full  rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === "product"
             ? "text-primary-white-100"
-            : "text-primary-black-100"
+            : "text-primary-black-90"
         }`}
         onClick={() => setSelectedSection("product")}
         tabIndex={0} // This makes the div focusable
