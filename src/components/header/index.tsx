@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import Search from "../../assets/icons/search.svg";
@@ -6,19 +8,36 @@ import Cart from "../../assets/icons/cart.svg";
 import ProfileGreen from "../../assets/icons/profile-green.svg";
 import CartGreen from "../../assets/icons/cart-green.svg";
 import Hamburger from "../../assets/icons/hamburger.svg";
-import { useAppSelector } from "@/redux";
+import { useAppDispatch, useAppSelector } from "@/redux";
+import { IoMdClose } from "react-icons/io";
+import { uiActions } from "@/redux/ui-slice";
 const Header = () => {
   const authState = useAppSelector((state) => state.auth.authState);
-
+  const hamburgerState = useAppSelector((state) => state.ui.hamBurgerState);
+  const setHamburgerState = uiActions.setHamburgerState;
+  const dispatch = useAppDispatch();
   return (
     <div className="padding-section py-4  md:py-6  ">
       <div className="max-width-section flex justify-between items-center">
         <div>
-          <Image
-            className=" cursor-pointer md:hidden w-6 h-6 "
-            src={Hamburger}
-            alt="menu"
-          />
+          {hamburgerState ? (
+            <IoMdClose
+              className="text-2xl text-secondary-green-100 cursor-pointer md:hidden"
+              onClick={() => {
+                dispatch(setHamburgerState(false));
+              }}
+            />
+          ) : (
+            <Image
+              className=" cursor-pointer md:hidden w-6 h-6  "
+              src={Hamburger}
+              alt="menu"
+              onClick={() => {
+                dispatch(setHamburgerState(true));
+              }}
+            />
+          )}
+
           <h2 className="hidden md:block text-primary-black-90">
             Consult with us
           </h2>

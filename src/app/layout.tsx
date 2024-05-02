@@ -1,7 +1,11 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Poppins, Megrim } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import ReduxProvider from "@/redux/redux-provider";
+import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,10 +19,10 @@ const megrim = Megrim({
   variable: "--font-megrim",
 });
 
-export const metadata: Metadata = {
-  title: "Spaces Interior Market Place",
-  description: "an interior marketplace",
-};
+// export const metadata: Metadata = {
+//   title: "Spaces Interior Market Place",
+//   description: "an interior marketplace",
+// };
 
 export default function RootLayout({
   children,
@@ -26,11 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={` ${poppins.variable} ${megrim.variable}`}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <ReduxProvider>
+      <Head>
+        <title>Spaces Interior Market Place</title>
+      </Head>
+      <html lang="en">
+        <body className={` ${poppins.variable} ${megrim.variable}`}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }

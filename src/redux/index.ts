@@ -3,8 +3,9 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import authSlice from "./auth-slice";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import uiSlice from "./ui-slice";
 
-// configure which keuy we want to persist
+// configure which key we want to persist
 const authPersistConfig = {
   key: "auth",
   storage: storage,
@@ -13,6 +14,7 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authSlice.reducer),
+  ui: uiSlice.reducer,
 });
 
 export const store = configureStore({
