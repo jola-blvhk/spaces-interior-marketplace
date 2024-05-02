@@ -9,7 +9,7 @@ const VendorProductFilter = () => {
   return (
     <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center py-2 px-2 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[400px] border border-[#D9D9D9] m-auto ">
       <div
-        className={`relative w-full h-full rounded-[8.72px] md:rounded-[15px] ${
+        className={`relative w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === "vendor"
             ? "text-primary-white-100"
             : "text-primary-black-100"
@@ -28,7 +28,7 @@ const VendorProductFilter = () => {
         )}
       </div>
       <div
-        className={`relative w-full h-full  rounded-[8.72px] md:rounded-[15px] ${
+        className={`relative w-full h-full  rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === "product"
             ? "text-primary-white-100"
             : "text-primary-black-100"
