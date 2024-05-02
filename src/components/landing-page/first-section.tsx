@@ -17,7 +17,7 @@ const FirstSection = () => {
           <input
             placeholder="Search for furniture, accessories and more"
             defaultValue={searchValue}
-            className="focus:outline-none w-full text-darkSecondary placeholder:text-[#726D6DB2] text-xs md:text-sm  tracking-wider"
+            className="focus:outline-none w-full text-primary-black-90 placeholder:text-[#726D6DB2] placeholder:text-xs placeholder:md:text-sm  text-sm tracking-wider"
             // onClick={handleSearchClicked}
             onChange={handleChange}
           />
