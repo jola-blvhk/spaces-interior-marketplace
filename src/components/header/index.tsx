@@ -46,7 +46,7 @@ const Header = () => {
           </div>
           {/* logo  */}
           <div className="text-center ml-8 md:ml-10">
-            <h2 className=" font-megrim text-3xl  md:text-4xl font-bold tracking-tight text-secondary-green-100">
+            <h2 className=" font-megrim text-3xl  md:text-4xl  font-bold tracking-tight text-secondary-green-100">
               SPACES
             </h2>
             <p className=" text-[10px] md:text-xs text-primary-black-90">
