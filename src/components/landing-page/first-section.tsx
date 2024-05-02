@@ -29,13 +29,17 @@ const FirstSection = () => {
             Shop for latest furniture and home accessories
             <br /> from your favourite vendors
           </h1>
-          <h3 className="pt-3 lg:pt-0 text-sm text-primary-black-90 md:text-base lg:text-lg">
+          <h3 className="pt-3 lg:pt-0 text-sm  leading-5 text-primary-black-90 md:text-base lg:text-lg">
             Your one stop market place for all things furniture, accessories and
             more
           </h3>
         </div>
 
-        {/* <VendorProductFilter /> */}
+        <section className="">
+          <div className="m-auto py-10 md:py-12">
+            <VendorProductFilter />
+          </div>
+        </section>
       </div>
     </div>
   );
