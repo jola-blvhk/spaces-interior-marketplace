@@ -94,7 +94,7 @@ const Header = () => {
             {!authState && (
               <div className="flex items-center justify-between gap-10">
                 <button>Log in</button>
-                <button className="border-2 border-black  bg-black text-white py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-white hover:text-black">
+                <button className="border-2 border-primary-primary-black-100-100  bg-black text-primary-white-100 py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-primary-white-100 hover:text-black">
                   Sign Up
                 </button>
               </div>
@@ -104,15 +104,15 @@ const Header = () => {
       </div>
 
       {hamburgerState ? (
-        <div className="bg-white  top-full  md:hidden overflow-hidden">
-          <ul className=" absolute pb-8 top-full w-full grid justify-center bg-white z-[10000000000]">
+        <div className="bg-primary-white-100  top-full  md:hidden overflow-hidden">
+          <ul className=" absolute pb-8 top-full w-full grid justify-center bg-primary-white-100 z-[10000000000]">
             <Link
               href="/"
               onClick={() => {
                 dispatch(setHamburgerState(false));
               }}
             >
-              <li className="text-black text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center  pt-8 pb-3 ">
+              <li className="text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center  pt-8 pb-3 ">
                 Consult with us
               </li>
             </Link>
@@ -122,8 +122,8 @@ const Header = () => {
                 dispatch(setHamburgerState(false));
               }}
             >
-              <li className="text-black text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-3  ">
-                <button className="border border-[#DCDCDC]  bg-white text-black py-[14px]  w-[133px] text-center rounded-[10px] hover:bg-black hover:text-white">
+              <li className="text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150  py-3  ">
+                <button className="border border-[#DCDCDC]  bg-primary-white-100 text-black py-[14px]  w-[133px] text-center rounded-[10px] hover:bg-primary-black-100 hover:text-primary-white-100">
                   Log in
                 </button>
               </li>
@@ -135,14 +135,14 @@ const Header = () => {
               }}
             >
               <li className=" transition ease-in-out delay-150  py-3  ">
-                <button className="border  border-black  bg-black text-white py-[14px]  text-sm w-[133px] text-center  rounded-[10px] hover:bg-white hover:text-black">
+                <button className="border  border-black  bg-primary-black-100 text-primary-white-100 py-[14px]  text-sm w-[133px] text-center  rounded-[10px] hover:bg-primary-white-100 hover:text-primary-black-100">
                   Sign Up
                 </button>
               </li>
             </Link>
           </ul>
           <div
-            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-black opacity-10"
+            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-primary-black-100 opacity-10"
             onClick={() => {
               dispatch(setHamburgerState(false));
             }}
