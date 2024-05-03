@@ -96,6 +96,7 @@ export const VendorProductSlide: React.FC<VendorProductSlideProps> = ({
         spaceBetween={20}
         slidesPerView={imagesPerPage}
         speed={500}
+        loop={true}
         navigation
         autoplay={{ delay: 2000 }}
         style={{
