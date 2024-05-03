@@ -15,11 +15,11 @@ import {
 } from "swiper/modules";
 
 import Image from "next/image";
-import vendor1 from "/public/assets/vendors/vendor1.jpg";
-import vendor2 from "/public/assets/vendors/vendor2.jpg";
-import vendor3 from "/public/assets/vendors/vendor3.jpg";
-import vendor4 from "/public/assets/vendors/vendor4.jpg";
-import vendor5 from "/public/assets/vendors/vendor5.jpg";
+import vendor1 from "/public/assets/vendors/vendor1.png";
+import vendor2 from "/public/assets/vendors/vendor2.png";
+import vendor3 from "/public/assets/vendors/vendor3.png";
+import vendor4 from "/public/assets/vendors/vendor4.png";
+import vendor5 from "/public/assets/vendors/vendor5.png";
 
 export const VendorProductSlide = () => {
   const [imagesPerPage, setImagesPerPage] = useState(3);
@@ -37,40 +37,46 @@ export const VendorProductSlide = () => {
   }, []);
 
   useEffect(() => {
-    if (windowWidth < 768) {
+    if (windowWidth < 450) {
       setImagesPerPage(2);
-    } else if (windowWidth < 1024) {
+    } else if (windowWidth < 600) {
+      setImagesPerPage(3);
+    } else if (windowWidth < 768) {
       setImagesPerPage(4);
     } else {
       setImagesPerPage(5);
     }
   }, [windowWidth]);
 
+  const widthForImages = (windowWidth / imagesPerPage) - 10;
+
+  console.log("widthForImages", widthForImages);
   SwiperCore.use([Autoplay]);
 
   return (
     <div
-      className={` max-w-full  gap-8 py-2 md:py-5 text-primary-black-100`}
+      className={` w-fit m-auto  max-w-full  py-2 md:py-5 text-primary-black-100 `}
     >
       <Swiper
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={imagesPerPage}
-        loop={true}
+        speed={500}
+        // loop={true}
         navigation
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
           delay: 2000,
         }}
-        style={{ maxWidth: windowWidth }} // Set max-width dynamically
-        className="my-auto h-fit"
+        style={{ maxWidth: windowWidth - 40 }} // Set max-width dynamically
+        className="my-auto h-fit "
       >
         <SwiperSlide className="my-auto   max-w-fit ">
           <div className=" w-fit">
             <Image
               src={vendor1}
-              width={150}
-              height={150}
+              width={widthForImages}
+              height={widthForImages}
               alt="vendor 1"
               className=" h-full  object-contain"
             />
@@ -80,8 +86,8 @@ export const VendorProductSlide = () => {
           <div className="  ">
             <Image
               src={vendor2}
-              width={150}
-              height={150}
+              width={widthForImages}
+              height={widthForImages}
               alt="vendor 2"
               className=" h-full object-contain"
             />
@@ -91,8 +97,8 @@ export const VendorProductSlide = () => {
           <div className=" ">
             <Image
               src={vendor3}
-              width={150}
-              height={150}
+              width={widthForImages}
+              height={widthForImages}
               alt="vendor 3"
               className="h-full   object-contain"
             />
@@ -102,8 +108,8 @@ export const VendorProductSlide = () => {
           <div className=" ">
             <Image
               src={vendor4}
-              width={150}
-              height={150}
+              width={widthForImages}
+              height={widthForImages}
               alt="vendor 4"
               className=" h-full    object-contain"
             />
@@ -113,8 +119,8 @@ export const VendorProductSlide = () => {
           <div className="">
             <Image
               src={vendor5}
-              width={150}
-              height={150}
+              width={widthForImages}
+              height={widthForImages}
               alt="vendor 5"
               className=" h-full  object-contain"
             />
