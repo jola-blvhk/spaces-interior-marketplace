@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import VendorProductFilter from "../filter/vendor-product";
+import { VendorProductSlide } from "../slider/vendor-product-slide";
 
 const FirstSection = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -39,6 +40,7 @@ const FirstSection = () => {
           <div className="m-auto py-10 md:py-12">
             <VendorProductFilter />
           </div>
+          <VendorProductSlide />
         </section>
       </div>
     </div>
