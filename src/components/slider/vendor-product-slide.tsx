@@ -41,16 +41,16 @@ export const VendorProductSlide = () => {
       setImagesPerPage(2);
     } else if (windowWidth < 600) {
       setImagesPerPage(3);
-    } else if (windowWidth < 768) {
+    } else if (windowWidth < 768 ) {
       setImagesPerPage(4);
     } else {
       setImagesPerPage(5);
     }
   }, [windowWidth]);
 
-  const widthForImages = (windowWidth / imagesPerPage) - 10;
+  const widthForImages = windowWidth / imagesPerPage - 10;
 
-  console.log("widthForImages", widthForImages);
+
   SwiperCore.use([Autoplay]);
 
   return (
@@ -68,7 +68,17 @@ export const VendorProductSlide = () => {
         autoplay={{
           delay: 2000,
         }}
-        style={{ maxWidth: windowWidth - 40 }} // Set max-width dynamically
+        // style={{ maxWidth: windowWidth - 40 }} // Set max-width dynamically
+        style={{
+          maxWidth:
+            windowWidth > 1028
+              ? windowWidth - 128
+              : windowWidth > 768
+              ? windowWidth - 96
+              : windowWidth > 0
+              ? windowWidth - 40
+              : "100%", // Set max-width dynamically
+        }}
         className="my-auto h-fit "
       >
         <SwiperSlide className="my-auto   max-w-fit ">
