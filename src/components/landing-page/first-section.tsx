@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import VendorProductFilter from "../filter/vendor-product";
-import { VendorProductSlide } from "../slider/vendor-product-slide";
+import { SlideType, VendorProductSlide } from "../slider/vendor-product-slide";
 
 const FirstSection = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [selectedSection, setSelectedSection] = useState<SlideType>(
+    SlideType.Product
+  );
+
+  const handleSectionClick = (section: SlideType) => {
+    setSelectedSection(section);
+  };
   const handleChange = (e: {
     target: { value: React.SetStateAction<string> };
   }) => {
@@ -38,9 +45,12 @@ const FirstSection = () => {
 
         <section className="">
           <div className="m-auto py-10 md:py-12">
-            <VendorProductFilter />
+            <VendorProductFilter
+              selectedSection={selectedSection}
+              onSectionClick={handleSectionClick}
+            />
           </div>
-          <VendorProductSlide />
+          <VendorProductSlide type={selectedSection} />
         </section>
       </div>
     </div>

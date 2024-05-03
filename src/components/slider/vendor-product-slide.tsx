@@ -1,28 +1,64 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import SwiperCore from "swiper";
-import {
-  Autoplay,
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from "swiper/modules";
-
+import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-import vendor1 from "/public/assets/vendors/vendor1.svg";
-import vendor2 from "/public/assets/vendors/vendor2.svg";
-import vendor3 from "/public/assets/vendors/vendor3.svg";
-import vendor4 from "/public/assets/vendors/vendor4.svg";
-import vendor5 from "/public/assets/vendors/vendor5.svg";
+import vendor1Svg from "/public/assets/vendors/vendor1.svg";
+import vendor2Svg from "/public/assets/vendors/vendor2.svg";
+import vendor3Svg from "/public/assets/vendors/vendor3.svg";
+import vendor4Svg from "/public/assets/vendors/vendor4.svg";
+import vendor5Svg from "/public/assets/vendors/vendor5.svg";
+import product1Svg from "/public/assets/products/product1.svg";
+import product2Svg from "/public/assets/products/product2.svg";
+import product3Svg from "/public/assets/products/product3.svg";
+import product4Svg from "/public/assets/products/product4.svg";
+import product5Svg from "/public/assets/products/product5.svg";
 
-export const VendorProductSlide = () => {
-  const [imagesPerPage, setImagesPerPage] = useState(3);
+type VendorImage =
+  | typeof vendor1Svg
+  | typeof vendor2Svg
+  | typeof vendor3Svg
+  | typeof vendor4Svg
+  | typeof vendor5Svg;
+type ProductImage =
+  | typeof product1Svg
+  | typeof product2Svg
+  | typeof product3Svg
+  | typeof product4Svg
+  | typeof product5Svg;
+
+
+type SlideImage = VendorImage | ProductImage;
+export enum SlideType {
+  Product = "product",
+  Vendor = "vendor",
+}
+
+export interface VendorProductSlideProps {
+  type: SlideType;
+}
+export const VendorProductSlide: React.FC<VendorProductSlideProps> = ({
+  type,
+}) => {
+  const [images, setImages] = useState<SlideImage[]>([]);
+
+  useEffect(() => {
+    if (type === "vendor") {
+      setImages([vendor1Svg, vendor2Svg, vendor3Svg, vendor4Svg, vendor5Svg]);
+    } else if (type === "product") {
+      setImages([
+        product1Svg,
+        product2Svg,
+        product3Svg,
+        product4Svg,
+        product5Svg,
+      ]);
+    }
+  }, [type]);
+
+  const [imagesPerPage, setImagesPerPage] = useState(2);
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
@@ -41,7 +77,7 @@ export const VendorProductSlide = () => {
       setImagesPerPage(2);
     } else if (windowWidth < 600) {
       setImagesPerPage(3);
-    } else if (windowWidth < 768 ) {
+    } else if (windowWidth < 768) {
       setImagesPerPage(4);
     } else {
       setImagesPerPage(5);
@@ -50,92 +86,45 @@ export const VendorProductSlide = () => {
 
   const widthForImages = windowWidth / imagesPerPage - 10;
 
-
   SwiperCore.use([Autoplay]);
 
   return (
     <div
-      className={` w-fit m-auto  max-w-full  py-2 md:py-5 text-primary-black-100 `}
+      className={`w-fit m-auto max-w-full py-2 md:py-5 text-primary-black-100`}
     >
       <Swiper
         spaceBetween={20}
         slidesPerView={imagesPerPage}
         speed={500}
-        // loop={true}
         navigation
-        // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        autoplay={{
-          delay: 2000,
-        }}
-        // style={{ maxWidth: windowWidth - 40 }} // Set max-width dynamically
+        autoplay={{ delay: 2000 }}
         style={{
           maxWidth:
             windowWidth > 1028
               ? windowWidth - 128
               : windowWidth > 768
               ? windowWidth - 96
-              : windowWidth > 0
-              ? windowWidth - 40
-              : "100%", // Set max-width dynamically
+              : windowWidth - 40,
         }}
-        className="my-auto h-fit "
+        className="my-auto h-fit"
       >
-        <SwiperSlide className="my-auto   max-w-fit ">
-          <div className=" w-fit">
-            <Image
-              src={vendor1}
-              width={widthForImages}
-              height={widthForImages}
-              alt="vendor 1"
-              className=" h-full  object-contain"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="my-auto max-w-fit">
-          <div className="  ">
-            <Image
-              src={vendor2}
-              width={widthForImages}
-              height={widthForImages}
-              alt="vendor 2"
-              className=" h-full object-contain"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="my-auto max-w-fit">
-          <div className=" ">
-            <Image
-              src={vendor3}
-              width={widthForImages}
-              height={widthForImages}
-              alt="vendor 3"
-              className="h-full   object-contain"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="my-auto max-w-fit">
-          <div className=" ">
-            <Image
-              src={vendor4}
-              width={widthForImages}
-              height={widthForImages}
-              alt="vendor 4"
-              className=" h-full    object-contain"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="my-auto max-w-fit">
-          <div className="">
-            <Image
-              src={vendor5}
-              width={widthForImages}
-              height={widthForImages}
-              alt="vendor 5"
-              className=" h-full  object-contain"
-            />
-          </div>
-        </SwiperSlide>
+        {images.map((image, index) => (
+          <SwiperSlide key={index} className="my-auto max-w-fit">
+            <div className="w-fit">
+              <Image
+                src={image}
+                width={widthForImages}
+                height={widthForImages}
+                alt={
+                  type === "vendor"
+                    ? `vendor ${index + 1}`
+                    : `product ${index + 1}`
+                }
+                className="h-full object-contain"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
