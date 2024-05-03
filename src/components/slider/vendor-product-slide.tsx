@@ -50,7 +50,7 @@ export const VendorProductSlide = () => {
 
   return (
     <div
-      className={` max-w-full border border-red-500 gap-8 py-2 md:py-5 text-primary-black-100`}
+      className={` max-w-full  gap-8 py-2 md:py-5 text-primary-black-100`}
     >
       <Swiper
         spaceBetween={30}
