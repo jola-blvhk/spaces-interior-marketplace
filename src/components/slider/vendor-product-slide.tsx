@@ -15,11 +15,11 @@ import {
 } from "swiper/modules";
 
 import Image from "next/image";
-import vendor1 from "/public/assets/vendors/vendor1.png";
-import vendor2 from "/public/assets/vendors/vendor2.png";
-import vendor3 from "/public/assets/vendors/vendor3.png";
-import vendor4 from "/public/assets/vendors/vendor4.png";
-import vendor5 from "/public/assets/vendors/vendor5.png";
+import vendor1 from "/public/assets/vendors/vendor1.svg";
+import vendor2 from "/public/assets/vendors/vendor2.svg";
+import vendor3 from "/public/assets/vendors/vendor3.svg";
+import vendor4 from "/public/assets/vendors/vendor4.svg";
+import vendor5 from "/public/assets/vendors/vendor5.svg";
 
 export const VendorProductSlide = () => {
   const [imagesPerPage, setImagesPerPage] = useState(3);
