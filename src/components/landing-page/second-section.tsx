@@ -29,9 +29,9 @@ const SecondSection = () => {
   return (
     <div className="relative  my-auto ">
       <div
-        className={`relative max-width-section z-20 md:py-4 w-[70%] m-auto h-full  `}
+        className={`relative max-width-section z-20 md:py-4 w-[70%] md:w-fit m-auto h-full  `}
       >
-        <div className={`relative  z-40 m-auto w-fit py-8 md:py-10`}>
+        <div className={`relative   z-40 m-auto w-fit py-8 md:py-10`}>
           <h1 className="text-center text-secondary-green-90 font-medium text-xl md:text-3xl lg:text-4xl tracking-wide">
             Top Products
           </h1>
@@ -46,7 +46,7 @@ const SecondSection = () => {
               </div>
             ))}
           </div>
-          <div className="m-auto w-[180px]">
+          <div className="m-auto w-[70%] md:w-[180px]">
             <Button
               title="Shop now"
               icon={Cart}
