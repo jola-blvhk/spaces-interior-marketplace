@@ -54,7 +54,7 @@ const FirstSection = () => {
             />
           </div>
           <VendorProductSlide type={selectedSection} />
-          <div className="w-[220px] pt-4  m-auto">
+          <div className=" w-[180px] md:w-[220px] pt-4  m-auto">
             <Button
               title="View More"
               greenBackground
