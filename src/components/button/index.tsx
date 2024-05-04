@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
        } ${lightGreenBackground && "bg-secondary-green-100/50"}
        w-full relative   rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
          backgroundImage && "text-primary-white-100"
-       } ${icon ? "flex gap-2 items-center" : "text-center"}`}
+       } ${icon ? "flex gap-2 items-center justify-center" : "text-center"}`}
       onClick={onclick}
     >
       <p className={`relative  z-20`}>{title}</p>
@@ -41,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
         />
       )}
 
-      {icon && <Image src={icon} alt="icon" className="w-6  h-6" />}
+      {icon && <Image src={icon} alt="icon" className="w-4 h-4 md:w-6  md:h-6" />}
     </button>
   );
 };

@@ -10,7 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-     
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -31,6 +30,7 @@ const config: Config = {
         },
         secondary: {
           "green-100": "#829B7E",
+          "green-90": "#F3FFF2",
         },
       },
       boxShadow: {
