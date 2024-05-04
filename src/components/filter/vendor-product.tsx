@@ -15,7 +15,7 @@ const VendorProductFilter: React.FC<VendorProductFilterProps> = ({
   return (
     <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center p-1 md:p-2 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[400px] border border-[#D9D9D9] m-auto px-1 ">
       <div
-        className={`relative w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
+        className={`relative py-3 md:py-4 w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === SlideType.Product
             ? "text-primary-white-100"
             : "text-primary-black-90"
@@ -23,7 +23,7 @@ const VendorProductFilter: React.FC<VendorProductFilterProps> = ({
         onClick={() => onSectionClick(SlideType.Product)}
         tabIndex={0} // This makes the div focusable
       >
-        <p className={`relative px-6 z-20 py-3`}>Product</p>
+        <p className={`relative px-6 z-20 `}>Product</p>
         {selectedSection === SlideType.Product && (
           <Image
             src={Rug}
@@ -34,7 +34,7 @@ const VendorProductFilter: React.FC<VendorProductFilterProps> = ({
         )}
       </div>
       <div
-        className={`relative w-full h-full  rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
+        className={`relative  py-3 md:py-4 w-full h-full  rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
           selectedSection === SlideType.Vendor
             ? "text-primary-white-100"
             : "text-primary-black-90"
@@ -42,7 +42,7 @@ const VendorProductFilter: React.FC<VendorProductFilterProps> = ({
         onClick={() => onSectionClick(SlideType.Vendor)}
         tabIndex={0} // This makes the div focusable
       >
-        <p className={`relative px-6 z-20 py-3`}>Vendor</p>
+        <p className={`relative px-6 z-20 `}>Vendor</p>
         {selectedSection === SlideType.Vendor && (
           <Image
             src={Rug}

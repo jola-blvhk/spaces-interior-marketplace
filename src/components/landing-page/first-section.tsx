@@ -22,8 +22,8 @@ const FirstSection = () => {
     setSearchValue(e.target.value);
   };
   return (
-    <div className="padding-section pt-4 md:pt-6 lg:pt-12 bg-primary-white-100">
-      <div className="max-width-section grid w-full justify-center">
+    <div className="padding-section pt-4 md:pt-6  bg-primary-white-100">
+      <div className="max-width-section grid gap-5 w-full justify-center">
         <div className=" rounded-[10px] md:rounded-[15px] flex m-auto items-center gap-2 py-3 px-4 md:px-6  bg-primary-white-100 border border-solid border-[##D9D9D9] w-full max-w-[400px] md:w-[420px] md:max-w-[420px] box-border rotate-[0.02deg]">
           <IoSearch className="text-[#737373B2] text-3xl" />
           <input
@@ -35,7 +35,7 @@ const FirstSection = () => {
           />
         </div>
 
-        <div className="text-center pt-7 ">
+        <div className="text-center ">
           <h1 className="text-secondary-green-100 text-xl md:text-3xl lg:text-4xl font-medium leading-[30px]md:leading-[33px] lg:leading-[55px]">
             Shop for latest furniture and home accessories
             <br /> from your favourite vendors
@@ -47,16 +47,22 @@ const FirstSection = () => {
         </div>
 
         <section className="">
-          <div className=" m-auto py-10 md:py-12">
+          <div className=" m-auto pb-6  pt-3">
             <VendorProductFilter
               selectedSection={selectedSection}
               onSectionClick={handleSectionClick}
             />
           </div>
           <VendorProductSlide type={selectedSection} />
-          {/* <div className="w-fit">
-            <Button title="View more" greenBackground  onclick={() => {}} />
-          </div> */}
+          <div className="w-[220px] pt-4  m-auto">
+            <Button
+              title="View More"
+              greenBackground
+              onclick={() => {
+                window.location.href = "/";
+              }}
+            />
+          </div>
         </section>
       </div>
     </div>

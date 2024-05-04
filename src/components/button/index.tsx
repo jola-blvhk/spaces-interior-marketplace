@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`  py-4 ${icon && "text-primary-black-100 bg-white"}
+      className={`tracking-wide  py-4 ${icon && "text-primary-black-100 bg-white"}
        px-6 ${
          greenBackground && "bg-secondary-green-100 text-primary-white-100"
        } ${lightGreenBackground && "bg-secondary-green-100/50"}
