@@ -41,7 +41,7 @@ const Header = () => {
             )}
 
             <h2 className="hidden md:block text-primary-black-90">
-              Consult with us
+              Design with us
             </h2>
           </div>
           {/* logo  */}
@@ -113,7 +113,7 @@ const Header = () => {
               }}
             >
               <li className="text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center  pt-8 pb-3 ">
-                Consult with us
+                Design with us
               </li>
             </Link>
             <Link

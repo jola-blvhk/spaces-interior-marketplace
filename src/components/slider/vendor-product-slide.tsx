@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/effect-fade";
 
 import SwiperCore from "swiper";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 import vendor1Svg from "/public/assets/vendors/vendor1.svg";
 import vendor2Svg from "/public/assets/vendors/vendor2.svg";
@@ -28,7 +29,6 @@ type ProductImage =
   | typeof product3Svg
   | typeof product4Svg
   | typeof product5Svg;
-
 
 type SlideImage = VendorImage | ProductImage;
 export enum SlideType {
@@ -86,11 +86,11 @@ export const VendorProductSlide: React.FC<VendorProductSlideProps> = ({
 
   const widthForImages = windowWidth / imagesPerPage - 10;
 
-  SwiperCore.use([Autoplay]);
+  SwiperCore.use([Autoplay, EffectFade]);
 
   return (
     <div
-      className={`w-fit m-auto max-w-full py-2 md:py-5 text-primary-black-100`}
+      className={`max-width-section w-fit m-auto  py-2 md:py-5 text-primary-black-100`}
     >
       <Swiper
         spaceBetween={20}
@@ -101,7 +101,9 @@ export const VendorProductSlide: React.FC<VendorProductSlideProps> = ({
         autoplay={{ delay: 2000 }}
         style={{
           maxWidth:
-            windowWidth > 1028
+            windowWidth > 1500
+              ? 1500
+              : windowWidth > 1028
               ? windowWidth - 128
               : windowWidth > 768
               ? windowWidth - 96
@@ -121,7 +123,7 @@ export const VendorProductSlide: React.FC<VendorProductSlideProps> = ({
                     ? `vendor ${index + 1}`
                     : `product ${index + 1}`
                 }
-                className="h-full object-contain"
+                className="h-full object-contain "
               />
             </div>
           </SwiperSlide>

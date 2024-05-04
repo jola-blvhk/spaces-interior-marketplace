@@ -3,6 +3,9 @@ import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import VendorProductFilter from "../filter/vendor-product";
 import { SlideType, VendorProductSlide } from "../slider/vendor-product-slide";
+import Button from "../button";
+import Cart from "../../assets/icons/cart.svg";
+import { Carrois_Gothic } from "next/font/google";
 
 const FirstSection = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -44,13 +47,16 @@ const FirstSection = () => {
         </div>
 
         <section className="">
-          <div className="m-auto py-10 md:py-12">
+          <div className=" m-auto py-10 md:py-12">
             <VendorProductFilter
               selectedSection={selectedSection}
               onSectionClick={handleSectionClick}
             />
           </div>
           <VendorProductSlide type={selectedSection} />
+          {/* <div className="w-fit">
+            <Button title="View more" greenBackground  onclick={() => {}} />
+          </div> */}
         </section>
       </div>
     </div>
