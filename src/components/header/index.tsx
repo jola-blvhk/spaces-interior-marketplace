@@ -19,6 +19,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
   return (
     <div className="relative z-50">
+      <div className="fixed w-full bg-white">
       <div className="padding-section py-4  md:py-6  ">
         <div className="max-width-section flex justify-between items-center">
           <div>
@@ -142,13 +143,14 @@ const Header = () => {
             </Link>
           </ul>
           <div
-            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-primary-black-100 opacity-20"
+            className="fixed top-[20%] bottom-0 left-0 right-0 z-[1000000000] bg-primary-black-100 opacity-30"
             onClick={() => {
               dispatch(setHamburgerState(false));
             }}
           ></div>
         </div>
       ) : null}
+    </div>
     </div>
   );
 };
