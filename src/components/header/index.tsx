@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <div className="relative z-50">
       <div className="fixed w-full bg-white">
-      <div className="padding-section py-3  md:py-6  ">
+      <div className="padding-section py-3  md:pt-6 md:pb-5   ">
         <div className="max-width-section flex justify-between items-center">
           <div>
             {hamburgerState ? (
@@ -46,7 +46,7 @@ const Header = () => {
             </h2>
           </div>
           {/* logo  */}
-          <div className="text-center ml-10 md:ml-16">
+          <div className="text-center ml-10 md:ml-20 lg:ml-16">
             <h2 className=" font-megrim text-3xl  md:text-4xl  font-bold tracking-tight text-secondary-green-100">
               SPACES
             </h2>
