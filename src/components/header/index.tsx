@@ -42,8 +42,12 @@ const Header = () => {
               )}
 
               <div className="hidden md:flex items-center gap-6 lg:gap-12 text-primary-black-90">
-                <h2 className=" ">Design with us</h2>
-                <h2 className=" ">Categories</h2>
+                <h2 className=" cursor-pointer hover:text-secondary-green-100">
+                  Design with us
+                </h2>
+                <h2 className="  cursor-pointer hover:text-secondary-green-100">
+                  Categories
+                </h2>
               </div>
             </div>
             {/* logo  */}
