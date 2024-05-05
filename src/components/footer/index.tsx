@@ -49,7 +49,48 @@ const Footer = () => {
           />
         </Link>
       </div>
-      <div className="max-width-section"></div>
+
+      <div className="max-width-section grid grid-cols-2 gap-6 md:gap-8 lg:gap-0 lg:grid-cols-4 pt-16 pb-20 lg:pt-20 lg:pb-28 justify-between">
+        <div className="">
+          <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
+            SPACES
+          </h2>
+          <p className=" text-[10px] md:text-xs lg:text-base text-primary-black-90">
+            Interior Market Place
+          </p>
+        </div>
+
+        <div className="">
+          <h4 className="pb-2 md:pb-4 text-base md:text-lg text-secondary-green-100 font-semibold">
+            Help and Information
+          </h4>
+          <div className=" grid gap-1 md:gap-2 text-sm text-primary-black-100 md:text-base lg:text-lg">
+            <p>Help</p>
+            <p>Track Order</p>
+            <p>Sitemap</p>
+          </div>
+        </div>
+        <div className="">
+          <h4 className="pb-2 md:pb-4 text-base md:text-lg text-secondary-green-100 font-semibold">
+            About Spaces
+          </h4>
+          <div className=" grid gap-1 md:gap-2 text-sm text-primary-black-100 md:text-base lg:text-lg">
+            <p>About us</p>
+            <p>Careers at Spaces</p>
+            <p>Help improve Spaces website</p>
+          </div>
+        </div>
+        <div className="">
+          <h4 className="pb-2 md:pb-4 text-base md:text-lg text-secondary-green-100 font-semibold">
+            Become a vendor
+          </h4>
+          <div className=" grid gap-1 md:gap-2 text-sm text-primary-black-100 md:text-base  lg:text-lg">
+            <p>Sell with us</p>
+            <p>Vendor help center</p>
+            <p>Become a partner</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
