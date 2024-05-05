@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import ReduxProvider from "@/redux/redux-provider";
 import Head from "next/head";
+import Footer from "@/components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
         <body className={` ${poppins.variable} ${megrim.variable}`}>
           <Header />
           {children}
+          <Footer />
         </body>
       </html>
     </ReduxProvider>
