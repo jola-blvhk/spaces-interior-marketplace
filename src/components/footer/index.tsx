@@ -50,7 +50,7 @@ const Footer = () => {
         </Link>
       </div>
 
-      <div className="max-width-section grid grid-cols-2 gap-6 md:gap-8 lg:gap-0 lg:grid-cols-4 pt-16 pb-20 lg:pt-20 lg:pb-28 justify-between">
+      <div className="max-width-section grid grid-cols-2 gap-8 lg:gap-0 lg:grid-cols-4 pt-16 pb-20 lg:pt-20 lg:pb-28 justify-between">
         <div className="">
           <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
             SPACES
