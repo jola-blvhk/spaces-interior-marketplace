@@ -22,7 +22,7 @@ const FirstSection = () => {
     setSearchValue(e.target.value);
   };
   return (
-    <div className="padding-section pt-20 md:pt-32  bg-primary-white-100">
+    <div className="padding-section bg-primary-white-100">
       <div className="max-width-section grid gap-5 w-full justify-center">
         <div className=" rounded-[10px] md:rounded-[15px] flex m-auto items-center gap-2 py-3 px-4 md:px-6  cursor-pointer bg-primary-white-100 border border-solid border-[##D9D9D9] w-full max-w-[400px] md:w-[420px] md:max-w-[420px] box-border rotate-[0.02deg]">
           <IoSearch className="text-[#737373B2] text-3xl" />

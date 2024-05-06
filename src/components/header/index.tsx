@@ -45,9 +45,11 @@ const Header = () => {
                 <h2 className=" cursor-pointer hover:text-secondary-green-100">
                   Design with us
                 </h2>
-                <h2 className="  cursor-pointer hover:text-secondary-green-100">
-                  Categories
-                </h2>
+                <Link href="/categories">
+                  <h2 className="  cursor-pointer hover:text-secondary-green-100">
+                    Categories
+                  </h2>
+                </Link>
               </div>
             </div>
             {/* logo  */}
@@ -123,7 +125,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/"
+                href="/categories"
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
