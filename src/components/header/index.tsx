@@ -11,12 +11,17 @@ import Hamburger from "../../assets/icons/hamburger.svg";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { IoMdClose } from "react-icons/io";
 import { uiActions } from "@/redux/ui-slice";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 const Header = () => {
   const authState = useAppSelector((state) => state.auth.authState);
   const hamburgerState = useAppSelector((state) => state.ui.hamBurgerState);
   const setHamburgerState = uiActions.setHamburgerState;
   const dispatch = useAppDispatch();
+  const pathName = usePathname();
+
+
+  const isCategoriesPage = pathName === "/categories";
   return (
     <div className="relative z-50">
       <div className="fixed w-full bg-white">
@@ -46,7 +51,11 @@ const Header = () => {
                   Design with us
                 </h2>
                 <Link href="/categories">
-                  <h2 className="  cursor-pointer hover:text-secondary-green-100">
+                  <h2
+                    className={` cursor-pointer text-primary-black-90 hover:text-secondary-green-100 ${
+                      isCategoriesPage && "text-secondary-green-100"
+                    }`}
+                  >
                     Categories
                   </h2>
                 </Link>
@@ -54,12 +63,14 @@ const Header = () => {
             </div>
             {/* logo  */}
             <div className="text-center ml-10 md:mr-20 lg:mr-22">
-              <h2 className=" font-megrim text-3xl  md:text-4xl  font-bold tracking-tight text-secondary-green-100">
-                SPACES
-              </h2>
-              <p className=" text-[10px] md:text-xs text-primary-black-90">
-                Interior Market Place
-              </p>
+              <Link href="/">
+                <h2 className=" font-megrim text-3xl  md:text-4xl  font-bold tracking-tight text-secondary-green-100">
+                  SPACES
+                </h2>
+                <p className=" text-[10px] md:text-xs text-primary-black-90">
+                  Interior Market Place
+                </p>
+              </Link>
             </div>
 
             {/* mobile profile and cart */}
@@ -130,7 +141,11 @@ const Header = () => {
                   dispatch(setHamburgerState(false));
                 }}
               >
-                <li className="text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center   py-3">
+                <li
+                  className={`text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center ${
+                    isCategoriesPage ? "text-secondary-green-100" : ""
+                  }   py-3`}
+                >
                   Categories
                 </li>
               </Link>
