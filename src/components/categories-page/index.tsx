@@ -14,9 +14,10 @@ import Beddings from "/public/assets/products-categories/beddings.svg";
 import Yellowcraft from "/public/assets/vendors-categories/yellowcraft.svg";
 import Beveledge from "/public/assets/vendors-categories/beveledge.svg";
 import WoodTerritory from "/public/assets/vendors-categories/wood.svg";
-import Furniture from "/public/assets/vendors-categories/furniture.svg";
+import FurnitureSquare from "/public/assets/vendors-categories/furnituresquare.svg";
 import Candl from "/public/assets/vendors-categories/candl.svg";
 import Empreyer from "/public/assets/vendors-categories/emperyer.svg";
+import CategoryBox from "./category-box";
 
 type ProductImages =
   | typeof Accessories
@@ -29,7 +30,7 @@ type VendorImages =
   | typeof Yellowcraft
   | typeof Beveledge
   | typeof WoodTerritory
-  | typeof Furniture
+  | typeof FurnitureSquare
   | typeof Candl
   | typeof Empreyer;
 
@@ -53,32 +54,32 @@ const CategoriesPage = () => {
       setCategories([
         {
           id: 1,
-          title: Accessories,
+          title: "Accessories",
           image: Accessories,
         },
         {
           id: 2,
-          title: Office,
+          title: "Office",
           image: Office,
         },
         {
           id: 3,
-          title: Sofas,
+          title: "Sofas",
           image: Sofas,
         },
         {
           id: 4,
-          title: Kitchen,
+          title: "Kitchen",
           image: Kitchen,
         },
         {
           id: 5,
-          title: Bathroom,
+          title: "Bathroom",
           image: Bathroom,
         },
         {
           id: 6,
-          title: Beddings,
+          title: "Beddings",
           image: Beddings,
         },
       ]);
@@ -86,8 +87,33 @@ const CategoriesPage = () => {
       setCategories([
         {
           id: 1,
-          title: Yellowcraft,
+          title: "Yellowcraft",
           image: Yellowcraft,
+        },
+        {
+          id: 2,
+          title: "Beveledge",
+          image: Beveledge,
+        },
+        {
+          id: 3,
+          title: "Wood Territory",
+          image: WoodTerritory,
+        },
+        {
+          id: 4,
+          title: "Furniture",
+          image: FurnitureSquare,
+        },
+        {
+          id: 5,
+          title: "Candl",
+          image: Candl,
+        },
+        {
+          id: 6,
+          title: "Empreyer",
+          image: Empreyer,
         },
       ]);
     }
@@ -156,7 +182,15 @@ const CategoriesPage = () => {
         </div>
       </div>
 
-      <div></div>
+      <div className="grid grid-cols-2 md:grid-cols-3">
+        {categories?.map((category, index) => (
+          <CategoryBox
+            key={index}
+            image={category.image}
+            title={category.title}
+          />
+        ))}
+      </div>
     </div>
   );
 };

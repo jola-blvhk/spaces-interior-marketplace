@@ -4,12 +4,13 @@ import React from "react";
 
 interface CategoryBoxProps {
   image: string;
+  title: string;
 }
-const categoryBox: React.FC<CategoryBoxProps> = ({ image }) => {
+const CategoryBox: React.FC<CategoryBoxProps> = ({ image, title }) => {
   return (
-    <div className={`relative   z-40 m-auto  py-8 md:py-10 px-1 md:px-3 `}>
+    <div className={`relative   cursor-pointer   `}>
       <h1 className="text-center text-secondary-green-90 font-medium text-xl md:text-3xl lg:text-4xl tracking-wide">
-        Top Products
+        {title}
       </h1>
 
       <Image
@@ -27,4 +28,4 @@ const categoryBox: React.FC<CategoryBoxProps> = ({ image }) => {
   );
 };
 
-export default categoryBox;
+export default CategoryBox;
