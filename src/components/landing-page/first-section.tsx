@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import VendorProductFilter from "../filter/vendor-product";
 import { SlideType, VendorProductSlide } from "../slider/vendor-product-slide";
 import Button from "../button";
-import Cart from "../../assets/icons/cart.svg";
-import { Carrois_Gothic } from "next/font/google";
 
 const FirstSection = () => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedSection, setSelectedSection] = useState<SlideType>(
     SlideType.Product
   );
+  const sections = [
+    { value: SlideType.Product, label: "Product" },
+    { value: SlideType.Vendor, label: "Vendor" },
+  ];
 
   const handleSectionClick = (section: SlideType) => {
     setSelectedSection(section);
   };
-  const handleChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
   return (
@@ -50,8 +49,10 @@ const FirstSection = () => {
           <div className=" m-auto pb-6  pt-3">
             <VendorProductFilter
               selectedSection={selectedSection}
+              sections={sections}
               onSectionClick={handleSectionClick}
             />
+            ;
           </div>
           <VendorProductSlide type={selectedSection} />
           <div className=" w-[200px] md:w-[220px] pt-4  m-auto">

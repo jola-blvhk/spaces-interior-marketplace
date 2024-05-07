@@ -1,29 +1,116 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BackButton from "../back-button";
 import VendorProductFilter from "../filter/vendor-product";
 import { SlideType } from "../slider/vendor-product-slide";
 import { IoSearch } from "react-icons/io5";
+import Accessories from "/public/assets/products-categories/accessories.svg";
+import Office from "/public/assets/products-categories/office.svg";
+import Sofas from "/public/assets/products-categories/sofas.svg";
+import Kitchen from "/public/assets/products-categories/kitchen.svg";
+import Bathroom from "/public/assets/products-categories/bathroom.svg";
+import Beddings from "/public/assets/products-categories/beddings.svg";
+import Yellowcraft from "/public/assets/vendors-categories/yellowcraft.svg";
+import Beveledge from "/public/assets/vendors-categories/beveledge.svg";
+import WoodTerritory from "/public/assets/vendors-categories/wood.svg";
+import Furniture from "/public/assets/vendors-categories/furniture.svg";
+import Candl from "/public/assets/vendors-categories/candl.svg";
+import Empreyer from "/public/assets/vendors-categories/emperyer.svg";
 
+type ProductImages =
+  | typeof Accessories
+  | typeof Office
+  | typeof Sofas
+  | typeof Kitchen
+  | typeof Bathroom
+  | typeof Beddings;
+type VendorImages =
+  | typeof Yellowcraft
+  | typeof Beveledge
+  | typeof WoodTerritory
+  | typeof Furniture
+  | typeof Candl
+  | typeof Empreyer;
+
+type CategoryImage = ProductImages | VendorImages;
+export enum CategoryType {
+  Product = "products",
+  Vendor = "vendors",
+}
+export interface CategoryImagesProps {
+  type: CategoryType;
+}
 const CategoriesPage = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [selectedSection, setSelectedSection] = useState<SlideType>(
-    SlideType.Product
+  const [selectedSection, setSelectedSection] = useState<CategoryType>(
+    CategoryType.Product
   );
+  const [categories, setCategories] = useState<CategoryImage[]>([]);
+
+  useEffect(() => {
+    if (selectedSection === "products") {
+      setCategories([
+        {
+          id: 1,
+          title: Accessories,
+          image: Accessories,
+        },
+        {
+          id: 2,
+          title: Office,
+          image: Office,
+        },
+        {
+          id: 3,
+          title: Sofas,
+          image: Sofas,
+        },
+        {
+          id: 4,
+          title: Kitchen,
+          image: Kitchen,
+        },
+        {
+          id: 5,
+          title: Bathroom,
+          image: Bathroom,
+        },
+        {
+          id: 6,
+          title: Beddings,
+          image: Beddings,
+        },
+      ]);
+    } else if (selectedSection === "vendors") {
+      setCategories([
+        {
+          id: 1,
+          title: Yellowcraft,
+          image: Yellowcraft,
+        },
+      ]);
+    }
+  }, [selectedSection]);
 
   const handleChange = (e: {
     target: { value: React.SetStateAction<string> };
   }) => {
     setSearchValue(e.target.value);
   };
-  const handleSectionClick = (section: SlideType) => {
+
+  const sections = [
+    { value: CategoryType.Product, label: "Product" },
+    { value: CategoryType.Vendor, label: "Vendor" },
+  ];
+
+  const handleSectionClick = (section: CategoryType) => {
     setSelectedSection(section);
   };
 
   // Determine the appropriate placeholder text based on the selected filter
   const getPlaceholderText = () => {
-    if (selectedSection === SlideType.Product) {
+    if (selectedSection === CategoryType.Product) {
       return "Search Product";
     } else {
       return "Search Vendor";
@@ -52,6 +139,7 @@ const CategoriesPage = () => {
             <VendorProductFilter
               selectedSection={selectedSection}
               onSectionClick={handleSectionClick}
+              sections={sections}
             />
           </div>
 
@@ -67,6 +155,8 @@ const CategoriesPage = () => {
           </div>
         </div>
       </div>
+
+      <div></div>
     </div>
   );
 };
