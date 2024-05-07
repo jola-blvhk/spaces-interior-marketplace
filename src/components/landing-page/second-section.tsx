@@ -28,50 +28,39 @@ const SecondSection = () => {
     topProduct1,
   ];
   return (
-    <div className="relative  my-auto ">
-      <div
-        className={`relative  z-20 md:py-4  w-full m-auto h-full  `}
-      >
-        <div className={`relative   z-40 m-auto  py-8 md:py-10 px-1 md:px-3 `}>
-          <h1 className="text-center text-secondary-green-90 font-medium text-xl md:text-3xl lg:text-4xl tracking-wide">
-            Top Products
-          </h1>
-          <div className="grid grid-cols-2 lg:grid-cols-5 py-6 md:py-12 justify-between gap-1 md:gap-3">
-            {topProducts?.map((product, index) => (
-              <div key={index} className="w-full h-full">
-                <Image
-                  src={product}
-                  alt="top product"
-                  className="object-cover w-full h-auto"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="m-auto w-[50%] md:w-[180px]">
-            <Button
-              title="Shop now"
-              icon={Cart}
-              onclick={() => {
-                window.location.href = "/";
-              }}
-            />
-          </div>
+    <div className={`relative  z-20 md:py-4  w-full m-auto h-full  `}>
+      <div className={`relative   z-40 m-auto  py-8 md:py-10 px-1 md:px-3 `}>
+        <h1 className="text-center text-secondary-green-90 font-medium text-xl md:text-3xl lg:text-4xl tracking-wide">
+          Top Products
+        </h1>
+        <div className="grid grid-cols-2 lg:grid-cols-5 py-6 md:py-12 justify-between gap-1 md:gap-3">
+          {topProducts?.map((product, index) => (
+            <div key={index} className="w-full h-full">
+              <Image
+                src={product}
+                alt="top product"
+                className="object-cover w-full h-auto"
+              />
+            </div>
+          ))}
         </div>
-
-        <Image
-          src={SmoothBackground}
-          alt="rug"
-          className="w-full object-cover h-auto"
-          fill={true}
-        />
+        <div className="m-auto w-[50%] md:w-[180px]">
+          <Button
+            title="Shop now"
+            icon={Cart}
+            onclick={() => {
+              window.location.href = "/";
+            }}
+          />
+        </div>
       </div>
 
-      {/* <Image
-        src={RoughBackground}
-        alt="background image"
-        className="  object-cover w-full"
+      <Image
+        src={SmoothBackground}
+        alt="rug"
+        className="w-full object-cover h-auto"
         fill={true}
-      /> */}
+      />
     </div>
   );
 };

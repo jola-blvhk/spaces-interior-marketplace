@@ -8,22 +8,19 @@ interface CategoryBoxProps {
 }
 const CategoryBox: React.FC<CategoryBoxProps> = ({ image, title }) => {
   return (
-    <div className={`relative   cursor-pointer   `}>
-      <h1 className="text-center text-secondary-green-90 font-medium text-xl md:text-3xl lg:text-4xl tracking-wide">
+    <div className={`relative cursor-pointer w-full h-full  `}>
+      <h1 className="absolute z-20 bottom-0 pl-5 pb-5 lg:pl-10 lg:pb-10  text-center text-[#D9D9D9] font-medium  text-lg md:text-xl lg:text-3xl  tracking-wide">
         {title}
       </h1>
 
-      <Image
-        src={image}
-        alt="top product"
-        className="object-cover w-full h-auto"
-      />
-      {/* <Image
-          src={image}}
-          alt="rug"
-          className="w-full object-cover h-auto"
-          fill={true}
-        /> */}
+      <div className="w-full h-full relative">
+        <Image
+          src={image}
+          alt={title}
+          className="object-cover w-full h-full "
+          // fill={true}
+        />
+      </div>
     </div>
   );
 };
