@@ -64,7 +64,7 @@ const Header = () => {
             <div
               className="text-center ml-10 md:mr-20 lg:mr-22"
               onClick={() => {
-                dispatch(setHamburgerState(true));
+                dispatch(setHamburgerState(false));
               }}
             >
               <Link href="/">
