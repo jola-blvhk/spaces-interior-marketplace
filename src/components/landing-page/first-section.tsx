@@ -3,6 +3,7 @@ import { IoSearch } from "react-icons/io5";
 import VendorProductFilter from "../filter/vendor-product";
 import { SlideType, VendorProductSlide } from "../slider/vendor-product-slide";
 import Button from "../button";
+import Link from "next/link";
 
 const FirstSection = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -56,13 +57,9 @@ const FirstSection = () => {
           </div>
           <VendorProductSlide type={selectedSection} />
           <div className=" w-[200px] md:w-[220px] pt-4  m-auto">
-            <Button
-              title="View More"
-              greenBackground
-              onclick={() => {
-                window.location.href = "/";
-              }}
-            />
+            <Link href="/categories">
+              <Button title="View More" greenBackground onclick={() => {}} />
+            </Link>
           </div>
         </section>
       </div>
