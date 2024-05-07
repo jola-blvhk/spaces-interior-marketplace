@@ -20,7 +20,6 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const pathName = usePathname();
 
-
   const isCategoriesPage = pathName === "/categories";
   return (
     <div className="relative z-50">
@@ -62,7 +61,12 @@ const Header = () => {
               </div>
             </div>
             {/* logo  */}
-            <div className="text-center ml-10 md:mr-20 lg:mr-22">
+            <div
+              className="text-center ml-10 md:mr-20 lg:mr-22"
+              onClick={() => {
+                dispatch(setHamburgerState(true));
+              }}
+            >
               <Link href="/">
                 <h2 className=" font-megrim text-3xl  md:text-4xl  font-bold tracking-tight text-secondary-green-100">
                   SPACES
