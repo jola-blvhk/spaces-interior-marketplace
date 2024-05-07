@@ -182,7 +182,7 @@ const CategoriesPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 items-center pt-10 md:pt-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 pt-10 md:pt-12">
         {categories?.map((category, index) => (
           <CategoryBox
             key={index}

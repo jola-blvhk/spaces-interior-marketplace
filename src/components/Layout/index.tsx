@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 import { Poppins, Megrim } from "next/font/google";
-import "./globals.css";
+import "../../app/globals.css";
 import Header from "@/components/header";
 import ReduxProvider from "@/redux/redux-provider";
 import Head from "next/head";
@@ -38,9 +38,9 @@ export default function RootLayout({
       </Head>
       <html lang="en">
         <body className={` ${poppins.variable} ${megrim.variable}`}>
-          {/* <Header /> */}
+          <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </body>
       </html>
     </ReduxProvider>

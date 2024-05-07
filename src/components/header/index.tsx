@@ -116,7 +116,14 @@ const Header = () => {
               )}
               {!authState && (
                 <div className="flex items-center justify-between gap-10">
-                  <button>Log in</button>
+                  <Link
+                    href="/login"
+                    onClick={() => {
+                      dispatch(setHamburgerState(false));
+                    }}
+                  >
+                    <button>Log in</button>
+                  </Link>
                   <button className="border-2 border-primary-primary-black-100-100  bg-black text-primary-white-100 py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-primary-white-100 hover:text-black">
                     Sign Up
                   </button>
@@ -154,7 +161,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/"
+                href="/login"
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
