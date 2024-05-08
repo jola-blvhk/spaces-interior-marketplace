@@ -124,9 +124,16 @@ const Header = () => {
                   >
                     <button>Log in</button>
                   </Link>
-                  <button className="border-2 border-primary-primary-black-100-100  bg-black text-primary-white-100 py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-primary-white-100 hover:text-black">
-                    Sign Up
-                  </button>
+                  <Link
+                    href="/signup"
+                    onClick={() => {
+                      dispatch(setHamburgerState(false));
+                    }}
+                  >
+                    <button className="border-2 border-primary-primary-black-100-100  bg-black text-primary-white-100 py-[14px] px-[28.5px] w-full text-center md:max-w-fit rounded-[15px] hover:bg-primary-white-100 hover:text-black">
+                      Sign Up
+                    </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -173,7 +180,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/"
+                href="/signup"
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
