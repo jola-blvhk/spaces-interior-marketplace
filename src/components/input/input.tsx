@@ -19,7 +19,7 @@ const InputField: React.FC<InputFieldProps> = ({
 
   return (
     <div className="text-primary-black-90">
-      <label className="block text-sm mb-3">{label}</label>
+      <label className="block text-sm mb-1 md:mb-3">{label}</label>
       <div className="relative">
         <input
           className="text-sm md:text-base tracking-wide bg-white focus-within:bg-white appearance-none border border-[#D9D9D9] rounded-[11px] w-full md:rounded-[15px]  px-3 py-4 leading-tight focus:outline-none focus:shadow-outline"
