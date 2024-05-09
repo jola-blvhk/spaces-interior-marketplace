@@ -13,6 +13,7 @@ import { IoMdClose } from "react-icons/io";
 import { uiActions } from "@/redux/ui-slice";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { ROUTES } from "@/app/utils/routes";
 const Header = () => {
   const authState = useAppSelector((state) => state.auth.authState);
   const hamburgerState = useAppSelector((state) => state.ui.hamBurgerState);
@@ -49,7 +50,7 @@ const Header = () => {
                 <h2 className=" cursor-pointer hover:text-secondary-green-100">
                   Design with us
                 </h2>
-                <Link href="/categories">
+                <Link href={ROUTES.Categories}>
                   <h2
                     className={` cursor-pointer text-primary-black-90 hover:text-secondary-green-100 ${
                       isCategoriesPage && "text-secondary-green-100"
@@ -117,7 +118,7 @@ const Header = () => {
               {!authState && (
                 <div className="flex items-center justify-between gap-10">
                   <Link
-                    href="/login"
+                    href={ROUTES.AuthLayout}
                     onClick={() => {
                       dispatch(setHamburgerState(false));
                     }}
@@ -125,7 +126,7 @@ const Header = () => {
                     <button>Log in</button>
                   </Link>
                   <Link
-                    href="/signup"
+                    href={ROUTES.AuthLayout}
                     onClick={() => {
                       dispatch(setHamburgerState(false));
                     }}
@@ -144,7 +145,7 @@ const Header = () => {
           <div className="bg-primary-white-100  top-full  md:hidden overflow-hidden">
             <ul className=" absolute pb-8 top-full w-full grid justify-center bg-primary-white-100 z-[10000000000]">
               <Link
-                href="/"
+                href={ROUTES.Home}
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
@@ -154,7 +155,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/categories"
+                href={ROUTES.Categories}
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
@@ -168,7 +169,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/login"
+                href={ROUTES.AuthLayout}
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
@@ -180,7 +181,7 @@ const Header = () => {
                 </li>
               </Link>
               <Link
-                href="/signup"
+                href={ROUTES.AuthLayout}
                 onClick={() => {
                   dispatch(setHamburgerState(false));
                 }}
