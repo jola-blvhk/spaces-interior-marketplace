@@ -9,6 +9,7 @@ interface ButtonProps {
   icon?: string;
   greenBackground?: boolean;
   lightGreenBackground?: boolean;
+  blackBackground?: boolean;
 }
 const Button: React.FC<ButtonProps> = ({
   backgroundImage,
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   greenBackground,
   lightGreenBackground,
+  blackBackground,
 }) => {
   return (
     <button
@@ -24,8 +26,12 @@ const Button: React.FC<ButtonProps> = ({
         icon && "text-primary-black-100 bg-white"
       }
        px-6 text-sm md:text-base  ${
-         greenBackground && "bg-secondary-green-100 text-primary-white-100"
-       } ${lightGreenBackground && "bg-secondary-green-100/50"}
+         greenBackground &&
+         "bg-secondary-green-100 text-primary-white-100 hover:bg-secondary-green-100/50"
+       } ${lightGreenBackground && "bg-secondary-green-100/50"} ${
+        blackBackground &&
+        " bg-primary-black-100 text-primary-white-100 border hover:border-[#d9d9d9]  hover:bg-primary-white-100 hover:text-primary-black-100"
+      }
        w-full relative   rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
          backgroundImage && "text-primary-white-100"
        } ${icon ? "flex gap-2 items-center justify-center" : "text-center"}`}
@@ -41,7 +47,9 @@ const Button: React.FC<ButtonProps> = ({
         />
       )}
 
-      {icon && <Image src={icon} alt="icon" className="w-4 h-4 md:w-6  md:h-6" />}
+      {icon && (
+        <Image src={icon} alt="icon" className="w-4 h-4 md:w-6  md:h-6" />
+      )}
     </button>
   );
 };
