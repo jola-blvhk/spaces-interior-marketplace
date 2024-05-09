@@ -22,7 +22,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <label className="block text-sm mb-1 md:mb-3">{label}</label>
       <div className="relative">
         <input
-          className="text-sm md:text-base tracking-wide bg-white focus-within:bg-white appearance-none border border-[#D9D9D9] rounded-[11px] w-full md:rounded-[15px]  px-3 py-4 leading-tight focus:outline-none focus:shadow-outline"
+          className="text-sm md:text-base tracking-wide bg-white focus-within:bg-white appearance-none border border-[#D9D9D9] rounded-[11px] w-full md:rounded-[15px]  px-3 py-3 md:py-4 leading-tight focus:outline-none focus:shadow-outline"
           type={isPassword ? (!showPassword ? "password" : "text") : "text"}
           {...props}
         />
