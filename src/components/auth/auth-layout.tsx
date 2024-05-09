@@ -22,24 +22,26 @@ const AuthLayout = () => {
   ];
   const dispatch = useAppDispatch();
   return (
-    <div className="h-screen  max-w-[400px] m-auto ">
-      <div className="m-auto  text-center w-fit mb-10 md:mb-11">
-        <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
-          SPACES
-        </h2>
-        <p className=" text-[10px] md:text-xs lg:text-base text-primary-black-90">
-          Interior Market Place
-        </p>
+    <div className="padding-section">
+      <div className="h-screen  max-w-[400px] m-auto ">
+        <div className="m-auto  text-center w-fit mb-10 md:mb-11">
+          <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
+            SPACES
+          </h2>
+          <p className=" text-[10px] md:text-xs lg:text-base text-primary-black-90">
+            Interior Market Place
+          </p>
+        </div>
+        <VendorProductFilter
+          selectedSection={authPageState}
+          onSectionClick={handleSectionClick}
+          sections={sections}
+        />
+
+        {authPageState === "signup" && <SignUp />}
+
+        {authPageState === "login" && <Login />}
       </div>
-      <VendorProductFilter
-        selectedSection={authPageState}
-        onSectionClick={handleSectionClick}
-        sections={sections}
-      />
-
-      {authPageState === "signup" && <SignUp />}
-
-      {authPageState === "login" && <Login />}
     </div>
   );
 };
