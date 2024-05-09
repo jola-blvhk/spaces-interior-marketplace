@@ -23,7 +23,7 @@ const AuthLayout = () => {
   const dispatch = useAppDispatch();
   return (
     <div className="padding-section h-screen">
-      <div className="  max-w-[400px] h-fit my-auto ">
+      <div className="  max-w-[400px] h-fit m-auto my-auto ">
         <div className="m-auto  text-center w-fit mb-10 md:mb-11">
           <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
             SPACES
