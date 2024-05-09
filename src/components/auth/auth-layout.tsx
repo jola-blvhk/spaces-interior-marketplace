@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "@/redux";
 import React, { useState } from "react";
 import VendorProductFilter from "../filter/vendor-product";
 import { authPageActions } from "@/redux/auth-page-slice";
+import SignUp from "./signup";
+import Login from "./login";
 
 const AuthLayout = () => {
   // const [selectedSection, setSelectedSection] = useState<string>("login");
@@ -20,7 +22,7 @@ const AuthLayout = () => {
   ];
   const dispatch = useAppDispatch();
   return (
-    <>
+    <div className="h-screen  max-w-[400px] m-auto ">
       <div className="m-auto  text-center w-fit mb-10 md:mb-11">
         <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
           SPACES
@@ -34,7 +36,11 @@ const AuthLayout = () => {
         onSectionClick={handleSectionClick}
         sections={sections}
       />
-    </>
+
+      {authPageState === "signup" && <SignUp />}
+
+      {authPageState === "login" && <Login />}
+    </div>
   );
 };
 
