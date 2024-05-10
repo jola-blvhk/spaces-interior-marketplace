@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
         blackBackground &&
         " bg-primary-black-100 text-primary-white-100 border hover:border-[#d9d9d9]  hover:bg-primary-white-100 hover:text-primary-black-100"
       }
-       w-full relative   rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
+       w-full relative   rounded-[11px] cursor-pointer md:rounded-[15px] ${
          backgroundImage && "text-primary-white-100"
        } ${icon ? "flex gap-2 items-center justify-center" : "text-center"}`}
       onClick={onclick}
