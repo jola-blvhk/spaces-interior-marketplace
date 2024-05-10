@@ -22,7 +22,7 @@ const AuthLayout = () => {
   ];
   const dispatch = useAppDispatch();
   return (
-    <div className="padding-section grid items-center h-screen">
+    <div className="padding-section pt-14 grid items-center md:h-screen">
       <div className="  max-w-[450px] h-fit   w-full m-auto my-auto ">
         <div className="m-auto  text-center w-fit mb-10 md:mb-11">
           <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
