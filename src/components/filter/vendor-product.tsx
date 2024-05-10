@@ -14,7 +14,7 @@ const VendorProductFilter = <T,>({
   onSectionClick,
 }: FilterProps<T>) => {
   return (
-    <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center p-1 md:p-2 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[450px] border border-[#D9D9D9] m-auto px-1 ">
+    <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center p-1 md:p-1.5 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[450px] border border-[#D9D9D9] m-auto px-1 ">
       {sections.map((section, index) => (
         <div
           key={index}
