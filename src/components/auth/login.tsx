@@ -13,8 +13,10 @@ const Login = () => {
         <InputField label="Password" isPassword />
         <Button title="Log in" onclick={() => {}} blackBackground />
       </form>
+
+      <p className="text-center text-xs md:text-sm lg:text-base mt-4 md:mt-6 ">Forgot password?</p>
       {/* Third Party Authentication */}
-      <div className="mt-5">
+      <div className="mt-10 md:mt-14">
         <ThirdPartyAuth />
       </div>
     </>
