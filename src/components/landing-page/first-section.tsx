@@ -53,7 +53,6 @@ const FirstSection = () => {
               sections={sections}
               onSectionClick={handleSectionClick}
             />
-            ;
           </div>
           <VendorProductSlide type={selectedSection} />
           <div className=" w-[200px] md:w-[220px] pt-4  m-auto">
