@@ -9,7 +9,7 @@ const SignUp = () => {
       <form className="m-auto h-fit mb-6 space-y-8 md:space-y-10  mt-6 md:mt8 ">
         <ThirdPartyAuth />
         <div className="space-y-6 md:space-y-8 ">
-          <InputField label="Email Address" placeholder="xyz@gmail.com" />
+          <InputField label="Email Address" placeholder="xyz@example.com" />
           <InputField label="First Name" placeholder="first name" />
           <InputField label="Last Name" placeholder="last name" />
           <InputField label="Password" isPassword placeholder="**********" />
