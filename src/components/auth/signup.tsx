@@ -17,7 +17,7 @@ const SignUp = () => {
           isPassword
           placeholder="**********"
         />
-        <Button title="Sign Up" onclick={() => {}} blackBackground />
+        <Button  title="Sign Up" onclick={() => {}} blackBackground />
       </form>
     </div>
   );
