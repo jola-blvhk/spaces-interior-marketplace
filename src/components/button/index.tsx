@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Rug from "/public/assets/background-images/rugTexture.svg";
-import { on } from "events";
+
 interface ButtonProps {
   backgroundImage?: boolean;
   onclick: () => void;
