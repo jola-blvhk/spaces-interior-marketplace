@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Rug from "/public/assets/background-images/rugTexture.jpg";
 
-interface VendorProductFilterProps<T> {
+interface FilterProps<T> {
   selectedSection: T;
   sections: { value: T; label: string }[];
   onSectionClick: (section: T) => void;
@@ -12,9 +12,9 @@ const VendorProductFilter = <T,>({
   selectedSection,
   sections,
   onSectionClick,
-}: VendorProductFilterProps<T>) => {
+}: FilterProps<T>) => {
   return (
-    <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center p-1 md:p-2 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[400px] border border-[#D9D9D9] m-auto px-1 ">
+    <div className="bg-secondary-green-100/10 relative grid grid-cols-2 items-center text-center p-1 md:p-2 rounded-[8.72px] md:rounded-[15px] text-sm md:text-base max-w-[450px] border border-[#D9D9D9] m-auto px-1 ">
       {sections.map((section, index) => (
         <div
           key={index}
