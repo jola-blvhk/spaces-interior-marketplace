@@ -6,7 +6,7 @@ import ThirdPartyAuth from "./third-party-auth";
 const SignUp = () => {
   return (
     <div>
-      <form className="m-auto h-fit space-y-6 md:space-y-8  mt-6 md:mt8 ">
+      <form className="m-auto h-fit mb-6 space-y-6 md:space-y-8  mt-6 md:mt8 ">
         <ThirdPartyAuth />
         <InputField label="Email Address" placeholder="xyz@gmail.com" />
         <InputField label="First Name" placeholder="first name" />
