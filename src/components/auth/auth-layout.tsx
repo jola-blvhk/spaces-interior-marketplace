@@ -26,11 +26,8 @@ const AuthLayout = () => {
   return (
     <div className="padding-section pt-12 grid items-center md:h-screen">
       <div className="  max-w-[450px] h-fit   w-full m-auto my-auto ">
-        <div className="">
-          <Link
-            href={ROUTES.Home}
-            className="m-auto text-center w-fit mb-10 md:mb-11"
-          >
+        <div className="pb-10 md:pb-11">
+          <Link href={ROUTES.Home} className="m-auto text-center w-fit ">
             <h2 className=" font-megrim text-3xl  md:text-4xl  lg:text-5xl font-extrabold tracking-tight text-secondary-green-100 ">
               SPACES
             </h2>
@@ -38,12 +35,13 @@ const AuthLayout = () => {
               Interior Market Place
             </p>
           </Link>
-          <VendorProductFilter
-            selectedSection={authPageState}
-            onSectionClick={handleSectionClick}
-            sections={sections}
-          />
         </div>
+        <VendorProductFilter
+          selectedSection={authPageState}
+          onSectionClick={handleSectionClick}
+          sections={sections}
+        />
+
         {authPageState === "signup" && <SignUp />}
 
         {authPageState === "login" && <Login />}
