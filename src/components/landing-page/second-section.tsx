@@ -13,6 +13,8 @@ import topProduct6 from "/public/assets/top-products/topProduct6.svg";
 import topProduct7 from "/public/assets/top-products/topProduct7.svg";
 import topProduct8 from "/public/assets/top-products/topProduct8.svg";
 import topProduct9 from "/public/assets/top-products/topProduct9.svg";
+import Link from "next/link";
+import { ROUTES } from "@/app/utils/routes";
 
 const SecondSection = () => {
   const topProducts = [
@@ -45,13 +47,9 @@ const SecondSection = () => {
           ))}
         </div>
         <div className="m-auto w-[50%] md:w-[180px]">
-          <Button
-            title="Shop now"
-            icon={Cart}
-            onclick={() => {
-              window.location.href = "/";
-            }}
-          />
+          <Link href={ROUTES.TopProducts}>
+            <Button title="Shop now" icon={Cart} onclick={() => {}} />
+          </Link>
         </div>
       </div>
 
