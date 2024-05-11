@@ -53,7 +53,7 @@ const Header = () => {
                 <Link href={ROUTES.Categories}>
                   <h2
                     className={` cursor-pointer text-primary-black-90 hover:text-secondary-green-100 ${
-                      isCategoriesPage && "text-secondary-green-100"
+                      isCategoriesPage && "text-secondary-green-100 font-medium"
                     }`}
                   >
                     Categories
@@ -162,7 +162,7 @@ const Header = () => {
               >
                 <li
                   className={`text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center ${
-                    isCategoriesPage ? "text-secondary-green-100" : ""
+                    isCategoriesPage ? "text-secondary-green-100 font-medium" : ""
                   }   py-3`}
                 >
                   Categories
