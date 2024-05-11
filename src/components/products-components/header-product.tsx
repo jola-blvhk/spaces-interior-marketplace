@@ -2,7 +2,18 @@ import React from "react";
 import BackButton from "../back-button";
 import ColorPriceFilter from "../filter/color-price-filter";
 import { IoSearch } from "react-icons/io5";
-const HeaderProduct = ({ title, description, ...props }) => {
+
+interface HeaderProductProps {
+  title: string;
+  description: string;
+  placeholder: string; // Making placeholder optional
+}
+const HeaderProduct: React.FC<HeaderProductProps> = ({
+  title,
+  description,
+  placeholder,
+  ...props
+}) => {
   return (
     <div className="flex justify-between">
       <div className="grid md:flex gap-3 md:gap-6 items-center">
