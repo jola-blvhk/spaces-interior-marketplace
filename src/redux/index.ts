@@ -7,14 +7,15 @@ import uiSlice from "./ui-slice";
 import authPageSlice from "./auth-page-slice";
 
 // configure which key we want to persist
-const authPersistConfig = {
-  key: "auth",
-  storage: storage,
-  whitelist: ["authState"],
-};
+// const authPersistConfig = {
+//   key: "auth",
+//   storage: storage,
+//   whitelist: ["authState"],
+// };
 
 const rootReducer = combineReducers({
-  auth: persistReducer(authPersistConfig, authSlice.reducer),
+  // auth: persistReducer(authPersistConfig, authSlice.reducer),
+  auth: authSlice.reducer,
   ui: uiSlice.reducer,
   authPage: authPageSlice.reducer,
 });

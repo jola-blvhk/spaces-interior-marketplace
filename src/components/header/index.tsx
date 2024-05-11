@@ -3,8 +3,8 @@
 import Image from "next/image";
 import React from "react";
 import Search from "../../assets/icons/search.svg";
-import Profile from "../../assets/icons/profile.svg";
-import Cart from "../../assets/icons/cart.svg";
+import Cart2 from "../../assets/icons/cart-2.svg";
+import ProfileFill from "../../assets/icons/profile-fill.svg";
 import ProfileGreen from "../../assets/icons/profile-green.svg";
 import CartGreen from "../../assets/icons/cart-green.svg";
 import Hamburger from "../../assets/icons/hamburger.svg";
@@ -26,7 +26,7 @@ const Header = () => {
     <div className="relative z-50">
       <div className="fixed w-full bg-white">
         <div className="padding-section py-3  md:pt-6 md:pb-5   ">
-          <div className="max-width-section flex justify-between items-center">
+          <div className="max-width-section grid grid-cols-3 items-center">
             <div>
               {hamburgerState ? (
                 <IoMdClose
@@ -63,7 +63,7 @@ const Header = () => {
             </div>
             {/* logo  */}
             <div
-              className="text-center ml-10 md:mr-20 lg:mr-22"
+              className="text-center m-auto "
               onClick={() => {
                 dispatch(setHamburgerState(false));
               }}
@@ -79,7 +79,7 @@ const Header = () => {
             </div>
 
             {/* mobile profile and cart */}
-            <div className="block md:hidden">
+            <div className="grid justify-end md:hidden">
               <div className="flex items-center justify-between gap-3">
                 <Image
                   className=" cursor-pointer w-7 h-7 "
@@ -95,9 +95,9 @@ const Header = () => {
             </div>
 
             {/*desktop profile, cart and auth */}
-            <div className="hidden md:block">
+            <div className="hidden md:grid justify-end">
               {authState && (
-                <div className="flex items-center justify-between gap-[49px]">
+                <div className="flex items-center ml-0 gap-[49px] w-fit">
                   <Image
                     className=" cursor-pointer w-7 h-7 "
                     src={Search}
@@ -105,12 +105,12 @@ const Header = () => {
                   />
                   <Image
                     className=" cursor-pointer w-7 h-7"
-                    src={Profile}
+                    src={ProfileFill}
                     alt="profile"
                   />
                   <Image
                     className=" cursor-pointer w-7 h-7"
-                    src={Cart}
+                    src={Cart2}
                     alt="cart"
                   />
                 </div>
