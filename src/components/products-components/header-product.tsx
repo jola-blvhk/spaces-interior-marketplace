@@ -45,6 +45,7 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
           <input
             type="text"
             className="focus:outline-none w-full text-primary-black-90 placeholder:text-[#726D6DB2] placeholder:text-xs placeholder:md:text-sm  text-sm tracking-wider"
+          placeholder={placeholder}
             {...props}
           />
         </div>
