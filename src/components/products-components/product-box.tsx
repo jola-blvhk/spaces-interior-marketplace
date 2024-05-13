@@ -14,8 +14,8 @@ const ProductBox: React.FC<ProductBoxProps> = ({
   imageSrc,
 }) => {
   return (
-    <div className="w-full text-primary-black-90 font-medium">
-      <div className="bg-[#E3E3E3] w-full  h-[200px] md:h-[300px] max-h-[300px] rounded-lg md:rounded-[15px]">
+    <div className="relative w-full text-primary-black-90 font-medium">
+      <div className="relative bg-[#E3E3E3] w-full  h-[200px] md:h-[300px] max-h-[300px] rounded-lg md:rounded-[15px]">
         <Image
           src={imageSrc ? imageSrc : ""}
           className=""
