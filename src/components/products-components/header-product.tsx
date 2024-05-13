@@ -30,7 +30,7 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
           </div>
         </div>
         <div>
-          <h1 className="text-secondary-green-100  font-medium text-xl mb-1 md:text-3xl">
+          <h1 className="text-secondary-green-100  font-medium text-xl mb-1 md:text-2xl lg:text-3xl">
             {title}
           </h1>
           <p className="text-primary-black-90 text-sm md:text-base mr-6 md:mr-0">
