@@ -56,31 +56,37 @@ const CategoriesPage = () => {
           id: 1,
           title: "Accessories",
           image: Accessories,
+          type: "products",
         },
         {
           id: 2,
           title: "Office",
           image: Office,
+          type: "products",
         },
         {
           id: 3,
           title: "Sofas",
           image: Sofas,
+          type: "products",
         },
         {
           id: 4,
           title: "Kitchen",
           image: Kitchen,
+          type: "products",
         },
         {
           id: 5,
           title: "Bathroom",
           image: Bathroom,
+          type: "products",
         },
         {
           id: 6,
           title: "Beddings",
           image: Beddings,
+          type: "products",
         },
       ]);
     } else if (selectedSection === "vendors") {
@@ -89,31 +95,37 @@ const CategoriesPage = () => {
           id: 1,
           title: "Yellowcraft",
           image: Yellowcraft,
+          type: "vendors",
         },
         {
           id: 2,
           title: "Beveledge",
           image: Beveledge,
+          type: "vendors",
         },
         {
           id: 3,
           title: "Wood Territory",
           image: WoodTerritory,
+          type: "vendors",
         },
         {
           id: 4,
           title: "Furniture",
           image: FurnitureSquare,
+          type: "vendors",
         },
         {
           id: 5,
           title: "Candl",
           image: Candl,
+          type: "vendors",
         },
         {
           id: 6,
           title: "Empreyer",
           image: Empreyer,
+          type: "vendors",
         },
       ]);
     }
@@ -188,6 +200,7 @@ const CategoriesPage = () => {
             key={index}
             image={category.image}
             title={category.title}
+            type={category.type}
           />
         ))}
       </div>

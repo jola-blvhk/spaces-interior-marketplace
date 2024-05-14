@@ -4,7 +4,7 @@ import ColorPriceFilter from "../filter/color-price-filter";
 import { IoSearch } from "react-icons/io5";
 
 interface HeaderProductProps {
-  title: string;
+  title: string | String;
   description: string;
   placeholder: string; // Making placeholder optional
 }
@@ -45,7 +45,7 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
           <input
             type="text"
             className="focus:outline-none w-full text-primary-black-90 placeholder:text-[#726D6DB2] placeholder:text-xs placeholder:md:text-sm  text-sm tracking-wider"
-          placeholder={placeholder}
+            placeholder={placeholder}
             {...props}
           />
         </div>
