@@ -2,7 +2,7 @@ import React from "react";
 import HeaderProduct from "../products-components/header-product";
 import ProductBox from "../products-components/product-box";
 
-const productCategories = [
+const vendorCategories = [
   {
     id: 1,
     name: "Tobacco plant with red flowers",
@@ -78,7 +78,7 @@ const productCategories = [
 interface ProductsCategoriesPageProps {
   title: String;
 }
-const ProductsCategoriesPage = ({ title }: ProductsCategoriesPageProps) => {
+const VendorsCategoriesPage = ({ title }: ProductsCategoriesPageProps) => {
   return (
     <div className="padding-section">
       <div className="max-width-section">
@@ -86,10 +86,10 @@ const ProductsCategoriesPage = ({ title }: ProductsCategoriesPageProps) => {
           title={title}
           description="Your one stop market place for all things furniture, accessories and more"
           placeholder="Search Product"
-          product
+          vendor
         />
         <main className=" grid grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 justify-between gap-x-1.5 md:gap-x-7 lg:gap-x-10 gap-y-6 md:gap-y-12 lg:gap-y-14 mt-4 md:mt-10 ">
-          {productCategories?.map((product) => (
+          {vendorCategories?.map((product) => (
             <ProductBox
               key={product.id}
               price={product?.price}
@@ -103,4 +103,4 @@ const ProductsCategoriesPage = ({ title }: ProductsCategoriesPageProps) => {
   );
 };
 
-export default ProductsCategoriesPage;
+export default VendorsCategoriesPage;
