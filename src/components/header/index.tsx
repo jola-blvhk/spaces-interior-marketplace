@@ -21,7 +21,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const pathName = usePathname();
 
-  const isCategoriesPage = pathName === "/categories";
+  const isCategoriesPage = pathName.startsWith("/categories");
   return (
     <div className="relative z-50">
       <div className="fixed w-full bg-white">
@@ -162,7 +162,9 @@ const Header = () => {
               >
                 <li
                   className={`text-primary-black-100 text-sm hover:text-secondary-green-100 hover:cursor-pointer transition ease-in-out delay-150 text-center ${
-                    isCategoriesPage ? "text-secondary-green-100 font-medium" : ""
+                    isCategoriesPage
+                      ? "text-secondary-green-100 font-medium"
+                      : ""
                   }   py-3`}
                 >
                   Categories
