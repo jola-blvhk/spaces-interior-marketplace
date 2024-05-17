@@ -39,7 +39,7 @@ const VendorsCategories = ({
   };
 }) => {
   const logo = VendorLogos.find((vendor) => vendor.name === params.vendorsId);
-  console.log(logo)
+
   return (
     <>
       <Head>
@@ -49,7 +49,7 @@ const VendorsCategories = ({
         <div className="pt-24 md:pt-32">
           <VendorsCategoriesPagee
             title={params.vendorsId}
-            vendorSrcLogo={logo}
+            vendorSrcLogo={logo && logo?.image}
           />
         </div>
       </RootLayout>
