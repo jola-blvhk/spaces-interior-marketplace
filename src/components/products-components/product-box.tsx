@@ -21,17 +21,21 @@ const ProductBox: React.FC<ProductBoxProps> = ({
           className=""
           alt="name"
           fill={true}
-          objectFit="contain"
+          objectFit="contain rounded-lg md:rounded-[15px]"
         />
       </div>
       <div className="flex justify-between gap-5 md:gap-8 lg:gap-12 mt-3 md:mt-4 lg:mt-[18px]">
         <div>
-          <h3 className="line-clamp-2 text-sm md:text-base lg:text-lg">{name}</h3>
+          <h3 className="line-clamp-2 text-sm md:text-base lg:text-lg">
+            {name}
+          </h3>
           <p className=" line-clamp-1 pt-1 text-[#C6C6C6] text-xs md:text-sm lg:text-base">
             {desc}
           </p>
         </div>
-        <h3 className="text-base md:text-xl  lg:text-xl xl:text-2xl">₦{price}</h3>
+        <h3 className="text-base md:text-xl  lg:text-xl xl:text-2xl">
+          ₦{price}
+        </h3>
       </div>
     </div>
   );
