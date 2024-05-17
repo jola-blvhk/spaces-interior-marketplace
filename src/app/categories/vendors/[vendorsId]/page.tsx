@@ -10,6 +10,27 @@ const VendorsCategoriesPage = dynamic(
   }
 );
 
+const VendorLogos = [
+  {
+    name: "Yellowcraft",
+    image: "/public/assets/vendors-categories/yellowcraft.svg",
+  },
+  {
+    name: "Beveledge",
+    image: "/public/assets/vendors-categories/beveledge.svg",
+  },
+  {
+    name: "WoodTerritory",
+    image: "/public/assets/vendors-categories/wood.svg",
+  },
+  {
+    name: "FurnitureSquare",
+    image: "/public/assets/vendors-categories/furnituresquare.svg",
+  },
+  { name: "Candl", image: "/public/assets/vendors-categories/candl.svg" },
+  { name: "Empreyer", image: "/public/assets/vendors-categories/emperyer.svg" },
+];
+
 const VendorsCategories = ({
   params,
 }: {
@@ -17,14 +38,19 @@ const VendorsCategories = ({
     vendorsId: string;
   };
 }) => {
+  const logo = VendorLogos.find((vendor) => vendor.name === params.vendorsId);
+  console.log(logo)
   return (
     <>
       <Head>
         <title>Vendors Categories | Spaces</title>
       </Head>
       <RootLayout>
-        <div className="  pt-24 md:pt-32">
-          <VendorsCategoriesPagee title={params.vendorsId} />
+        <div className="pt-24 md:pt-32">
+          <VendorsCategoriesPagee
+            title={params.vendorsId}
+            vendorSrcLogo={logo}
+          />
         </div>
       </RootLayout>
     </>
