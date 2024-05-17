@@ -23,7 +23,7 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
   product, // Adding product to the props
   ...props
 }) => {
-  const types = ["All", "Home", "Office", "Kitchen"];
+  const types = ["All", "Home", "Office", "Kitchen", "Accessories"];
   return (
     <div>
       <div className="md:flex justify-between">
@@ -75,10 +75,10 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
         </div>
       </div>
       {vendor && (
-        <div className="mt-10">
+        <div className="my-5 md:my-10">
           <Banner imageSrc={vendorLogoSrc} />
 
-          <div className="md:flex justify-between">
+          <div className="mt-5 md:mt-10 md:flex justify-between">
             <div className="grid md:flex gap-3 md:gap-6 md:items-center">
               <div className="h-fit my-auto flex gap-3 items-center">
                 <div className="md:hidden">

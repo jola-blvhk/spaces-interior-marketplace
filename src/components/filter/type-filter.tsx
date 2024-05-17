@@ -11,6 +11,7 @@ const TypeFilter: React.FC<TypeFillerProps> = ({ types }) => {
         return (
           <div
             key={index}
+            tabIndex={1}
             className=" bg-secondary-green-100/50 text-primary-white-100 hover:bg-secondary-green-100 py-2 px-7 lg:py-3 lg:px-10 text-sm lg:text-base rounded-3xl lg:rounded-[50px]"
           >
             {type}

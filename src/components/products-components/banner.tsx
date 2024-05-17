@@ -6,7 +6,7 @@ interface BannerProps {
 }
 const Banner: React.FC<BannerProps> = ({ imageSrc }) => {
   return (
-    <div className="border-y border-[#D6D6D6] h-20 md:h-32 lg:h-52">
+    <div className="border-y border-[#D6D6D6] h-24 md:h-32 lg:h-52">
       <Image src={imageSrc ? imageSrc : ""} alt="logo" className="m-auto" />
     </div>
   );
