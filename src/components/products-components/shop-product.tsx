@@ -15,14 +15,17 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
         <TitleHeading
           title={title}
           description="Your one stop market place for all things furniture, accessories and more"
-          showBackButton
+          showBackButton={false}
         />
 
         <div className="grid lg:grid-cols-2 mt-7 md:mt-16 lg:mt-24">
           <div className="flex gap-[2%]">
             <div className="w-[23%] grid grid-rows-3  gap-y-3">
               {variations?.map((variation, index) => (
-                <div key={index} className="relative w-full h-auto rounded-[8.18px] md:rounded-[15px]">
+                <div
+                  key={index}
+                  className="relative w-full h-auto rounded-[8.18px] md:rounded-[15px]"
+                >
                   <Image
                     src={ExampleProduct}
                     className=""
