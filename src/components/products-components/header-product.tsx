@@ -29,7 +29,9 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
       <div className="md:flex justify-between">
         <div className="grid md:flex gap-3 md:gap-6 md:items-center">
           <div className="h-fit my-auto flex gap-3 items-center">
-            <BackButton />
+            <div className={`${vendor && "hidden md:block"}`}>
+              <BackButton />
+            </div>
             {product && (
               <div className="flex md:hidden rounded-[10px]  w-full  items-center gap-4 py-3 px-4    md:w-fit cursor-pointer bg-primary-white-100 border border-solid border-[##D9D9D9] h-fit md:my-auto  box-border rotate-[0.02deg]">
                 <IoSearch className="text-[#737373B2] text-2xl" />
