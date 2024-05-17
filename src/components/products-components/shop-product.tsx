@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import TitleHeading from "./title-heading";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import Image from "next/image";
 import ExampleProduct from "/public/assets/products/example-product.png";
 import { GoHeartFill } from "react-icons/go";
@@ -28,6 +30,8 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
       color: "#00FF00",
     },
   ];
+  const options = ["one", "two", "three"];
+  const defaultOption = options[0];
   const [isHeartClicked, setIsHeartClicked] = useState(false);
   const [clickedColor, setClickedColor] = useState<number>(0);
   const handleHeartClick = () => {
@@ -91,20 +95,22 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
               Your one stop market place for all things furniture, accessories
               and more. Your one stop market place for all things furniture.
             </p>
-            <h3 className="font-semibold text-sm leading-6 lg:text-base">
+            <h2 className="font-semibold text[12px]  md:text-sm leading-6 lg:text-base">
               Delivery duration: <span className="font-normal">2 weeks</span>
-            </h3>
+            </h2>
             <div className="grid md:flex justify-between ">
               <div>
-                <h2>Variation</h2>
-                <div className="flex gap-3 md:gap-5">
+                <h2 className="font-semibold text-[13px] md:text-sm  leading-6 lg:text-base">
+                  Variation
+                </h2>
+                <div className="flex gap-2 md:gap-4">
                   {colors?.map((color, index) => (
                     <div
                       key={index}
                       onClick={() => {
                         handleColorClick(index);
                       }}
-                      className={`rounded-full flex justify-center items-center w-8 h-8 md:w-10 md:h-10 bg-white  p-[2px] md:p-1  z-0`}
+                      className={`rounded-full w-8 h-8 md:w-10 md:h-10 bg-white  p-[2px] md:p-[3px]   z-0`}
                       style={{
                         border: ` 3px solid ${
                           clickedColor === index ? color.color : "white"
@@ -124,7 +130,20 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
                   ))}
                 </div>
               </div>
-              <div>Size</div>
+              <div>
+                <h2 className="font-semibold text-[13px] md:text-sm  leading-6 lg:text-base">
+                  Size
+                </h2>
+                <div>
+                  <Dropdown
+                    options={options}
+                    // onChange={ this?._onSelect}
+                    value={defaultOption}
+                    placeholder="size"
+                    className="border border-[#D9D9D9] rounded-lg md:rounded-[15px] w-[300px]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
