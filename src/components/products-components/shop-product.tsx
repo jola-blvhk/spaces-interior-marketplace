@@ -205,7 +205,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
 
             <div className="flex gap-4 md:gap-6 items-center">
               <StarRating totalStars={5} rating={3} />
-              <h2 className="underline text-primary-black-90 cursor-pointer">
+              <h2 className="underline text-sm md:text-base text-primary-black-90 cursor-pointer">
                 Reviews
               </h2>
             </div>
