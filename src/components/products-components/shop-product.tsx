@@ -105,13 +105,23 @@ const ShopProduct: React.FC<ShopProductProps> = ({
             </div>
           </div>
 
-          <div>
+          <div className="grid gap-y-3 justify-between">
             <div className="flex justify-between items-center">
-              <h1 className="text-primary-black-90  font-semibold text-xl mb-1  lg:text-3xl tracking-wide">
+              <h1 className="text-primary-black-90  font-semibold text-xl mb-1 max-w-[50%] lg:text-3xl tracking-wide">
                 {title}
               </h1>
+              <div className="flex xl:hidden gap-x-3 md:gap-x-5 text-lg  xl:text-3xl items-center">
+                <h2 className="font-semibold ">
+                  ₦ {currentPrice.toLocaleString()}
+                </h2>
+                {originalPrice && (
+                  <h2 className="text-[#FF543E] line-through">
+                    ₦ {originalPrice.toLocaleString()}
+                  </h2>
+                )}
+              </div>
               <GoHeartFill
-                className={`text-3xl cursor-pointer ${
+                className={` hidden xl:block text-3xl cursor-pointer ${
                   isHeartClicked ? " text-red-600" : " text-primary-black-100"
                 }`}
                 onClick={handleHeartClick}
@@ -122,11 +132,11 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               and more. Your one stop market place for all things furniture.
             </p>
             <h2 className="font-semibold text[12px]  md:text-sm leading-6 lg:text-base">
-              Delivery duration: <span className="font-normal">2 weeks</span>
+              Delivery duration : <span className="font-normal">2 weeks</span>
             </h2>
-            <div className="grid md:flex justify-between ">
+            <div className="grid xl:flex justify-between gap-y-5 xl:gap-y-0 ">
               <div>
-                <h2 className="font-semibold text-[13px] md:text-sm  leading-6 lg:text-base">
+                <h2 className="font-semibold text-[13px] md:text-sm  mb-3 md:mb-4 leading-6 lg:text-base">
                   Variation
                 </h2>
                 <div className="flex gap-2 md:gap-4">
@@ -163,7 +173,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                 </div>
               </div>
               <div>
-                <h2 className="font-semibold text-[13px] md:text-sm  leading-6 lg:text-base">
+                <h2 className="font-semibold  mb-1 md:mb-3  text-[13px] md:text-sm  leading-6 lg:text-base">
                   Size
                 </h2>
                 <div>
@@ -182,14 +192,17 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               </div>
             </div>
 
-            <div className="flex gap-x-3 items-center">
-              <h2>₦ {currentPrice.toLocaleString()}</h2>
+            <div className="hidden xl:flex gap-x-3 md:gap-x-5 text-lg md:text-3xl items-center">
+              <h2 className="font-semibold ">
+                ₦ {currentPrice.toLocaleString()}
+              </h2>
               {originalPrice && (
                 <h2 className="text-[#FF543E] line-through">
                   ₦ {originalPrice.toLocaleString()}
                 </h2>
               )}
             </div>
+
             <div className="flex gap-4 md:gap-6 items-center">
               <StarRating totalStars={5} rating={3} />
               <h2 className="underline text-primary-black-90 cursor-pointer">
