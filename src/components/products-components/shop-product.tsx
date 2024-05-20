@@ -216,14 +216,14 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               )}
             </div>
 
-            <div className="flex gap-4 md:gap-6 items-center">
+            <div className="flex gap-4 md:gap-6 items-center pt-3 lg:pt-0">
               <StarRating totalStars={5} rating={3} />
               <h2 className="underline text-sm md:text-base text-primary-black-90 cursor-pointer">
                 Reviews
               </h2>
             </div>
 
-            <div className="w-[150px] md:w-[224px]">
+            <div className="w-[150px] md:w-[224px] pt-3 lg:pt-0">
               <Button title="Add to cart" backgroundImage onclick={() => {}} />
             </div>
           </div>
