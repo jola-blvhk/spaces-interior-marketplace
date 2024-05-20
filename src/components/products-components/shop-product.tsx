@@ -110,7 +110,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               <h1 className="text-primary-black-90  font-semibold text-xl mb-1 max-w-[50%] lg:text-3xl tracking-wide">
                 {title}
               </h1>
-              <div className="flex xl:hidden gap-x-3 md:gap-x-5 text-lg  xl:text-3xl items-center">
+              <div className="flex xl:hidden gap-x-2 md:gap-x-5 text-lg  xl:text-3xl items-center">
                 <h2 className="font-semibold ">
                   ₦ {currentPrice.toLocaleString()}
                 </h2>
