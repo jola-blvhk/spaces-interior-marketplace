@@ -36,7 +36,7 @@ const ProductBox: React.FC<ProductBoxProps> = ({
             </p>
           </div>
           <h3 className="text-base md:text-xl  lg:text-xl xl:text-2xl">
-            ₦{price}
+            ₦{price.toLocaleString()}
           </h3>
         </div>
       </div>

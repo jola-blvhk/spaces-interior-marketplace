@@ -7,12 +7,20 @@ import ExampleProduct from "/public/assets/products/example-product.png";
 import { GoHeartFill } from "react-icons/go";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "./styles.css";
+import StarRating from "../StarRating";
+import Button from "../button";
 
 interface ShopProductProps {
   title: string | String;
   description?: string;
+  currentPrice: number;
+  originalPrice?: number;
 }
-const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
+const ShopProduct: React.FC<ShopProductProps> = ({
+  title,
+  currentPrice,
+  originalPrice,
+}) => {
   const variations = [1, 2, 3];
   const colors = [
     {
@@ -172,6 +180,25 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
                   />
                 </div>
               </div>
+            </div>
+
+            <div className="flex gap-x-3 items-center">
+              <h2>₦ {currentPrice.toLocaleString()}</h2>
+              {originalPrice && (
+                <h2 className="text-[#FF543E] line-through">
+                  ₦ {originalPrice.toLocaleString()}
+                </h2>
+              )}
+            </div>
+            <div className="flex gap-4 md:gap-6 items-center">
+              <StarRating totalStars={5} rating={3} />
+              <h2 className="underline text-primary-black-90 cursor-pointer">
+                Reviews
+              </h2>
+            </div>
+
+            <div className="w-[150px] md:w-[224px]">
+              <Button title="Add to cart" backgroundImage onclick={() => {}} />
             </div>
           </div>
         </div>

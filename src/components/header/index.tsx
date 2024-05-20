@@ -23,7 +23,7 @@ const Header = () => {
 
   const isCategoriesPage = pathName.startsWith("/categories");
   return (
-    <div className="relative z-50">
+    <div className="relative z-[1000000]">
       <div className="fixed w-full bg-white">
         <div className="padding-section py-3  md:pt-6 md:pb-5   ">
           <div className="max-width-section grid grid-cols-3 items-center">

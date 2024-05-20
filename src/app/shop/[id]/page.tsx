@@ -28,7 +28,7 @@ const ShopProduct = ({
       </Head>
       <RootLayout>
         <div className="  pt-24 md:pt-32">
-          <ShopProductPage title={decodedName} />
+          <ShopProductPage title={decodedName} originalPrice={645000} currentPrice={600000} />
         </div>
       </RootLayout>
     </>
