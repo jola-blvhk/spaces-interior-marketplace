@@ -105,6 +105,16 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                 fill={true}
                 objectFit="contain rounded-lg md:rounded-[15px]"
               />
+
+              <div className="absolute py-1 md:py-2  px-4 md:px-8 bg-[#D9D9D9] bottom-8 rounded-r-[5px] text-sm   md:text-base lg:text-lg  font-medium">
+                Selling fast
+              </div>
+              <GoHeartFill
+                className={` absolute block xl:hidden text-lg md:text-xl right-4 top-4 cursor-pointer ${
+                  isHeartClicked ? " text-primary-black-100" : " text-[#C6C6C6]"
+                }`}
+                onClick={handleHeartClick}
+              />
             </div>
           </div>
 
@@ -125,7 +135,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               </div>
               <GoHeartFill
                 className={` hidden xl:block text-3xl cursor-pointer ${
-                  isHeartClicked ? " text-red-600" : " text-primary-black-100"
+                  isHeartClicked ? " text-primary-black-100" : " text-[#C6C6C6]"
                 }`}
                 onClick={handleHeartClick}
               />
