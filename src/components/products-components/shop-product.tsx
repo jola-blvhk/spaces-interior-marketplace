@@ -9,17 +9,20 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "./styles.css";
 import StarRating from "../StarRating";
 import Button from "../button";
+import SimilarProducts from "./similar-products";
 
 interface ShopProductProps {
   title: string | String;
   description?: string;
   currentPrice: number;
   originalPrice?: number;
+  similarProducts?: any;
 }
 const ShopProduct: React.FC<ShopProductProps> = ({
   title,
   currentPrice,
   originalPrice,
+  similarProducts,
 }) => {
   const variations = [1, 2, 3];
   const colors = [
@@ -76,7 +79,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
           showBackButton={true}
         />
 
-        <div className="grid lg:grid-cols-2 gap-10 mt-7 md:mt-16 lg:mt-24 text-primary-black-90">
+        <div className="grid lg:grid-cols-2 gap-10 py-7 md:py-16 lg:py-24 border-b border-secondary-green-100/50 text-primary-black-90">
           <div className="flex gap-[2%]">
             <div className="w-[23%] grid grid-rows-3  gap-y-3">
               {variations?.map((variation, index) => (
@@ -214,6 +217,9 @@ const ShopProduct: React.FC<ShopProductProps> = ({
               <Button title="Add to cart" backgroundImage onclick={() => {}} />
             </div>
           </div>
+        </div>
+        <div className="pt-8 md:pt-10">
+          <SimilarProducts similarProducts={similarProducts} />
         </div>
       </div>
     </div>

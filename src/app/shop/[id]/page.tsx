@@ -12,6 +12,38 @@ const ShopProductPage = dynamic(
   }
 );
 
+const similarProducts = [
+  {
+    id: 1,
+    name: "Tobacco plant",
+    desc: "Lorem ipsum seus ipsummm",
+    price: "6000",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    desc: "Lorem ipsum seus ipsummm",
+    price: "6000",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    desc: "Lorem ipsum seus ipsummm",
+    price: "6000",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    id: 4,
+    name: "Product 4",
+    desc: "Lorem ipsum seus ipsummm",
+    price: "6000",
+    image: "https://via.placeholder.com/150",
+  },
+
+ 
+];
 const ShopProduct = ({
   params,
 }: {
@@ -28,7 +60,7 @@ const ShopProduct = ({
       </Head>
       <RootLayout>
         <div className="  pt-24 md:pt-32">
-          <ShopProductPage title={decodedName} originalPrice={645000} currentPrice={600000} />
+          <ShopProductPage title={decodedName} originalPrice={645000} currentPrice={600000} similarProducts={similarProducts} />
         </div>
       </RootLayout>
     </>
