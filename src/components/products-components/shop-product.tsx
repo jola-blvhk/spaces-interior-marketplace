@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TitleHeading from "./title-heading";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import Image from "next/image";
 import ExampleProduct from "/public/assets/products/example-product.png";
 import { GoHeartFill } from "react-icons/go";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import "./styles.css";
 
 interface ShopProductProps {
   title: string | String;
@@ -30,13 +32,29 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
       color: "#00FF00",
     },
   ];
-  const options = ["one", "two", "three"];
+  const options = ["small", "medium", "large"];
   const defaultOption = options[0];
   const [isHeartClicked, setIsHeartClicked] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [clickedColor, setClickedColor] = useState<number>(0);
+  const [selectedOption, setSelectedOption] = useState(undefined);
   const handleHeartClick = () => {
     setIsHeartClicked(!isHeartClicked);
   };
+
+  const handleSelect = (option: any) => {
+    setSelectedOption(option);
+  };
+
+  const handleResize = () => {
+    setIsSmallScreen(window.innerWidth < 640); // Adjust the width value as needed
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial value
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleColorClick = (index: number) => {
     setClickedColor(index === clickedColor ? 0 : index);
@@ -110,11 +128,17 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
                       onClick={() => {
                         handleColorClick(index);
                       }}
-                      className={`rounded-full w-8 h-8 md:w-10 md:h-10 bg-white  p-[2px] md:p-[3px]   z-0`}
+                      className={`rounded-full  w-7 h-7 md:w-10 md:h-10 bg-white  p-[2px] md:p-[3px]   z-0`}
                       style={{
                         border: ` 3px solid ${
                           clickedColor === index ? color.color : "white"
                         }`,
+                        ...(isSmallScreen && {
+                          // Add your small screen styles here
+                          border: `2px solid ${
+                            clickedColor === index ? color.color : "white"
+                          }`,
+                        }),
                       }}
                     >
                       <div
@@ -137,10 +161,14 @@ const ShopProduct: React.FC<ShopProductProps> = ({ title }) => {
                 <div>
                   <Dropdown
                     options={options}
-                    // onChange={ this?._onSelect}
-                    value={defaultOption}
+                    value={selectedOption}
+                    onChange={handleSelect}
                     placeholder="size"
-                    className="border border-[#D9D9D9] rounded-lg md:rounded-[15px] w-[300px]"
+                    controlClassName="custom-control"
+                    placeholderClassName="custom-placeholder"
+                    menuClassName="custom-menu"
+                    arrowClosed={<IoIosArrowDown className="custom-arrow" />}
+                    arrowOpen={<IoIosArrowUp className="custom-arrow" />}
                   />
                 </div>
               </div>

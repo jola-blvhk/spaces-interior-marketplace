@@ -1,0 +1,62 @@
+.custom-dropdown {
+  width: 300px;
+}
+
+.custom-control {
+  border: 0.53px solid #d9d9d9; /* border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 15px 26px 15px 20px; /* Inner padding */
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between content */
+  align-items: center; /* Center alignment */
+  background-color: white; /* Background color */
+  width: 300px; /* Control width */
+  font-size: 15px;
+  color: #726d6db2;
+  cursor: pointer;
+}
+
+.custom-placeholder {
+  color: #726d6db2; /* Placeholder text color */
+}
+
+.custom-menu {
+  border: 1px solid #ccc; /* Menu border */
+  border-radius: 15px; /* Rounded corners for the menu */
+  background-color: white; /* Menu background color */
+  margin-top: 5px; /* Space between control and menu */
+  color: #726d6db2;
+}
+
+.custom-arrow {
+  margin-left: auto; /* Align arrow to the right */
+  color: #000000; /* Arrow color */
+  font-size: medium;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 640px) {
+  .custom-control {
+    width: 170%; /* Full width */
+    border-radius: 7.89px; /* Adjusted rounded corners */
+    padding: 7.89px 13.67px 10px 13.67px; /* Adjusted inner padding */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .custom-dropdown {
+    width: 100%; /* Full width */
+  }
+
+  .custom-placeholder {
+    font-size: 12px; /* Smaller placeholder text */
+  }
+
+  .custom-menu {
+    width: 100%; /* Full width */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .custom-arrow {
+    font-size: small; /* Smaller arrow size */
+  }
+}

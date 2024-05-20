@@ -14,7 +14,7 @@ const TitleHeading: React.FC<TitleHeadingProps> = ({
   return (
     <div className="flex gap-x-3 md:gap-x-6 lg:items-center">
       {showBackButton && (
-        <div className="h-fit  ">
+        <div className="h-fit hidden md:block ">
           <BackButton />
         </div>
       )}
