@@ -11,14 +11,14 @@ const Reviews = () => {
     reviewsComponentActions.setReviewsComponentState;
 
   // State to track the height of the draggable div
-  const [height, setHeight] = useState<string>("25%");
+  const [height, setHeight] = useState<string>("35%");
 
   // Function to handle drag stop
   const handleDragStop = (e: DraggableEvent, data: DraggableData) => {
     if (data.y < -window.innerHeight / 2) {
       setHeight("100%");
     } else {
-      setHeight("25%");
+      setHeight("35%");
     }
   };
   return (
