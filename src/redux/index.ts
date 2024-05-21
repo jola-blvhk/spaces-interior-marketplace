@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import uiSlice from "./ui-slice";
 import authPageSlice from "./auth-page-slice";
+import reviewsComponentSlice from "./reviews-slice";
 
 // configure which key we want to persist
 // const authPersistConfig = {
@@ -16,6 +17,7 @@ import authPageSlice from "./auth-page-slice";
 const rootReducer = combineReducers({
   // auth: persistReducer(authPersistConfig, authSlice.reducer),
   auth: authSlice.reducer,
+  reviewsComponent: reviewsComponentSlice.reducer,
   ui: uiSlice.reducer,
   authPage: authPageSlice.reducer,
 });

@@ -1,6 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
+import "animate.css";
 import { Poppins, Megrim } from "next/font/google";
 import "../../app/globals.css";
 import Header from "@/components/header";
