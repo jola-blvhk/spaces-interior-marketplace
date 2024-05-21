@@ -3,7 +3,7 @@ import { reviewsComponentActions } from "@/redux/reviews-slice";
 import React, { useState } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
-import Draggable from "react-draggable";
+import Draggable, {DraggableData, DraggableEvent} from "react-draggable";
 
 const Reviews = () => {
   const dispatch = useAppDispatch();
@@ -11,10 +11,10 @@ const Reviews = () => {
     reviewsComponentActions.setReviewsComponentState;
 
   // State to track the height of the draggable div
-  const [height, setHeight] = useState("25%");
+  const [height, setHeight] = useState<string>("25%");
 
   // Function to handle drag stop
-  const handleDragStop = (e, data) => {
+  const handleDragStop = (e: DraggableEvent, data: DraggableData) => {
     if (data.y < -window.innerHeight / 2) {
       setHeight("100%");
     } else {
