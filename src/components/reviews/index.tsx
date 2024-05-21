@@ -32,7 +32,7 @@ const Reviews = () => {
         ></div>
         <Draggable axis="y" bounds="parent" onStop={handleDragStop}>
           <div
-            className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100"
+            className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100 transition-all duration-300 ease-in-out"
             style={{ height }}
           >
             <h1>ReviewsPage</h1>
