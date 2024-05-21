@@ -14,6 +14,8 @@ import { uiActions } from "@/redux/ui-slice";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ROUTES } from "@/app/utils/routes";
+import "animate.css";
+import "animate.css/animate.min.css";
 const Header = () => {
   const authState = useAppSelector((state) => state.auth.authState);
   const hamburgerState = useAppSelector((state) => state.ui.hamBurgerState);
@@ -30,7 +32,7 @@ const Header = () => {
             <div>
               {hamburgerState ? (
                 <IoMdClose
-                  className="text-2xl text-secondary-green-100 cursor-pointer md:hidden"
+                  className="text-2xl text-secondary-green-100 cursor-pointer md:hidden  animate-pulse"
                   onClick={() => {
                     dispatch(setHamburgerState(false));
                   }}
@@ -142,8 +144,8 @@ const Header = () => {
         </div>
 
         {hamburgerState ? (
-          <div className="bg-primary-white-100  top-full  md:hidden overflow-hidden">
-            <ul className=" absolute pb-8 top-full w-full grid justify-center bg-primary-white-100 z-[10000000000]">
+          <div className="bg-primary-white-100  top-full  md:hidden overflow-hidden ">
+            <ul className=" absolute pb-8 top-full w-full grid justify-center bg-primary-white-100 z-[10000000000] animate__animated animate__slideInDown">
               <Link
                 href={ROUTES.Home}
                 onClick={() => {
