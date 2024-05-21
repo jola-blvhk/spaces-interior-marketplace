@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Rug from "/public/assets/background-images/rugTexture.jpg";
 
+
 interface FilterProps<T> {
   selectedSection: T;
   sections: { value: T; label: string }[];
@@ -18,7 +19,7 @@ const VendorProductFilter = <T,>({
       {sections.map((section, index) => (
         <div
           key={index}
-          className={`relative py-3 md:py-4 w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
+          className={`relative  py-3 md:py-4 w-full h-full rounded-[8.72px] cursor-pointer md:rounded-[15px] ${
             selectedSection === section.value
               ? "text-primary-white-100"
               : "text-primary-black-90"
