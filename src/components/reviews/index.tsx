@@ -3,29 +3,32 @@ import { reviewsComponentActions } from "@/redux/reviews-slice";
 import React, { useState } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
-import Draggable, {
-  DraggableData,
-  DraggableEvent,
-  DraggableCore,
-} from "react-draggable";
+import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
 
 const Reviews = () => {
   const dispatch = useAppDispatch();
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
 
-  // State to track the height of the draggable div
-  const [height, setHeight] = useState<string>("35%");
+  // State to track the position and height of the draggable div
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [height, setHeight] = useState("35%");
+
+  // Function to handle drag
+  const handleDrag = (e: DraggableEvent, data: DraggableData) => {
+    setPosition({ x: data.x, y: data.y });
+  };
 
   // Function to handle drag stop
   const handleDragStop = (e: DraggableEvent, data: DraggableData) => {
     const windowHeight = window.innerHeight;
-    const finalYPosition = data.y + data.node.offsetHeight; // Calculate the final Y position
 
-    if (finalYPosition < windowHeight / 2) {
+    if (data.y < windowHeight / 2) {
       setHeight("100%");
+      setPosition({ x: 0, y: 0 }); // Snap to top
     } else {
       setHeight("35%");
+      setPosition({ x: 0, y: windowHeight * 0.5 }); // Snap to 50%
     }
   };
 
@@ -38,15 +41,16 @@ const Reviews = () => {
             dispatch(setReviewsComponentState(false));
           }}
         ></div>
-        <DraggableCore>
-          <Draggable axis="y" bounds="parent" onStop={handleDragStop}>
-            <div
-              className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100 transition-all duration-300 ease-in-out"
-              style={{ height }}
-            >
-              <h1>ReviewsPage</h1>
-            </div>
-          </Draggable>
+        <DraggableCore onDrag={handleDrag} onStop={handleDragStop}>
+          <div
+            className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100 transition-all duration-300 ease-in-out"
+            style={{
+              height,
+              transform: `translate(${position.x}px, ${position.y}px)`,
+            }}
+          >
+            <h1>ReviewsPage</h1>
+          </div>
         </DraggableCore>
         <div className="hidden md:block absolute right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100">
           <h1>ReviewsPage</h1>
