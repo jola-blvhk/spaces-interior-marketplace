@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
 import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
-import ReviewComponent from "./ReviewComponent";
+import ReviewComponent from "./reviewComponent";
 import { CustomerReview } from "@/app/types/reviewTypes";
 
 interface ReviewContainerProps {
