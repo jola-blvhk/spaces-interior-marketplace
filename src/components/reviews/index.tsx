@@ -12,7 +12,11 @@ interface ReviewContainerProps {
   numberofReviews: number;
   customerReviews: CustomerReview[];
 }
-const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews, customerReviews}) => {
+const ReviewContainer: React.FC<ReviewContainerProps> = ({
+  rating,
+  numberofReviews,
+  customerReviews,
+}) => {
   const dispatch = useAppDispatch();
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
@@ -63,7 +67,7 @@ const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews
               }}
               rating={rating}
               numberofReviews={numberofReviews}
-              customerReviews={customerReviews || []} // Add default value for customerReviews
+              customerReviews={customerReviews || []}
             />
           </div>
         </DraggableCore>

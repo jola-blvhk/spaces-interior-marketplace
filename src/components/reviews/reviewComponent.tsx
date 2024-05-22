@@ -50,7 +50,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
                 rating={review.rating}
                 sizeOfStars="text-sm md:text-base gap-4 "
               />
-              <p className="text-primary-black-90 text-xs">{review.date}</p>
+              <p className="text-primary-black-90 text-[11px] md:text-xs">{review.date}</p>
             </div>
 
             <h4 className="text-primary-black-90 font-semibold md:text-lg ">
