@@ -2,6 +2,7 @@ import React from "react";
 import { MdClose } from "react-icons/md";
 import StarRating from "../StarRating";
 import { CustomerReview } from "@/app/types/reviewTypes";
+import Image from "next/image";
 
 interface ReviewComponentProps {
   modalClose: () => void;
@@ -50,13 +51,32 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
                 rating={review.rating}
                 sizeOfStars="text-sm md:text-base gap-3 md:gap-4 "
               />
-              <p className="text-primary-black-90 text-[11px] md:text-xs">{review.date}</p>
+              <p className="text-primary-black-90 text-[11px] md:text-xs">
+                {review.date}
+              </p>
             </div>
 
             <h4 className="text-primary-black-90 font-semibold md:text-lg ">
               {review.title}
             </h4>
-            <p className=" text-primary-black-90 text-xs md:text-sm">{review?.review}</p>
+            <p className=" text-primary-black-90 text-xs md:text-sm">
+              {review?.review}
+            </p>
+
+            {review.images.map(({ imageSrc, index }: any) => (
+              <div
+                key={index}
+                className="relative bg-[#E3E3E3] w-full  h-[200px] md:h-[300px] max-h-[300px] rounded-lg md:rounded-[15px]"
+              >
+                <Image
+                  src={imageSrc ? imageSrc : ""}
+                  className=""
+                  alt="review picture"
+                  fill={true}
+                  objectFit="contain rounded-lg md:rounded-[15px]"
+                />
+              </div>
+            ))}
           </div>
         ))}
       </main>
