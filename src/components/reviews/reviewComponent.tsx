@@ -30,7 +30,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
         <StarRating
           totalStars={5}
           rating={rating}
-          sizeOfStars="text-2xl md:text-3xl gap-3 md:gap-4 "
+          sizeOfStars="text-2xl md:text-3xl gap-4 "
         />
         <h3 className="text-center text-primary-black-90 font-semibold">
           {rating}{" "}
