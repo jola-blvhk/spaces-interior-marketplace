@@ -24,7 +24,7 @@ const Reviews = () => {
     const windowHeight = window.innerHeight;
 
     if (data.y < windowHeight / 2) {
-      setHeight("100%");
+      setHeight("95%");
       setPosition({ x: 0, y: 0 }); // Snap to top
     } else {
       setHeight("35%");
