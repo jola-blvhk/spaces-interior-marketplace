@@ -19,8 +19,8 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           Reviews
         </h2>
         <MdClose
-          className=" text-primary-black-90 text-xl  md:text-2xl"
-          onClick={modalClose}
+          className=" text-primary-black-90 cursor-pointer text-xl  md:text-2xl"
+          onClick={() => modalClose()}
         />
       </header>
       <div className="grid justify-center py-6 gap-y-3 border-y-[0.46px] border-y-secondary-green-100/50">
@@ -30,6 +30,8 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           <span className="font-normal">({numberofReviews} Reviews)</span>
         </h3>
       </div>
+
+      <main></main>
     </div>
   );
 };
