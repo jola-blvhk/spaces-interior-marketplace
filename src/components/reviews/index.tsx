@@ -43,13 +43,13 @@ const Reviews = () => {
         ></div>
         <DraggableCore onDrag={handleDrag} onStop={handleDragStop}>
           <div
-            className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100 transition-all duration-300 ease-in-out"
+            className="absolute block md:hidden bottom-0 w-screen animate__animated animate__slideInUp bg-primary-white-100 rounded-t-2xl transition-all duration-300 ease-in-out"
             style={{
               height,
               transform: `translate(${position.x}px, ${position.y}px)`,
             }}
           >
-            <h1>ReviewsPage</h1>
+            <div className="relative top-1.5 m-auto bg-secondary-green-100/50 rounded-3xl w-[10%] h-1.5"></div>
           </div>
         </DraggableCore>
         <div className="hidden md:block absolute right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100">

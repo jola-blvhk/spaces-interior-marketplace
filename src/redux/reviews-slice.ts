@@ -18,8 +18,5 @@ const reviewsComponentSlice = createSlice({
   },
 });
 
-
-
-
 export const reviewsComponentActions = reviewsComponentSlice.actions;
 export default reviewsComponentSlice;
