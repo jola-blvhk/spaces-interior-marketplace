@@ -42,7 +42,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
         {customerReviews?.map((review, index) => (
           <div
             key={index}
-            className="border-b-[0.3px] border-secondary-green-100/50 grid gap-y-2 py-3"
+            className="border-b-[0.3px] border-secondary-green-100/50 grid gap-y-2 py-4"
           >
             <div className="flex items-center justify-between  ">
               <StarRating
