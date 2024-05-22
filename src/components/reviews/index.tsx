@@ -6,14 +6,18 @@ import "animate.css/animate.min.css";
 import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
 import ReviewComponent from "./reviewComponent";
 
-const ReviewContainer = () => {
+interface ReviewContainerProps {
+  rating: number;
+  numberofReviews: number;
+}
+const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews}) => {
   const dispatch = useAppDispatch();
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
 
   // State to track the position and height of the draggable div
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [height, setHeight] = useState("35%");
+  const [height, setHeight] = useState("45%");
 
   // Function to handle drag
   const handleDrag = (e: DraggableEvent, data: DraggableData) => {
@@ -28,7 +32,7 @@ const ReviewContainer = () => {
       setHeight("95%");
       setPosition({ x: 0, y: 0 }); // Snap to top
     } else {
-      setHeight("35%");
+      setHeight("45%");
       setPosition({ x: 0, y: windowHeight * 0.5 }); // Snap to 50%
     }
   };
@@ -55,6 +59,8 @@ const ReviewContainer = () => {
               modalClose={() => {
                 dispatch(setReviewsComponentState(false));
               }}
+              rating={rating}
+              numberofReviews={numberofReviews}
             />
           </div>
         </DraggableCore>
@@ -63,6 +69,8 @@ const ReviewContainer = () => {
             modalClose={() => {
               dispatch(setReviewsComponentState(false));
             }}
+            rating={rating}
+            numberofReviews={numberofReviews}
           />
         </div>
       </div>

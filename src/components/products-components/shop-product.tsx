@@ -21,12 +21,16 @@ interface ShopProductProps {
   currentPrice: number;
   originalPrice?: number;
   similarProducts?: any;
+  rating: number;
+  numberofReviews: number;
 }
 const ShopProduct: React.FC<ShopProductProps> = ({
   title,
   currentPrice,
   originalPrice,
   similarProducts,
+  rating,
+  numberofReviews,
 }) => {
   const variations = [1, 2, 3];
   const colors = [
@@ -81,8 +85,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
   const dispatch = useAppDispatch();
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
-  
- 
+
   return (
     <div className="relative">
       <div className="w-full bg-white">
@@ -240,7 +243,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                 </div>
 
                 <div className="flex gap-4 md:gap-6 items-center pt-3 lg:pt-0">
-                  <StarRating totalStars={5} rating={3} />
+                  <StarRating totalStars={5} rating={rating} />
                   <h2
                     onClick={() => {
                       dispatch(setReviewsComponentState(true));
@@ -265,7 +268,9 @@ const ShopProduct: React.FC<ShopProductProps> = ({
             </div>
           </div>
         </div>
-        {reviewsComponentState ? <ReviewContainer /> : null}
+        {reviewsComponentState ? (
+          <ReviewContainer rating={rating} numberofReviews={numberofReviews} />
+        ) : null}
       </div>
     </div>
   );

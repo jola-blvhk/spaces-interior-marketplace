@@ -41,8 +41,6 @@ const similarProducts = [
     price: "6000",
     image: "https://via.placeholder.com/150",
   },
-
- 
 ];
 const ShopProduct = ({
   params,
@@ -60,7 +58,14 @@ const ShopProduct = ({
       </Head>
       <RootLayout>
         <div className="  pt-24 md:pt-32">
-          <ShopProductPage title={decodedName} originalPrice={645000} currentPrice={600000} similarProducts={similarProducts} />
+          <ShopProductPage
+            title={decodedName}
+            originalPrice={645000}
+            currentPrice={600000}
+            similarProducts={similarProducts}
+            rating={3}
+            numberofReviews={20}
+          />
         </div>
       </RootLayout>
     </>
