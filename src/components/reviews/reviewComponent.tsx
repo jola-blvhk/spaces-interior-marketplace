@@ -26,25 +26,37 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           onClick={() => modalClose()}
         />
       </header>
-      <div className="grid justify-center py-6 gap-y-3 border-y-[0.46px] border-y-secondary-green-100/50">
-        <StarRating totalStars={5} rating={rating} />
+      <div className="grid justify-center py-6 gap-y-3 border-y-[0.3px] border-y-secondary-green-100/50">
+        <StarRating
+          totalStars={5}
+          rating={rating}
+          sizeOfStars="text-2xl md:text-3xl gap-3 md:gap-4 "
+        />
         <h3 className="text-center text-primary-black-90 font-semibold">
           {rating}{" "}
           <span className="font-normal">({numberofReviews} Reviews)</span>
         </h3>
       </div>
 
-      <main className="overflow-y-scroll">
+      <main className="overflow-y-scroll relative">
         {customerReviews?.map((review, index) => (
-          <div key={index}>
-            <div className="flex items-center justify-between border-b-[0.46px] border-b-secondary-green-100/50 py-4 "></div>
-            <div>
-              <h4 className="text-primary-black-90 font-semibold">
-                {review.title}
-              </h4>
-              <p className="text-primary-black-70 text-sm">{review.date}</p>
+          <div
+            key={index}
+            className="border-b-[0.3px] border-secondary-green-100/50 grid gap-y-2 py-3"
+          >
+            <div className="flex items-center justify-between  ">
+              <StarRating
+                totalStars={5}
+                rating={review.rating}
+                sizeOfStars="text-sm md:text-base gap-4 "
+              />
+              <p className="text-primary-black-90 text-xs">{review.date}</p>
             </div>
-            <StarRating totalStars={5} rating={review.rating} />
+
+            <h4 className="text-primary-black-90 font-semibold md:text-lg ">
+              {review.title}
+            </h4>
+            <p className=" text-primary-black-90 text-xs md:text-sm">{review?.review}</p>
           </div>
         ))}
       </main>

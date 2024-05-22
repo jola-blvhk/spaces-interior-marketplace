@@ -3,7 +3,6 @@ import { IoStar } from "react-icons/io5";
 
 interface StarProps {
   filled: boolean;
-
 }
 
 const Star: React.FC<StarProps> = ({ filled }) => {
@@ -18,12 +17,14 @@ interface StarRatingProps {
   totalStars: number;
   rating: number;
   onRatingChange?: (newRating: number) => void;
+  sizeOfStars?: string;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({
   totalStars,
   rating,
   onRatingChange,
+  sizeOfStars,
 }) => {
   const handleRatingChange = (index: number) => {
     if (onRatingChange) {
@@ -32,7 +33,11 @@ const StarRating: React.FC<StarRatingProps> = ({
   };
 
   return (
-    <div className="flex items-center gap-4  text-xl  md:text-2xl lg:text-3xl">
+    <div
+      className={`flex items-center  ${
+        sizeOfStars ? sizeOfStars : "text-xl  md:text-2xl lg:text-3xl gap-4"
+      } `}
+    >
       {[...Array(totalStars)].map((_, index) => (
         <Star key={index} filled={index < rating} />
       ))}
