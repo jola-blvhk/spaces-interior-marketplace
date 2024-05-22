@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from "@/redux";
 import { reviewsComponentActions } from "@/redux/reviews-slice";
 
 import ReviewContainer from "../reviews";
+import { CustomerReview } from "@/app/types/reviewTypes";
 
 interface ShopProductProps {
   title: string | String;
@@ -23,6 +24,7 @@ interface ShopProductProps {
   similarProducts?: any;
   rating: number;
   numberofReviews: number;
+  customerReviews: CustomerReview[];
 }
 const ShopProduct: React.FC<ShopProductProps> = ({
   title,
@@ -31,6 +33,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
   similarProducts,
   rating,
   numberofReviews,
+  customerReviews
 }) => {
   const variations = [1, 2, 3];
   const colors = [
@@ -269,7 +272,11 @@ const ShopProduct: React.FC<ShopProductProps> = ({
           </div>
         </div>
         {reviewsComponentState ? (
-          <ReviewContainer rating={rating} numberofReviews={numberofReviews} />
+          <ReviewContainer
+            rating={rating}
+            numberofReviews={numberofReviews}
+            customerReviews={customerReviews}
+          />
         ) : null}
       </div>
     </div>

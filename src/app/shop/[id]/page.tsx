@@ -42,6 +42,96 @@ const similarProducts = [
     image: "https://via.placeholder.com/150",
   },
 ];
+
+const customerReviews = [
+  {
+    title: "Love them",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 4,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: ["https://via.placeholder.com/150"],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    title: "Great product",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    rating: 5,
+    date: "13 days ago",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+];
 const ShopProduct = ({
   params,
 }: {
@@ -65,6 +155,7 @@ const ShopProduct = ({
             similarProducts={similarProducts}
             rating={3}
             numberofReviews={20}
+            customerReviews={customerReviews}
           />
         </div>
       </RootLayout>

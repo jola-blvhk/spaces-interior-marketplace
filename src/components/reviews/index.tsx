@@ -5,12 +5,14 @@ import "animate.css";
 import "animate.css/animate.min.css";
 import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
 import ReviewComponent from "./reviewComponent";
+import { CustomerReview } from "@/app/types/reviewTypes";
 
 interface ReviewContainerProps {
   rating: number;
   numberofReviews: number;
+  customerReviews: CustomerReview[];
 }
-const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews}) => {
+const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews, customerReviews}) => {
   const dispatch = useAppDispatch();
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
@@ -61,6 +63,7 @@ const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews
               }}
               rating={rating}
               numberofReviews={numberofReviews}
+              customerReviews={customerReviews || []} // Add default value for customerReviews
             />
           </div>
         </DraggableCore>
@@ -71,6 +74,7 @@ const ReviewContainer:React.FC<ReviewContainerProps> = ({rating, numberofReviews
             }}
             rating={rating}
             numberofReviews={numberofReviews}
+            customerReviews={customerReviews || []}
           />
         </div>
       </div>
