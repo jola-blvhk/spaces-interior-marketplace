@@ -22,7 +22,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           Reviews
         </h2>
         <MdClose
-          className=" text-primary-black-90 cursor-pointer text-xl  md:text-2xl"
+          className=" text-primary-black-90 cursor-pointer text-2xl"
           onClick={() => modalClose()}
         />
       </header>
