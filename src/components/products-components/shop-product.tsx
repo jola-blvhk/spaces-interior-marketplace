@@ -12,7 +12,8 @@ import Button from "../button";
 import SimilarProducts from "./similar-products";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { reviewsComponentActions } from "@/redux/reviews-slice";
-import Reviews from "../reviews";
+
+import ReviewContainer from "../reviews";
 
 interface ShopProductProps {
   title: string | String;
@@ -81,7 +82,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
   
-  console.log(reviewsComponentState)
+ 
   return (
     <div className="relative">
       <div className="w-full bg-white">
@@ -264,7 +265,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
             </div>
           </div>
         </div>
-        {reviewsComponentState ? <Reviews /> : null}
+        {reviewsComponentState ? <ReviewContainer /> : null}
       </div>
     </div>
   );
