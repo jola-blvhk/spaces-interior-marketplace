@@ -4,9 +4,8 @@ import React, { useState, useEffect } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
 import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
-
+import ReviewComponent from "./ReviewComponent";
 import { CustomerReview } from "@/app/types/reviewTypes";
-import ReviewComponent from "./reviewComponent";
 
 interface ReviewContainerProps {
   rating: number;
@@ -79,10 +78,11 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
               rating={rating}
               numberofReviews={numberofReviews}
               customerReviews={customerReviews || []}
+              height={height}
             />
           </div>
         </DraggableCore>
-        <div className="hidden md:block absolute px-6 py-9 right-0 h-screen  md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100">
+        <div className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100">
           <ReviewComponent
             modalClose={() => {
               dispatch(setReviewsComponentState(false));
@@ -90,6 +90,7 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
             rating={rating}
             numberofReviews={numberofReviews}
             customerReviews={customerReviews || []}
+            height="100%" // Always 100% for desktop view
           />
         </div>
       </div>
