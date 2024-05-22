@@ -48,7 +48,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
               <StarRating
                 totalStars={5}
                 rating={review.rating}
-                sizeOfStars="text-sm md:text-base gap-4 "
+                sizeOfStars="text-sm md:text-base gap-3 md:gap-4 "
               />
               <p className="text-primary-black-90 text-[11px] md:text-xs">{review.date}</p>
             </div>
