@@ -86,6 +86,8 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
             style={{
               height,
               transform: `translate(${position.x}px, ${position.y}px)`,
+              WebkitOverflowScrolling: "touch",
+              WebkitTransform: "translate3d(0,0,0)",
               overflowY: height === "95%" ? "auto" : "hidden", // Enable scrolling when height is 95%
             }}
           >

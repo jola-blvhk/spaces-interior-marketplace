@@ -35,7 +35,12 @@ export default function RootLayout({
     <ReduxProvider>
       <Head>
         <title>Spaces Interior Market Place</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Head>
       </Head>
       <html lang="en">
         <body className={` ${poppins.variable} ${megrim.variable}`}>
