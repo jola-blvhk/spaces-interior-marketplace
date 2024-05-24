@@ -43,7 +43,11 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
       </div>
       <main
         className={`flex-1 ${height === "95%" ? "overflow-y-auto" : ""}`}
-        style={{ overflowY: "auto", WebkitOverflowScrolling: "touch" }}
+        style={{
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
+          WebkitTransform: "translate3d(0,0,0)",
+        }}
       >
         {customerReviews?.map((review, index) => (
           <div
