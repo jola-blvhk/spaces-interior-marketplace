@@ -15,6 +15,7 @@ import { reviewsComponentActions } from "@/redux/reviews-slice";
 
 import ReviewContainer from "../reviews";
 import { CustomerReview } from "@/app/types/reviewTypes";
+import { Counter } from "../counter";
 
 interface ShopProductProps {
   title: string | String;
@@ -33,7 +34,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
   similarProducts,
   rating,
   numberofReviews,
-  customerReviews
+  customerReviews,
 }) => {
   const variations = [1, 2, 3];
   const colors = [
@@ -257,12 +258,15 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                   </h2>
                 </div>
 
-                <div className="w-[150px] md:w-[224px] pt-3 lg:pt-0">
-                  <Button
-                    title="Add to cart"
-                    backgroundImage
-                    onclick={() => {}}
-                  />
+                <div className="grid grid-cols-2 w-[300px] md:w-[370px] md:max-w-[400px] items-center gap-2  md:gap-5   pt-3 lg:pt-0">
+                
+                    <Button
+                      title="Add to cart"
+                      backgroundImage
+                      onclick={() => {}}
+                    />
+                  
+                  <Counter count={4} />
                 </div>
               </div>
             </div>
