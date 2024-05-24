@@ -102,7 +102,7 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
           </div>
         </Draggable>
         <div
-          className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100"
+          className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[30%] animate__animated animate__slideInRight bg-primary-white-100"
           onClick={(e) => e.stopPropagation()}
           style={{
             overflowY: "auto", // Enable scrolling for desktop view
