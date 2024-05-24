@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/redux";
 import { reviewsComponentActions } from "@/redux/reviews-slice";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
 import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
@@ -25,6 +25,22 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
   // State to track the position and height of the draggable div
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [height, setHeight] = useState("45%");
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleScroll = useCallback(() => {
+    if (!isScrolling) {
+      setIsScrolling(true);
+    }
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false);
+    }, 150); // Adjust timeout duration as needed
+  }, [isScrolling]);
 
   useEffect(() => {
     // Add non-scrollable class to body when component mounts
@@ -38,7 +54,9 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
 
   // Function to handle drag
   const handleDrag = (e: DraggableEvent, data: DraggableData) => {
-    setPosition({ x: data.x, y: data.y });
+    if (!isScrolling) {
+      setPosition({ x: data.x, y: data.y });
+    }
   };
 
   // Function to handle drag stop
@@ -62,13 +80,19 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
           dispatch(setReviewsComponentState(false));
         }}
       >
-        <DraggableCore onDrag={handleDrag} onStop={handleDragStop}>
+        <DraggableCore
+          onDrag={handleDrag}
+          onStop={handleDragStop}
+          disabled={isScrolling} // Disable dragging when scrolling
+        >
           <div
             className="absolute z-[10000000000] block md:hidden bottom-0 w-screen px-6 py-8 animate__animated animate__slideInUp bg-primary-white-100 rounded-t-2xl transition-all duration-300 ease-in-out"
             onClick={(e) => e.stopPropagation()}
+            onScroll={handleScroll}
             style={{
               height,
               transform: `translate(${position.x}px, ${position.y}px)`,
+              overflowY: height === "95%" ? "scroll" : "hidden", // Enable scrolling when height is 95%
             }}
           >
             <div className="fixed inset-x-0 top-1.5 m-auto bg-secondary-green-100/50 rounded-3xl w-[10%] h-1.5"></div>
@@ -86,6 +110,9 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
         <div
           className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100"
           onClick={(e) => e.stopPropagation()}
+          style={{
+            overflowY: "scroll", // Enable scrolling for desktop view
+          }}
         >
           <ReviewComponent
             modalClose={() => {
