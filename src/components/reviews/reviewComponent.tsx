@@ -9,7 +9,7 @@ interface ReviewComponentProps {
   rating: number;
   numberofReviews: number;
   customerReviews: CustomerReview[];
-  height: string;
+  height: string; // Added height prop
 }
 
 const ReviewComponent: React.FC<ReviewComponentProps> = ({
@@ -17,12 +17,10 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
   rating,
   numberofReviews,
   customerReviews,
-  height,
+  height, // Destructure height prop
 }) => {
-  const isScrollableHeight = height === "95%" || height === "100%";
-
   return (
-    <div className={`h-full ${isScrollableHeight ? "overflow-y-scroll" : ""}`}>
+    <div className="flex flex-col h-full">
       <header className="flex justify-between items-center pb-4 md:pb-5">
         <h2 className="text-secondary-green-100 text-lg md:text-xl font-medium">
           Reviews
@@ -43,8 +41,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           <span className="font-normal">({numberofReviews} Reviews)</span>
         </h3>
       </div>
-
-      <main>
+      <main className="flex-1 overflow-y-auto">
         {customerReviews?.map((review, index) => (
           <div
             key={index}
@@ -60,14 +57,12 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
                 {review.date}
               </p>
             </div>
-
             <h4 className="text-primary-black-90 font-semibold md:text-lg">
               {review.title}
             </h4>
             <p className="text-primary-black-90 text-xs md:text-sm">
               {review?.review}
             </p>
-
             {review.images.map(({ imageSrc, index }: any) => (
               <div
                 key={index}
@@ -76,7 +71,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
                 <Image
                   src={imageSrc ? imageSrc : ""}
                   alt="review picture"
-                  fill
+                  fill={true}
                   objectFit="contain"
                   className="rounded-lg md:rounded-[15px]"
                 />
