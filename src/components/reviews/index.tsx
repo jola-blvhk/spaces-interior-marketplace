@@ -57,14 +57,15 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
   return (
     <div className="relative">
       <div
-        className="fixed block top-0 bottom-0 left-0 right-0 z-[10000000000] bg-primary-black-100/30"
+        className="fixed block top-0 bottom-0 left-0 right-0 z-[1000000] bg-primary-black-100/30"
         onClick={() => {
           dispatch(setReviewsComponentState(false));
         }}
       >
         <DraggableCore onDrag={handleDrag} onStop={handleDragStop}>
           <div
-            className="absolute z-[100000000] block md:hidden bottom-0 w-screen px-6 py-8 animate__animated animate__slideInUp bg-primary-white-100 rounded-t-2xl transition-all duration-300 ease-in-out"
+            className="absolute z-[10000000000] block md:hidden bottom-0 w-screen px-6 py-8 animate__animated animate__slideInUp bg-primary-white-100 rounded-t-2xl transition-all duration-300 ease-in-out"
+            onClick={(e) => e.stopPropagation()}
             style={{
               height,
               transform: `translate(${position.x}px, ${position.y}px)`,
@@ -82,7 +83,10 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
             />
           </div>
         </DraggableCore>
-        <div className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100">
+        <div
+          className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100"
+          onClick={(e) => e.stopPropagation()}
+        >
           <ReviewComponent
             modalClose={() => {
               dispatch(setReviewsComponentState(false));
