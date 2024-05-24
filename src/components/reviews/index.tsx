@@ -3,7 +3,11 @@ import { reviewsComponentActions } from "@/redux/reviews-slice";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "animate.css";
 import "animate.css/animate.min.css";
-import { DraggableCore, DraggableEvent, DraggableData } from "react-draggable";
+import Draggable, {
+  DraggableCore,
+  DraggableEvent,
+  DraggableData,
+} from "react-draggable";
 import ReviewComponent from "./reviewComponent";
 import { CustomerReview } from "@/app/types/reviewTypes";
 
@@ -71,7 +75,7 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
           dispatch(setReviewsComponentState(false));
         }}
       >
-        <DraggableCore
+        <Draggable
           onDrag={handleDrag}
           onStart={handleDragStart}
           onStop={handleDragStop}
@@ -96,7 +100,7 @@ const ReviewContainer: React.FC<ReviewContainerProps> = ({
               height={height}
             />
           </div>
-        </DraggableCore>
+        </Draggable>
         <div
           className="hidden md:block absolute px-6 py-9 right-0 h-screen md:w-[50%] lg:w-[35%] xl:w-[25%] animate__animated animate__slideInRight bg-primary-white-100"
           onClick={(e) => e.stopPropagation()}

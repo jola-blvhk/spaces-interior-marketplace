@@ -27,7 +27,7 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
         </h2>
         <MdClose
           className="text-primary-black-90 cursor-pointer text-2xl"
-          onClick={() => modalClose()}
+          onClick={modalClose}
         />
       </header>
       <div className="grid justify-center py-6 gap-y-3 border-y-[0.3px] border-y-secondary-green-100/50">
@@ -41,7 +41,10 @@ const ReviewComponent: React.FC<ReviewComponentProps> = ({
           <span className="font-normal">({numberofReviews} Reviews)</span>
         </h3>
       </div>
-      <main className="flex-1 overflow-y-auto">
+      <main
+        className={`flex-1 ${height === "95%" ? "overflow-y-auto" : ""}`}
+        style={{ overflowY: "auto", WebkitOverflowScrolling: "touch" }}
+      >
         {customerReviews?.map((review, index) => (
           <div
             key={index}
