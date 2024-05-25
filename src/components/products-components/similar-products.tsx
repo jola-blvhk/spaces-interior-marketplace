@@ -17,6 +17,7 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({
         {similarProducts?.map((product, index) => (
           <ProductBox
             key={index}
+            id={product.id}
             name={product.name}
             desc={product.desc}
             price={product.price}

@@ -1,10 +1,12 @@
 "use client";
 
+import { allProducts } from "@/app/utils/allProducts";
 import RootLayout from "@/components/Layout";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-import React from "react";
+import React, { useEffect } from "react";
 const ShopProductPage = dynamic(
   () => import("@/components/products-components/shop-product"),
   {
@@ -14,28 +16,28 @@ const ShopProductPage = dynamic(
 
 const similarProducts = [
   {
-    id: 1,
+    id: 21,
     name: "Tobacco plant",
     desc: "Lorem ipsum seus ipsummm",
     price: "6000",
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 2,
+    id: 22,
     name: "Product 2",
     desc: "Lorem ipsum seus ipsummm",
     price: "6000",
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 3,
+    id: 23,
     name: "Product 3",
     desc: "Lorem ipsum seus ipsummm",
     price: "6000",
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 4,
+    id: 24,
     name: "Product 4",
     desc: "Lorem ipsum seus ipsummm",
     price: "6000",
@@ -139,8 +141,11 @@ const ShopProduct = ({
     id: string;
   };
 }) => {
-  // Decode the product parameter
-  const decodedName = params.id ? decodeURIComponent(params.id as string) : "";
+
+  const product = allProducts.find((product) => product.id === params.id); // Find the product with the matching id
+
+
+
   return (
     <>
       <Head>
@@ -148,15 +153,18 @@ const ShopProduct = ({
       </Head>
       <RootLayout>
         <div className="  pt-24 md:pt-32">
-          <ShopProductPage
-            title={decodedName}
-            originalPrice={645000}
-            currentPrice={600000}
-            similarProducts={similarProducts}
-            rating={3}
-            numberofReviews={20}
-            customerReviews={customerReviews}
-          />
+          {product && (
+            <ShopProductPage
+              title={product?.name}
+              originalPrice={645000}
+              currentPrice={600000}
+              similarProducts={similarProducts}
+              rating={3}
+              numberofReviews={20}
+              customerReviews={customerReviews}
+              id={params?.id}
+            />
+          )}
         </div>
       </RootLayout>
     </>

@@ -4,73 +4,73 @@ import ProductBox from "../products-components/product-box";
 
 const vendorCategories = [
   {
-    id: 1,
+    id: 11,
     name: "Tobacco plant with red flowers",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 6000,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 2,
+    id: 12,
     name: "Product 2",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 3000,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 3,
+    id: 13,
     name: "Product 3",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 4500,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 4,
+    id: 14,
     name: "Product 4",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 5900,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 5,
+    id: 15,
     name: "Product 5",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 8000,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 6,
+    id: 16,
     name: "Product 6",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 3400,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 7,
+    id: 17,
     name: "Product 7",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 3200,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 8,
+    id: 18,
     name: "Product 8",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 7000,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 9,
+    id: 19,
     name: "Product 9",
-    desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    desc: "Lorem ipssum seus ipsummm",
+    price: 5600,
     image: "https://via.placeholder.com/150",
   },
   {
-    id: 10,
+    id: 20,
     name: "Product 10",
     desc: "Lorem ipsum seus ipsummm",
-    price: "6000",
+    price: 4000,
     image: "https://via.placeholder.com/150",
   },
 ];
@@ -79,7 +79,10 @@ interface ProductsCategoriesPageProps {
   title: String;
   vendorSrcLogo: any;
 }
-const VendorsCategoriesPage = ({ title, vendorSrcLogo }: ProductsCategoriesPageProps) => {
+const VendorsCategoriesPage = ({
+  title,
+  vendorSrcLogo,
+}: ProductsCategoriesPageProps) => {
   return (
     <div className="padding-section">
       <div className="max-width-section">
@@ -94,6 +97,7 @@ const VendorsCategoriesPage = ({ title, vendorSrcLogo }: ProductsCategoriesPageP
           {vendorCategories?.map((product) => (
             <ProductBox
               key={product.id}
+              id={product.id}
               price={product?.price}
               name={product?.name}
               desc={product?.desc}

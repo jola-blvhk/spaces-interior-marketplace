@@ -1,10 +1,15 @@
 "use client";
+import { useAppDispatch } from "@/redux";
+import { cartActions } from "@/redux/cart-slice";
 import React, { useState } from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
 
 interface CounterProps {
   className?: string;
   count: number;
+  id: string;
+  name: string | String;
+  price: number;
   onAdd?: () => void;
   onSubtract?: () => void;
 }
@@ -12,22 +17,36 @@ interface CounterProps {
 export const Counter: React.FC<CounterProps> = ({
   className,
   count,
+  id,
+  name,
+  price,
   onAdd,
   onSubtract,
 }) => {
   const [isMinusClicked, setIsMinusClicked] = useState(false);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleMinusClick = () => {
     setIsMinusClicked(true);
     setTimeout(() => setIsMinusClicked(false), 200); // Reset after 200ms
     if (onSubtract) onSubtract();
+    dispatch(cartActions.removeFromCart(id));
   };
 
   const handlePlusClick = () => {
     setIsPlusClicked(true);
     setTimeout(() => setIsPlusClicked(false), 200); // Reset after 200ms
     if (onAdd) onAdd();
+    dispatch(
+      cartActions.addToCart({
+        id,
+        name,
+        price,
+        quantity: 1,
+        totalPrice: price,
+      })
+    );
   };
 
   return (

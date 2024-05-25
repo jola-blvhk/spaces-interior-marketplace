@@ -18,6 +18,7 @@ import { CustomerReview } from "@/app/types/reviewTypes";
 import { Counter } from "../counter";
 
 interface ShopProductProps {
+  id: string;
   title: string | String;
   description?: string;
   currentPrice: number;
@@ -28,6 +29,7 @@ interface ShopProductProps {
   customerReviews: CustomerReview[];
 }
 const ShopProduct: React.FC<ShopProductProps> = ({
+  id,
   title,
   currentPrice,
   originalPrice,
@@ -266,7 +268,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                       onclick={() => {}}
                     />
                   
-                  <Counter count={4} />
+                  <Counter count={4} onAdd={() => {}} onSubtract={() => {}} name={title} price={currentPrice} id={id}  />
                 </div>
               </div>
             </div>
