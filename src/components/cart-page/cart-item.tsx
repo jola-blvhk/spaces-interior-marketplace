@@ -36,7 +36,7 @@ const CartItem: React.FC<CartItemProps> = ({
   };
 
   return (
-    <div className="flex items-center text-primary-black-90 text-xs md:text-sm lg:text-base  gap-x-3 md:gap-x-6 ">
+    <div className="flex items-center text-primary-black-90 text-sm lg:text-base  gap-x-3 md:gap-x-6 ">
       <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-[8.18px] md:rounded-[15px]">
         <Image
           src={image ? image : ""}
@@ -46,7 +46,7 @@ const CartItem: React.FC<CartItemProps> = ({
           // objectFit="contain rounded-lg md:rounded-[15px]"
         />
       </div>
-      <div className=" h-full gap-y-1 md:gap-y-3 grid justify-between">
+      <div className=" h-full gap-y-3 md:gap-y-4 grid justify-between">
         <h3 className="line-clamp-2 ">{name}</h3>
         <h3 className=" line-clamp-1  font-semibold">
           ₦ {price?.toLocaleString()}
