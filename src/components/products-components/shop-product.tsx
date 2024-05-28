@@ -16,6 +16,7 @@ import { reviewsComponentActions } from "@/redux/reviews-slice";
 import ReviewContainer from "../reviews";
 import { CustomerReview } from "@/app/types/reviewTypes";
 import { Counter } from "../counter";
+import { cartActions } from "@/redux/cart-slice";
 
 interface ShopProductProps {
   id: string;
@@ -66,6 +67,7 @@ const ShopProduct: React.FC<ShopProductProps> = ({
     setIsHeartClicked(!isHeartClicked);
   };
 
+  const dispatch = useAppDispatch();
   const handleSelect = (option: any) => {
     setSelectedOption(option);
   };
@@ -88,7 +90,20 @@ const ShopProduct: React.FC<ShopProductProps> = ({
     (state) => state.reviewsComponent.reviewsComponentState
   );
 
-  const dispatch = useAppDispatch();
+  const addToCart = () => {
+    dispatch(
+      cartActions.addToCart({
+        name: title,
+        id: id,
+        price: currentPrice,
+        quantity: 1,
+        image: ExampleProduct,
+        totalPrice: 0,
+        size: selectedOption || "",
+        color: colors[clickedColor]?.name || colors[0]?.name,
+      })
+    );
+  };
   const setReviewsComponentState =
     reviewsComponentActions.setReviewsComponentState;
 
@@ -264,11 +279,12 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                   <Button
                     title="Add to cart"
                     backgroundImage
-                    onclick={() => {}}
+                    onclick={() => {
+                      addToCart();
+                    }}
                   />
 
                   <Counter
-                    count={4}
                     onAdd={() => {}}
                     onSubtract={() => {}}
                     name={title}

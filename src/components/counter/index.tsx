@@ -6,8 +6,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 
 interface CounterProps {
   className?: string;
-  count: number;
-  id: string;
+  id: string | String;
   name: string | String;
   price: number;
   onAdd?: () => void;
@@ -17,7 +16,6 @@ interface CounterProps {
 
 export const Counter: React.FC<CounterProps> = ({
   className,
-  count,
   id,
   name,
   price,
@@ -25,30 +23,39 @@ export const Counter: React.FC<CounterProps> = ({
   onSubtract,
   largeCounter,
 }) => {
+  const [count, setCount] = useState(1);
   const [isMinusClicked, setIsMinusClicked] = useState(false);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleMinusClick = () => {
-    setIsMinusClicked(true);
-    setTimeout(() => setIsMinusClicked(false), 200); // Reset after 200ms
-    if (onSubtract) onSubtract();
-    dispatch(cartActions.removeFromCart(id));
+    if (count > 1) {
+      setIsMinusClicked(true);
+      setTimeout(() => setIsMinusClicked(false), 200); // Reset after 200ms
+      if (onSubtract) onSubtract();
+      dispatch(cartActions.removeFromCart(id.toString()));
+      setCount(count - 1);
+    }
   };
 
   const handlePlusClick = () => {
     setIsPlusClicked(true);
     setTimeout(() => setIsPlusClicked(false), 200); // Reset after 200ms
     if (onAdd) onAdd();
-    dispatch(
-      cartActions.addToCart({
-        id,
-        name,
-        price,
-        quantity: 1,
-        totalPrice: price,
-      })
-    );
+    // dispatch(
+    //   cartActions.addToCart({
+    //     id,
+    //     name,
+    //     price,
+    //     quantity: 1,
+    //     totalPrice: price,
+    //     image: ExampleProduct,
+    //     totalPrice: 0,
+    //     size: selectedOption || "",
+    //     color: colors[clickedColor]?.name || colors[0]?.name,
+    //   })
+    // );
+    setCount(count + 1);
   };
 
   return (
@@ -68,12 +75,14 @@ export const Counter: React.FC<CounterProps> = ({
           largeCounter
             ? " rounded-[8.72px] ] px-2 py-1 md:rounded-[15px] md:px-4 md:py-2  text-base md:text-xl"
             : " rounded-[8.72px] px-2 py-1 text-sm md:text-base"
-        } cursor-pointer`}
+        } cursor-pointer ${count === 1 ? "cursor-not-allowed opacity-50" : ""}`}
         onClick={handleMinusClick}
       >
         <FiMinus />
       </div>
-      <div className={` ${largeCounter ? "text-base md:text-xl" : "text-sm "}`}>{count}</div>
+      <div className={` ${largeCounter ? "text-base md:text-xl" : "text-sm "}`}>
+        {count}
+      </div>
       <div
         className={`border border-[#D9D9D9] ${
           isPlusClicked

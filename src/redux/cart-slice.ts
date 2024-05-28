@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { StaticImageData } from "next/image";
 
 interface CartItem {
   id: string | String;
@@ -6,6 +7,9 @@ interface CartItem {
   quantity: number;
   totalPrice: number;
   name: string | String;
+  size: string;
+  color: string;
+  image: StaticImageData | string;
 }
 
 interface CartState {
@@ -50,6 +54,9 @@ const cartSlice = createSlice({
           quantity: 1,
           totalPrice: newItem.price,
           name: newItem.name,
+          size: newItem.size,
+          color: newItem.color,
+          image: newItem.image,
         });
         state.totalQuantity++;
       }

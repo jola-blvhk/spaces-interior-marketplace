@@ -10,13 +10,13 @@ import { Counter } from "../counter";
 
 interface CartItemProps {
   image: string;
-  name: string;
+  name: string | String;
   price: number;
   colorOptions?: string[];
   sizeOptions?: string[];
   defaultColorOption?: string;
   defaultSizeOption?: string;
-  idOfProduct: string;
+  idOfProduct: string | String;
 }
 const CartItem: React.FC<CartItemProps> = ({
   image,
@@ -86,7 +86,6 @@ const CartItem: React.FC<CartItemProps> = ({
         </div>
         <div className="max-w-[120px]">
           <Counter
-            count={4}
             onAdd={() => {}}
             onSubtract={() => {}}
             name={name}
