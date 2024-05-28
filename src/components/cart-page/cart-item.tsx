@@ -17,13 +17,14 @@ interface CartItemProps {
   defaultColorOption?: string;
   defaultSizeOption?: string;
   idOfProduct: string | String;
+  quantity: number;
 }
 const CartItem: React.FC<CartItemProps> = ({
   image,
   name,
   price,
   idOfProduct,
-
+  quantity,
   colorOptions,
   sizeOptions,
   defaultColorOption,
@@ -91,6 +92,7 @@ const CartItem: React.FC<CartItemProps> = ({
             name={name}
             price={price}
             id={idOfProduct}
+            count={quantity}
           />
         </div>
       </div>

@@ -6,6 +6,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 
 interface CounterProps {
   className?: string;
+  count?: number; // Make count an optional prop
   id: string | String;
   name: string | String;
   price: number;
@@ -16,6 +17,7 @@ interface CounterProps {
 
 export const Counter: React.FC<CounterProps> = ({
   className,
+  count = 1, // Default value is 1 if count is not provided
   id,
   name,
   price,
@@ -23,18 +25,18 @@ export const Counter: React.FC<CounterProps> = ({
   onSubtract,
   largeCounter,
 }) => {
-  const [count, setCount] = useState(1);
+  const [currentCount, setCurrentCount] = useState(count);
   const [isMinusClicked, setIsMinusClicked] = useState(false);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleMinusClick = () => {
-    if (count > 1) {
+    if (currentCount > 1) {
       setIsMinusClicked(true);
       setTimeout(() => setIsMinusClicked(false), 200); // Reset after 200ms
       if (onSubtract) onSubtract();
       dispatch(cartActions.removeFromCart(id.toString()));
-      setCount(count - 1);
+      setCurrentCount(currentCount - 1);
     }
   };
 
@@ -55,7 +57,7 @@ export const Counter: React.FC<CounterProps> = ({
     //     color: colors[clickedColor]?.name || colors[0]?.name,
     //   })
     // );
-    setCount(count + 1);
+    setCurrentCount(currentCount + 1);
   };
 
   return (
@@ -75,13 +77,15 @@ export const Counter: React.FC<CounterProps> = ({
           largeCounter
             ? " rounded-[8.72px] ] px-2 py-1 md:rounded-[15px] md:px-4 md:py-2  text-base md:text-xl"
             : " rounded-[8.72px] px-2 py-1 text-sm md:text-base"
-        } cursor-pointer ${count === 1 ? "cursor-not-allowed opacity-50" : ""}`}
+        } cursor-pointer ${
+          currentCount === 1 ? "cursor-not-allowed opacity-50" : ""
+        }`}
         onClick={handleMinusClick}
       >
         <FiMinus />
       </div>
       <div className={` ${largeCounter ? "text-base md:text-xl" : "text-sm "}`}>
-        {count}
+        {currentCount}
       </div>
       <div
         className={`border border-[#D9D9D9] ${
