@@ -36,7 +36,7 @@ const CartItem: React.FC<CartItemProps> = ({
   };
 
   return (
-    <div className="flex items-center text-primary-black-90 text-sm leading-6 lg:text-base  gap-x-3 md:gap-x-6 ">
+    <div className="flex items-center text-primary-black-90 text-sm lg:text-base  gap-x-3 md:gap-x-6 ">
       <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-[8.18px] md:rounded-[15px]">
         <Image
           src={image ? image : ""}
@@ -57,7 +57,7 @@ const CartItem: React.FC<CartItemProps> = ({
               options={colorOptions}
               value={defaultColorOption}
               className="w-fit max-w-fit"
-              controlClassName=" border-none flex items-center gap-3 cursor-pointer p-0"
+              controlClassName=" border-none text-sm lg:text-base  flex items-center gap-3 cursor-pointer p-0"
               placeholderClassName="custom-placeholder"
               menuClassName="rounded-[15px] border border-[#D9D9D9] shadow-md"
               arrowClosed={<IoIosArrowDown className=" text-lg" />}
@@ -71,7 +71,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 options={sizeOptions}
                 value={defaultSizeOption}
                 className="w-fit max-w-fit"
-                controlClassName=" border-none flex items-center gap-3 cursor-pointer p-0 pl-2 md:pl-3"
+                controlClassName=" border-none text-sm lg:text-base  flex items-center gap-3 cursor-pointer p-0 pl-2 md:pl-3"
                 placeholderClassName="custom-placeholder"
                 menuClassName="rounded-[15px] border border-[#D9D9D9] shadow-md"
                 arrowClosed={<IoIosArrowDown className=" text-lg" />}
