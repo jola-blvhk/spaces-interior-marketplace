@@ -261,14 +261,21 @@ const ShopProduct: React.FC<ShopProductProps> = ({
                 </div>
 
                 <div className="grid grid-cols-2 w-[300px] md:w-[370px] md:max-w-[400px] items-center gap-2  md:gap-5   pt-3 lg:pt-0">
-                
-                    <Button
-                      title="Add to cart"
-                      backgroundImage
-                      onclick={() => {}}
-                    />
-                  
-                  <Counter count={4} onAdd={() => {}} onSubtract={() => {}} name={title} price={currentPrice} id={id}  />
+                  <Button
+                    title="Add to cart"
+                    backgroundImage
+                    onclick={() => {}}
+                  />
+
+                  <Counter
+                    count={4}
+                    onAdd={() => {}}
+                    onSubtract={() => {}}
+                    name={title}
+                    price={currentPrice}
+                    id={id}
+                    largeCounter={true}
+                  />
                 </div>
               </div>
             </div>

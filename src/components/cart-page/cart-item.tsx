@@ -79,18 +79,16 @@ const CartItem: React.FC<CartItemProps> = ({
               />
             )}
           </div>
-          {/* <div className="flex items-center gap-2">
-            <p className="pl-2">Qty {quantity}</p>
-            <IoIosArrowDown className="text-lg" />
-          </div> */}
-          {/* <Counter
+        </div>
+        <div className="max-w-[120px]">
+          <Counter
             count={4}
             onAdd={() => {}}
             onSubtract={() => {}}
             name={name}
             price={price}
             id={idOfProduct}
-          /> */}
+          />
         </div>
       </div>
     </div>

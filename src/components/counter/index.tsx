@@ -12,6 +12,7 @@ interface CounterProps {
   price: number;
   onAdd?: () => void;
   onSubtract?: () => void;
+  largeCounter?: boolean;
 }
 
 export const Counter: React.FC<CounterProps> = ({
@@ -22,6 +23,7 @@ export const Counter: React.FC<CounterProps> = ({
   price,
   onAdd,
   onSubtract,
+  largeCounter,
 }) => {
   const [isMinusClicked, setIsMinusClicked] = useState(false);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
@@ -51,25 +53,37 @@ export const Counter: React.FC<CounterProps> = ({
 
   return (
     <div
-      className={`flex justify-between gap-4 items-center w-full border border-[#D9D9D9] h-full p-2 rounded-[8.72px] md:rounded-[15px] bg-primary-white-100 text-primary-black-90 align-items font-medium ${className}`}
+      className={`flex justify-between gap-4 items-center w-full border border-[#D9D9D9] h-full   ${
+        largeCounter
+          ? "rounded-[8.72px] md:rounded-[15px] p-2"
+          : " rounded-[8.72px] p-1.5"
+      } bg-primary-white-100 text-primary-black-90 align-items font-medium ${className}`}
     >
       <div
         className={`border border-[#D9D9D9] ${
           isMinusClicked
             ? "bg-secondary-green-100 text-white"
             : "hover:text-secondary-green-100 hover:bg-secondary-green-100/10"
-        } text-base md:text-xl font-bold px-2 py-1 md:px-4 md:py-2 rounded-[8.72px] md:rounded-[15px] cursor-pointer`}
+        } font-bold  ${
+          largeCounter
+            ? " rounded-[8.72px] ] px-2 py-1 md:rounded-[15px] md:px-4 md:py-2  text-base md:text-xl"
+            : " rounded-[8.72px] px-2 py-1 text-sm md:text-base"
+        } cursor-pointer`}
         onClick={handleMinusClick}
       >
         <FiMinus />
       </div>
-      <div className="text-xl">{count}</div>
+      <div className={` ${largeCounter ? "text-base md:text-xl" : "text-sm "}`}>{count}</div>
       <div
         className={`border border-[#D9D9D9] ${
           isPlusClicked
             ? "bg-secondary-green-100 text-white"
             : "hover:text-secondary-green-100 hover:bg-secondary-green-100/10"
-        } text-lg md:text-xl font-bold px-2 py-1 md:px-4 md:py-2 rounded-[8.72px] md:rounded-[15px] cursor-pointer`}
+        } font-bold  ${
+          largeCounter
+            ? " rounded-[8.72px] ] px-2 py-1 md:rounded-[15px] md:px-4 md:py-2  text-base md:text-xl"
+            : " rounded-[8.72px] px-2 py-1 text-sm md:text-base"
+        } cursor-pointer`}
         onClick={handlePlusClick}
       >
         <FiPlus />
