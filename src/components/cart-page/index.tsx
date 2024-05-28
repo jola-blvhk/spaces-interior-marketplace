@@ -9,10 +9,13 @@ import { useAppSelector } from "@/redux";
 const Cart = () => {
   const colorOptions = ["White", "Black", "Brown"];
   const sizeOptions = ["5ft x 7ft", "6ft x 8ft", "7ft x 9ft"];
-
+  let total = 0;
   const cartItems = useAppSelector((state) => state.cart.itemsList);
 
-  console.log(cartItems);
+  cartItems?.forEach((item) => {
+    total += item.totalPrice;
+  });
+  console.log(total);
   const cartItemss = [
     {
       id: "4",
@@ -78,10 +81,10 @@ const Cart = () => {
           showBackButton={true}
         />
 
-        <div className="grid lg:grid-cols-2  pt-7 md:pt-10">
+        <div className="grid lg:grid-cols-2 divide-x-2 divide-secondary-green-100/10 pt-7 md:pt-10">
           <div className="space-y-8 md:space-y-11">
-            {cartItemss &&
-              cartItemss?.map((item, index) => (
+            {cartItems &&
+              cartItems?.map((item, index) => (
                 <CartItem
                   key={index}
                   image={ExampleProduct.src}
@@ -96,7 +99,19 @@ const Cart = () => {
                 />
               ))}
           </div>
-          <div>Total</div>
+          <div className="lg:pl-14 max-w-[450px]">
+            <h1 className="text-secondary-green-100  font-medium text-xl mb-1  lg:text-3xl">
+              Total
+            </h1>
+            <div className="font-semibold  py-4 border-y-2 border-secondary-green-100/10">
+              <div className="flex justify-between items-center">
+                <h4>Sub Total</h4> <p>₦  {total.toLocaleString()}</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <h4>Delivery</h4> <p>-</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
