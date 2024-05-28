@@ -56,7 +56,7 @@ export const Counter: React.FC<CounterProps> = ({
       className={`flex justify-between gap-4 items-center w-full border border-[#D9D9D9] h-full   ${
         largeCounter
           ? "rounded-[8.72px] md:rounded-[15px] p-2"
-          : " rounded-[8.72px] p-1.5"
+          : " rounded-[8.72px] p-1 md:p-1.5"
       } bg-primary-white-100 text-primary-black-90 align-items font-medium ${className}`}
     >
       <div
