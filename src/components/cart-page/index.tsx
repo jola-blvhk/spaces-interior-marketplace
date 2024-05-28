@@ -4,6 +4,8 @@ import CartItem from "./cart-item";
 import ExampleProduct from "/public/assets/products/example-product.png";
 
 const Cart = () => {
+  const colorOptions = ["White", "Black", "Brown"];
+  const sizeOptions = ["5ft x 7ft", "6ft x 8ft", "7ft x 9ft"];
   return (
     <div className="padding-section">
       <div className="max-width-section">
@@ -13,15 +15,17 @@ const Cart = () => {
           showBackButton={true}
         />
 
-        <div className="grid md:grid-cols-2">
+        <div className="grid lg:grid-cols-2">
           <div>
             <CartItem
               image={ExampleProduct.src}
-              name="Tobacco Product"
+              name="Tobacco stool"
               price={500000}
-              color="White"
-              size="5ft x 7ft"
-              quantity={2}
+              colorOptions={colorOptions}
+              defaultColorOption={colorOptions[0]}
+              sizeOptions={sizeOptions}
+              defaultSizeOption={sizeOptions[0]}
+              idOfProduct="3"
             />
           </div>
           <div>Total</div>
