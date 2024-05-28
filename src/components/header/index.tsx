@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Search from "../../assets/icons/search.svg";
 import Cart2 from "../../assets/icons/cart-2.svg";
 import ProfileFill from "../../assets/icons/profile-fill.svg";
@@ -16,12 +16,19 @@ import Link from "next/link";
 import { ROUTES } from "@/app/utils/routes";
 import "animate.css";
 import "animate.css/animate.min.css";
+import { IoSearch } from "react-icons/io5";
+import { FiSearch } from "react-icons/fi";
 const Header = () => {
+  const [searchValue, setSearchValue] = useState("");
   const authState = useAppSelector((state) => state.auth.authState);
   const hamburgerState = useAppSelector((state) => state.ui.hamBurgerState);
   const setHamburgerState = uiActions.setHamburgerState;
   const dispatch = useAppDispatch();
   const pathName = usePathname();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
 
   const isCategoriesPage = pathName.startsWith("/categories");
   return (
@@ -88,33 +95,50 @@ const Header = () => {
                   src={ProfileGreen}
                   alt="profile"
                 />
-                <Image
-                  className=" cursor-pointer w-7 h-7"
-                  src={CartGreen}
-                  alt="cart"
-                />
+                <Link href={ROUTES.Cart}>
+                  <Image
+                    className=" cursor-pointer w-7 h-7"
+                    src={CartGreen}
+                    alt="cart"
+                  />
+                </Link>
               </div>
             </div>
 
             {/*desktop profile, cart and auth */}
             <div className="hidden md:grid justify-end">
               {authState && (
-                <div className="flex items-center ml-0 gap-[49px] w-fit">
+                <div className="flex  items-center ml-0 gap-[49px] w-fit">
                   <Image
-                    className=" cursor-pointer w-7 h-7 "
+                    className="block xl:hidden w-7 h-7"
                     src={Search}
                     alt="search"
                   />
-                  <Image
-                    className=" cursor-pointer w-7 h-7"
-                    src={ProfileFill}
-                    alt="profile"
-                  />
-                  <Image
-                    className=" cursor-pointer w-7 h-7"
-                    src={Cart2}
-                    alt="cart"
-                  />
+                  <div className="flex items-center gap-7">
+                    <div className=" md:hidden xl:flex rounded-[10px] md:rounded-[15px] flex m-auto items-center gap-2 py-3 px-4 md:px-6  cursor-pointer bg-primary-white-100 border border-solid border-[##D9D9D9]  max-w-[350px]  box-border rotate-[0.02deg]">
+                      <input
+                        placeholder="Search"
+                        defaultValue={searchValue}
+                        className="focus:outline-none w-full text-primary-black-90 placeholder:text-[#726D6DB2] placeholder:text-xs placeholder:md:text-sm placeholder:lg:text-base  text-sm md:text-base tracking-wider"
+                        // onClick={handleSearchClicked}
+                        onChange={handleChange}
+                      />
+                      <FiSearch className="text-[#737373B2] text-3xl font-bold" />
+                    </div>
+                    <Image
+                      className=" cursor-pointer w-7 h-7"
+                      src={ProfileFill}
+                      alt="profile"
+                    />
+                  </div>
+
+                  <Link href={ROUTES.Cart}>
+                    <Image
+                      className=" cursor-pointer w-7 h-7"
+                      src={Cart2}
+                      alt="cart"
+                    />
+                  </Link>
                 </div>
               )}
               {!authState && (

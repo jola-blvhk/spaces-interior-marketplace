@@ -5,4 +5,5 @@ export const ROUTES = {
   AuthLayout: "/auth",
   TopProducts: "/topproducts",
   Categories: "/categories",
+  Cart: "/cart",
 };
