@@ -58,10 +58,14 @@ const CartItem: React.FC<CartItemProps> = ({
               value={defaultColorOption}
               className="w-fit max-w-fit text-primary-black-90 text-sm lg:text-base"
               controlClassName=" border-none text-primary-black-90 text-sm lg:text-base  flex items-center gap-3 cursor-pointer p-0"
-              placeholderClassName="custom-placeholder"
+              placeholderClassName="text-primary-black-90 text-sm lg:text-base"
               menuClassName="rounded-[15px] border border-[#D9D9D9] shadow-md"
-              arrowClosed={<IoIosArrowDown className=" text-lg text-black-primary-90" />}
-              arrowOpen={<IoIosArrowUp className=" text-lg text-primary-black-90" />}
+              arrowClosed={
+                <IoIosArrowDown className=" text-lg text-black-primary-90" />
+              }
+              arrowOpen={
+                <IoIosArrowUp className=" text-lg text-primary-black-90" />
+              }
             />
           )}
 
@@ -72,7 +76,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 value={defaultSizeOption}
                 className="w-fit max-w-fit"
                 controlClassName=" border-none text-sm lg:text-base  flex items-center gap-3 cursor-pointer p-0 pl-2 md:pl-3"
-                placeholderClassName="custom-placeholder"
+                placeholderClassName=" text-primary-black-90 text-sm lg:text-base"
                 menuClassName="rounded-[15px] border border-[#D9D9D9] shadow-md"
                 arrowClosed={<IoIosArrowDown className=" text-lg" />}
                 arrowOpen={<IoIosArrowUp className=" text-lg" />}
