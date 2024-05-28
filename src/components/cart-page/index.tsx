@@ -7,7 +7,7 @@ const Cart = () => {
   const colorOptions = ["White", "Black", "Brown"];
   const sizeOptions = ["5ft x 7ft", "6ft x 8ft", "7ft x 9ft"];
   return (
-    <div className="padding-section">
+    <div className="padding-section ">
       <div className="max-width-section">
         <TitleHeading
           title="Cart"
@@ -15,7 +15,7 @@ const Cart = () => {
           showBackButton={true}
         />
 
-        <div className="grid lg:grid-cols-2">
+        <div className="grid lg:grid-cols-2  pt-7 md:pt-10">
           <div>
             <CartItem
               image={ExampleProduct.src}
