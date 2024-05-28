@@ -17,7 +17,6 @@ interface CartItemProps {
   defaultColorOption?: string;
   defaultSizeOption?: string;
   idOfProduct: string;
- 
 }
 const CartItem: React.FC<CartItemProps> = ({
   image,
@@ -28,7 +27,7 @@ const CartItem: React.FC<CartItemProps> = ({
   colorOptions,
   sizeOptions,
   defaultColorOption,
-  defaultSizeOption
+  defaultSizeOption,
 }) => {
   const [selectedColorOption, setSelectedColorOption] = useState(undefined);
 
@@ -93,7 +92,6 @@ const CartItem: React.FC<CartItemProps> = ({
             id={idOfProduct}
           /> */}
         </div>
-        <MdDelete className="text-2xl lg:text-3xl text-[#F84040]" />
       </div>
     </div>
   );
