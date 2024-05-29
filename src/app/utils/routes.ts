@@ -6,4 +6,5 @@ export const ROUTES = {
   TopProducts: "/topproducts",
   Categories: "/categories",
   Cart: "/cart",
+  Profile: "/profile",
 };

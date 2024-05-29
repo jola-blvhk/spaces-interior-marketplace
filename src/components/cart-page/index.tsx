@@ -77,6 +77,7 @@ const Cart = () => {
       },
     },
   ];
+  const emptyCartItems = [];
   return (
     <div className="padding-section ">
       <div className="max-width-section">

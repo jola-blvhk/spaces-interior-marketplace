@@ -16,8 +16,8 @@ import Link from "next/link";
 import { ROUTES } from "@/app/utils/routes";
 import "animate.css";
 import "animate.css/animate.min.css";
-import { IoSearch } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const authState = useAppSelector((state) => state.auth.authState);
@@ -31,6 +31,7 @@ const Header = () => {
   };
 
   const isCategoriesPage = pathName.startsWith("/categories");
+  const isProfilePage = pathName.startsWith("/profile");
   return (
     <div className="relative z-[1000000]">
       <div className="fixed w-full bg-white">
@@ -90,11 +91,13 @@ const Header = () => {
             {/* mobile profile and cart */}
             <div className="grid justify-end md:hidden">
               <div className="flex items-center justify-between gap-3">
-                <Image
-                  className=" cursor-pointer w-7 h-7 "
-                  src={ProfileGreen}
-                  alt="profile"
-                />
+                <Link href={ROUTES.Profile}>
+                  <Image
+                    className=" cursor-pointer w-7 h-7 "
+                    src={ProfileGreen}
+                    alt="profile"
+                  />
+                </Link>
                 <Link href={ROUTES.Cart}>
                   <Image
                     className=" cursor-pointer w-7 h-7"
@@ -125,11 +128,13 @@ const Header = () => {
                       />
                       <FiSearch className="text-[#737373B2] text-3xl font-bold" />
                     </div>
-                    <Image
-                      className=" cursor-pointer w-7 h-7"
-                      src={ProfileFill}
-                      alt="profile"
-                    />
+                    <Link href={ROUTES.Profile}>
+                      <Image
+                        className=" cursor-pointer w-7 h-7"
+                        src={ProfileFill}
+                        alt="profile"
+                      />
+                    </Link>
                   </div>
 
                   <Link href={ROUTES.Cart}>
