@@ -86,7 +86,7 @@ const Cart = () => {
           showBackButton={true}
         />
 
-        <div className="grid lg:grid-cols-2 divide-x-2 divide-secondary-green-100/10 pt-7 md:pt-10">
+        <div className="grid lg:grid-cols-2 lg:divide-x-2 divide-secondary-green-100/10 pt-7 md:pt-10">
           <div className="space-y-8 md:space-y-11">
             {cartItems &&
               cartItems?.map((item, index) => (
