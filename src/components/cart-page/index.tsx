@@ -5,6 +5,11 @@ import TitleHeading from "../products-components/title-heading";
 import CartItem from "./cart-item";
 import ExampleProduct from "/public/assets/products/example-product.png";
 import { useAppSelector } from "@/redux";
+import Button from "../button";
+import Image from "next/image";
+import Visa from "/public/assets/icons/visa-logo.svg";
+import MasterCard from "/public/assets/icons/mastercard-logo.svg";
+import Paypal from "/public/assets/icons/paypal-logo.svg";
 
 const Cart = () => {
   const colorOptions = ["White", "Black", "Brown"];
@@ -99,16 +104,30 @@ const Cart = () => {
                 />
               ))}
           </div>
-          <div className="lg:pl-14 max-w-[450px]">
-            <h1 className="text-secondary-green-100  font-medium text-xl mb-1  lg:text-3xl">
+          <div className="lg:pl-14 max-w-[450px] space-y-4">
+            <h1 className="text-secondary-green-100  font-medium text-xl   lg:text-3xl">
               Total
             </h1>
-            <div className="font-semibold  py-4 border-y-2 border-secondary-green-100/10">
+            <div className="font-semibold  py-4 space-y-3 md:space-y-4 border-y-2 text-sm lg:text-lg xl:text-xl  text-primary-black-90 border-secondary-green-100/10">
               <div className="flex justify-between items-center">
-                <h4>Sub Total</h4> <p>₦  {total.toLocaleString()}</p>
+                <h4>Sub Total</h4> <p>₦ {total.toLocaleString()}</p>
               </div>
               <div className="flex justify-between items-center">
                 <h4>Delivery</h4> <p>-</p>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <Button title="Check out" onclick={() => {}} backgroundImage />
+            </div>
+            <div className="pt-5 md:pt-7  ">
+              <p className="mb-3  text-sm text-center md:text-left lg:text-lg xl:text-xl">
+                We accept:
+              </p>
+              <div className="flex items-center gap-7  justify-center md:justify-start">
+                <Image src={Visa} alt="visa" />
+                <Image src={MasterCard} alt="mastercard" />
+                <Image src={Paypal} alt="paypal" />
               </div>
             </div>
           </div>
