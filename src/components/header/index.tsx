@@ -4,6 +4,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Search from "../../assets/icons/search.svg";
 import Cart2 from "../../assets/icons/cart-2.svg";
+import CartTwoGreen from "/public/assets/icons/cart-two-green.svg";
+import ProfileFillGreen from "/public/assets/icons/profile-fill-green.svg";
 import ProfileFill from "../../assets/icons/profile-fill.svg";
 import ProfileGreen from "../../assets/icons/profile-green.svg";
 import CartGreen from "../../assets/icons/cart-green.svg";
@@ -17,6 +19,7 @@ import { ROUTES } from "@/app/utils/routes";
 import "animate.css";
 import "animate.css/animate.min.css";
 import { FiSearch } from "react-icons/fi";
+import path from "path";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -32,6 +35,7 @@ const Header = () => {
 
   const isCategoriesPage = pathName.startsWith("/categories");
   const isProfilePage = pathName.startsWith("/profile");
+  const isCartPage = pathName.startsWith("/cart");
   return (
     <div className="relative z-[1000000]">
       <div className="fixed w-full bg-white">
@@ -94,7 +98,7 @@ const Header = () => {
                 <Link href={ROUTES.Profile}>
                   <Image
                     className=" cursor-pointer w-7 h-7 "
-                    src={ProfileGreen}
+                    src={isProfilePage ? ProfileFillGreen : ProfileGreen}
                     alt="profile"
                   />
                 </Link>
@@ -131,7 +135,7 @@ const Header = () => {
                     <Link href={ROUTES.Profile}>
                       <Image
                         className=" cursor-pointer w-7 h-7"
-                        src={ProfileFill}
+                        src={isProfilePage ? ProfileFillGreen : ProfileFill}
                         alt="profile"
                       />
                     </Link>
@@ -140,7 +144,7 @@ const Header = () => {
                   <Link href={ROUTES.Cart}>
                     <Image
                       className=" cursor-pointer w-7 h-7"
-                      src={Cart2}
+                      src={isCartPage ? CartTwoGreen : Cart2}
                       alt="cart"
                     />
                   </Link>
