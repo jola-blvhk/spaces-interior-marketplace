@@ -3,8 +3,8 @@ import BackButton from "../back-button";
 
 interface TitleHeadingProps {
   title: string | String;
-    description: string;
-    showBackButton: boolean
+  description: string;
+  showBackButton: boolean;
 }
 const TitleHeading: React.FC<TitleHeadingProps> = ({
   title,
