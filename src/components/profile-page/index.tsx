@@ -14,6 +14,7 @@ import ProfileGreen from "/public/assets/icons/profile-fill-green.svg";
 import ProfileFill from "@/assets/icons/profile-fill.svg";
 import Card from "/public/assets/icons/atm-card.svg";
 import CardGreen from "/public/assets/icons/atm-card-green.svg";
+import QuestionMark from "/public/assets/icons/question-mark.svg";
 const ProfilePageComponent = () => {
   const [activeTab, setActiveTab] = useState<
     "myorder" | "mydetails" | "payment" | "needhelp"
@@ -107,9 +108,18 @@ const ProfilePageComponent = () => {
                     <div
                       onClick={() => {
                         setActiveTab("needhelp");
+                        setShowDetailCard(false);
                       }}
+                      className={`flex items-center px-3 gap-4 py-6  text-lg cursor-pointer ${
+                        activeTab === "needhelp" && "text-secondary-green-100"
+                      }`}
                     >
-                      <h3 className="text-lg font-medium">Need Help?</h3>
+                      <Image
+                        className=" cursor-pointer w-8 h-8 "
+                        src={QuestionMark}
+                        alt="cart"
+                      />
+                      <h3 className="text-lg font-medium">Need help?</h3>
                     </div>
                   </div>
                 </div>
