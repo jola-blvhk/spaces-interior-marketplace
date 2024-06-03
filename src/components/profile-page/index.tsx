@@ -139,7 +139,12 @@ const ProfilePageComponent = () => {
                 <div className="w-full ">
                   <div>
                     {activeTab === "myorder" && (
-                      <MyOrders handleBack={() => setShowDetailCard(true)} />
+                      <MyOrders
+                        handleBack={() => {
+                          setShowDetailCard(true);
+                          setActiveTab("");
+                        }}
+                      />
                     )}
                     {activeTab === "mydetails" && <UserDetails />}
                     {activeTab === "payment" && <PaymentMethods />}
