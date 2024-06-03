@@ -69,7 +69,7 @@ const ProfilePageComponent = () => {
                         src={activeTab === "myorder" ? CartGreen : Cart}
                         alt="cart"
                       />
-                      <h3 className="text-lg font-medium">My Orders</h3>
+                      <h3 className="">My Orders</h3>
                     </div>
                     <div
                       onClick={() => {
@@ -87,7 +87,7 @@ const ProfilePageComponent = () => {
                         }
                         alt="cart"
                       />
-                      <h3 className="text-lg font-medium">My Details</h3>
+                      <h3 className="">My Details</h3>
                     </div>
                     <div
                       onClick={() => {
@@ -103,7 +103,7 @@ const ProfilePageComponent = () => {
                         src={activeTab === "payment" ? CardGreen : Card}
                         alt="cart"
                       />
-                      <h3 className="text-lg font-medium">Payment Methods</h3>
+                      <h3 className="">Payment Methods</h3>
                     </div>
                     <div
                       onClick={() => {
@@ -119,7 +119,7 @@ const ProfilePageComponent = () => {
                         src={QuestionMark}
                         alt="cart"
                       />
-                      <h3 className="text-lg font-medium">Need help?</h3>
+                      <h3 className="">Need help?</h3>
                     </div>
                   </div>
                 </div>
@@ -135,30 +135,85 @@ const ProfilePageComponent = () => {
               )}
             </div>
           ) : (
-            <div className="flex gap-10 w-full">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="h-10 w-10 bg-green-500 rounded-full flex items-center justify-center text-white">
-                    JS
+            <div className="flex gap-[5%] w-full mt-16">
+              <div className="h-fit  w-[25%] p-5 pb-8 border border-secondary-green-100/20 rounded-[15px] shadow-md ">
+                <div className="flex items-center gap-x-4 pb-6">
+                  <div className="h-16 w-16 bg-secondary-green-100 rounded-full flex font-medium items-center justify-center text-2xl   text-white ">
+                    <h4 className="text-center">JS</h4>
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold">Hi Julius Shoyemi</h2>
+                    <h2 className="text-base text-center ">
+                      <span className="text-secondary-green-100 text-xl font-medium">
+                        Hi{" "}
+                      </span>
+                      {""}
+                      Julius Shoyemi
+                    </h2>
                   </div>
                 </div>
-                <div onClick={() => setActiveTab("myorder")}>
-                  <h3 className="text-lg font-medium">My Orders</h3>
+
+                <div
+                  onClick={() => {
+                    setActiveTab("myorder");
+                  }}
+                  className={`flex items-center  px-3 gap-4 py-7 border-y border-secondary-green-100/20  text-base cursor-pointer ${
+                    activeTab === "myorder" && "text-secondary-green-100"
+                  }`}
+                >
+                  <Image
+                    className=" w-7 h-7 "
+                    src={activeTab === "myorder" ? CartGreen : Cart}
+                    alt="cart"
+                  />
+                  <h3 className="">My Orders</h3>
                 </div>
-                <div onClick={() => setActiveTab("mydetails")}>
-                  <h3 className="text-lg font-medium">My Details</h3>
+                <div
+                  onClick={() => {
+                    setActiveTab("mydetails");
+                  }}
+                  className={`flex items-center px-3 gap-4 py-7 border-b border-secondary-green-100/20  text-base cursor-pointer ${
+                    activeTab === "mydetails" && "text-secondary-green-100"
+                  }`}
+                >
+                  <Image
+                    className="  w-7 h-7 "
+                    src={activeTab === "mydetails" ? ProfileGreen : ProfileFill}
+                    alt="cart"
+                  />
+                  <h3 className="">My Details</h3>
                 </div>
-                <div onClick={() => setActiveTab("payment")}>
-                  <h3 className="text-lg font-medium">Payment Methods</h3>
+                <div
+                  onClick={() => {
+                    setActiveTab("payment");
+                  }}
+                  className={`flex items-center px-3 gap-4 py-7 border-b border-secondary-green-100/20  text-base cursor-pointer ${
+                    activeTab === "payment" && "text-secondary-green-100"
+                  }`}
+                >
+                  <Image
+                    className=" w-7 h-7 "
+                    src={activeTab === "payment" ? CardGreen : Card}
+                    alt="cart"
+                  />
+                  <h3 className="">Payment Methods</h3>
                 </div>
-                <div onClick={() => setActiveTab("needhelp")}>
-                  <h3 className="text-lg font-medium">Need Help?</h3>
+                <div
+                  onClick={() => {
+                    setActiveTab("needhelp");
+                  }}
+                  className={`flex items-center px-3 gap-4 py-7  text-base cursor-pointer ${
+                    activeTab === "needhelp" && "text-secondary-green-100"
+                  }`}
+                >
+                  <Image
+                    className="  w-7 h-7 "
+                    src={QuestionMark}
+                    alt="cart"
+                  />
+                  <h3 className="">Need help?</h3>
                 </div>
               </div>
-              <div>
+              <div className="w-[70%]">
                 {activeTab === "myorder" && <MyOrders />}
                 {activeTab === "mydetails" && <UserDetails />}
                 {activeTab === "payment" && <PaymentMethods />}
