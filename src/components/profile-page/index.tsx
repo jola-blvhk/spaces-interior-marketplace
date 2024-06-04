@@ -15,6 +15,8 @@ import ProfileFill from "@/assets/icons/profile-fill.svg";
 import Card from "/public/assets/icons/atm-card.svg";
 import CardGreen from "/public/assets/icons/atm-card-green.svg";
 import QuestionMark from "/public/assets/icons/question-mark.svg";
+import Link from "next/link";
+import { ROUTES } from "@/app/utils/routes";
 
 const ProfilePageComponent = () => {
   const [activeTab, setActiveTab] = useState<
@@ -120,19 +122,20 @@ const ProfilePageComponent = () => {
                       />
                       <h3 className="">Payment Methods</h3>
                     </div>
-                    <div
-                      onClick={() => handleTabClick("needhelp")}
-                      className={`flex items-center px-3 gap-4 py-6 text-lg cursor-pointer ${
-                        activeTab === "needhelp" && "text-secondary-green-100"
-                      }`}
-                    >
-                      <Image
-                        className="cursor-pointer w-8 h-8"
-                        src={QuestionMark}
-                        alt="help"
-                      />
-                      <h3 className="">Need help?</h3>
-                    </div>
+                    <Link href={ROUTES.Faqs}>
+                      <div
+                        className={`flex items-center px-3 gap-4 py-6 text-lg cursor-pointer ${
+                          activeTab === "needhelp" && "text-secondary-green-100"
+                        }`}
+                      >
+                        <Image
+                          className="cursor-pointer w-8 h-8"
+                          src={QuestionMark}
+                          alt="help"
+                        />
+                        <h3 className="">Need help?</h3>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               ) : (
@@ -223,15 +226,16 @@ const ProfilePageComponent = () => {
                   />
                   <h3 className="">Payment Methods</h3>
                 </div>
-                <div
-                  onClick={() => handleTabClick("needhelp")}
-                  className={`flex items-center px-3 gap-4 py-7 text-base cursor-pointer ${
-                    activeTab === "needhelp" && "text-secondary-green-100"
-                  }`}
-                >
-                  <Image className="w-7 h-7" src={QuestionMark} alt="help" />
-                  <h3 className="">Need help?</h3>
-                </div>
+                <Link href={ROUTES.Faqs}>
+                  <div
+                    className={`flex items-center px-3 gap-4 py-7 text-base cursor-pointer ${
+                      activeTab === "needhelp" && "text-secondary-green-100"
+                    }`}
+                  >
+                    <Image className="w-7 h-7" src={QuestionMark} alt="help" />
+                    <h3 className="">Need help?</h3>
+                  </div>
+                </Link>
               </div>
               <div className="w-full md:pt-7 ">
                 {activeTab === "myorder" && <MyOrders />}
