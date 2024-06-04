@@ -146,7 +146,14 @@ const ProfilePageComponent = () => {
                         }}
                       />
                     )}
-                    {activeTab === "mydetails" && <UserDetails />}
+                    {activeTab === "mydetails" && (
+                      <UserDetails
+                        handleBack={() => {
+                          setShowDetailCard(true);
+                          setActiveTab("");
+                        }}
+                      />
+                    )}
                     {activeTab === "payment" && <PaymentMethods />}
                   </div>
                 </div>
@@ -154,7 +161,7 @@ const ProfilePageComponent = () => {
             </div>
           ) : (
             <div className="flex gap-6 lg:gap-10 w-full ">
-              <div className="h-fit w-[50%] lg:w-[30%] xl:w-[25%] p-5 pb-8 border border-secondary-green-100/20 rounded-[15px] shadow-md">
+              <div className="h-fit w-[60%] lg:w-[40%] xl:w-[30%] p-5 pb-8 border border-secondary-green-100/20 rounded-[15px] shadow-md">
                 <div className="flex items-center gap-x-4 pb-6">
                   <div className="h-16 w-16 bg-secondary-green-100 rounded-full flex font-medium items-center justify-center text-2xl text-white">
                     <h4 className="text-center">JS</h4>
@@ -219,7 +226,7 @@ const ProfilePageComponent = () => {
                   <h3 className="">Need help?</h3>
                 </div>
               </div>
-              <div className=" ">
+              <div className="w-full ">
                 {activeTab === "myorder" && <MyOrders />}
                 {activeTab === "mydetails" && <UserDetails />}
                 {activeTab === "payment" && <PaymentMethods />}

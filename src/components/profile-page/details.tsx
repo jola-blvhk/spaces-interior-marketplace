@@ -1,40 +1,30 @@
 import React from "react";
+import SettingsHeader from "./settings-header";
+import InputField from "../input/input";
+import Button from "../button";
 
-const UserDetails = () => {
-    return <div>
-        <h1>My Details</h1>
-        <form className="mt-4 flex flex-col gap-4">
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                <input type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input type="tel" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Address</label>
-                <input type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">City</label>
-                <input type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">State</label>
-                <input type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Country</label>
-                <input type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>  
-            <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-        </form>
-  </div>;
+interface UserDetailsProps {
+  handleBack?: () => void;
+}
+
+const UserDetails: React.FC<UserDetailsProps> = ({ handleBack }) => {
+  return (
+    <div>
+      <SettingsHeader
+        title="My Details"
+        description="Edit and save any of your details below."
+        handleBack={handleBack}
+      />
+      <form className="m-auto h-fit space-y-6 md:space-y-8 pt-0 md:pt-8 md:border-t md:border-secondary-green-100/20  mt-10 ">
+        <InputField label="Full name" />
+        <InputField label="Email address" />
+        <InputField label="Phone number" />
+        <div className="w-full md:w-[200px]">
+          <Button title="Save" onclick={() => {}} blackBackground />
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default UserDetails;
