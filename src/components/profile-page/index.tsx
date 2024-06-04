@@ -154,13 +154,20 @@ const ProfilePageComponent = () => {
                         }}
                       />
                     )}
-                    {activeTab === "payment" && <PaymentMethods />}
+                    {activeTab === "payment" && (
+                      <PaymentMethods
+                        handleBack={() => {
+                          setShowDetailCard(true);
+                          setActiveTab("");
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               )}
             </div>
           ) : (
-            <div className="flex gap-6 lg:gap-10 w-full ">
+            <div className="flex gap-7 lg:gap-14 w-full ">
               <div className="h-fit w-[60%] lg:w-[40%] xl:w-[30%] p-5 pb-8 border border-secondary-green-100/20 rounded-[15px] shadow-md">
                 <div className="flex items-center gap-x-4 pb-6">
                   <div className="h-16 w-16 bg-secondary-green-100 rounded-full flex font-medium items-center justify-center text-2xl text-white">
@@ -226,7 +233,7 @@ const ProfilePageComponent = () => {
                   <h3 className="">Need help?</h3>
                 </div>
               </div>
-              <div className="w-full ">
+              <div className="w-full md:pt-7 ">
                 {activeTab === "myorder" && <MyOrders />}
                 {activeTab === "mydetails" && <UserDetails />}
                 {activeTab === "payment" && <PaymentMethods />}
