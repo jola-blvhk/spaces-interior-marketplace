@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, useState } from "react";
 import { BiHappyHeartEyes } from "react-icons/bi";
 import { PiSmileyXEyesBold } from "react-icons/pi";
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   isPassword?: boolean;
 }
 

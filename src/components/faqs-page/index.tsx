@@ -2,6 +2,7 @@ import React from "react";
 import image from "/public/assets/faqsDummyImage.png";
 import Image from "next/image";
 import { Faq } from "./questions";
+import JoinSubscribers from "./join-subscribers";
 
 const FaqsPage = () => {
   return (
@@ -44,6 +45,7 @@ const FaqsPage = () => {
             </div>
             <Faq />
           </div>
+          <JoinSubscribers />
         </div>
       </div>
     </div>
