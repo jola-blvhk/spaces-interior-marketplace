@@ -84,7 +84,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
 
       <div className="grid gap-y-4 lg:flex justify-between items-center">
         <div className=" text-base md:text-sm">
-          <h5>Order ID :{orderId}</h5>
+          <h5>Order ID : {orderId}</h5>
           <h4>Cancel date : {cancelDate}</h4>
         </div>
 
