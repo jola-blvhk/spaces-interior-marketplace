@@ -38,7 +38,7 @@ const CartItem: React.FC<CartItemProps> = ({
 
   return (
     <div className="flex items-center text-primary-black-90 text-sm lg:text-base  gap-x-4 md:gap-x-6 ">
-      <div className="relative  w-32 h-32 md:w-36 md:h-36 rounded-[8.18px] md:rounded-[15px]">
+      <div className="relative  w-32 h-32 md:w-36 md:h-36 rounded-[11px] md:rounded-[15px]">
         <Image
           src={image ? image : ""}
           className="object-cover rounded-[11px] md:rounded-[15px]"

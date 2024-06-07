@@ -12,7 +12,6 @@ import Button from "../button";
 import SimilarProducts from "./similar-products";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { reviewsComponentActions } from "@/redux/reviews-slice";
-
 import ReviewContainer from "../reviews";
 import { CustomerReview } from "@/app/types/reviewTypes";
 import { Counter } from "../counter";
