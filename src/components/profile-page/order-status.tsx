@@ -5,9 +5,15 @@ import Button from "../button";
 
 interface OrderStatusProps {
   status: string;
+  orderId: string;
+  cancelDate: string;
 }
 
-const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => {
+const OrderStatus: React.FC<OrderStatusProps> = ({
+  status,
+  orderId,
+  cancelDate,
+}) => {
   const variations = [1, 2, 3, 4];
 
   const getMessage = () => {
@@ -43,7 +49,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => {
   };
 
   return (
-    <div className="text-primary-black-90 grid gap-y-5">
+    <div className="text-primary-black-90 grid gap-y-5 py-6 md:py-4">
       <div className=" space-y-1 md:space-y-0">
         <h3 className="text-base">
           Order Status :{" "}
@@ -64,7 +70,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => {
         {variations.map((variation, index) => (
           <div
             key={index}
-            className="relative  w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-[7.92px] md:rounded-[15px]"
+            className="relative  w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-[7.92px] md:rounded-[15px]"
           >
             <Image
               src={ExampleProduct ? ExampleProduct : ""}
@@ -78,12 +84,12 @@ const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => {
 
       <div className="grid gap-y-4 lg:flex justify-between items-center">
         <div className=" text-base md:text-sm">
-          <h5>Order ID : 778499</h5>
-          <h4>Cancel date : 5, May 2024</h4>
+          <h5>Order ID :{orderId}</h5>
+          <h4>Cancel date : {cancelDate}</h4>
         </div>
 
         {status !== "Successful" && (
-          <div className=" md:w-[200px] lg:w-[191px]">
+          <div className=" md:w-[194px] lg:w-[191px]">
             <Button
               title={getButtonTitle()}
               blackBackground
