@@ -1,14 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TitleHeading from "../products-components/title-heading";
 import InputField from "../input/input";
 import { FaCog, FaTruck, FaCheckCircle } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import { HiCog6Tooth } from "react-icons/hi2";
 import { LuPackageCheck } from "react-icons/lu";
+import { useRouter } from "next/navigation";
+import useDebounce from "@/hooks/useDebounce";
 
 const TrackOrderPage = ({ trackingNumber }: { trackingNumber: String }) => {
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState("");
+  // Debounce the input value
+  const debouncedInputValue = useDebounce(inputValue, 3000);
   const steps = [
     {
       status: "Order placed",
@@ -40,6 +46,17 @@ const TrackOrderPage = ({ trackingNumber }: { trackingNumber: String }) => {
     },
   ];
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+  };
+
+  useEffect(() => {
+    if (debouncedInputValue) {
+      router.push(`/trackorder/${debouncedInputValue}`);
+    }
+  }, [debouncedInputValue, router]);
+
   return (
     <div className="padding-section">
       <div className="max-width-section">
@@ -49,7 +66,11 @@ const TrackOrderPage = ({ trackingNumber }: { trackingNumber: String }) => {
           description="Track your order anytime"
         />
         <main className=" mt-6 md:mt-16  max-w-[705px] m-auto md:border border-[#D9D9D9] rounded-[15px] md:shadow-md md:py-12 md:px-16 text-primary-black-90  space-y-8 md:space-y-6">
-          <InputField placeholder="Enter tracking number" />
+          <InputField
+            placeholder="Enter tracking number"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
           <div className="">
             <h2 className="hidden md:block text-secondary-green-100 mb-1 text-lg md:text-xl font-medium">
               Tracking
@@ -59,7 +80,7 @@ const TrackOrderPage = ({ trackingNumber }: { trackingNumber: String }) => {
               <p>Estimated delivery date Wed, 10 May 2024</p>
             </div>
             <div className="relative">
-              <div className="absolute border-l-[2px] border-dashed border-[#D9D9D9] left-5 top-0 h-full"></div>
+              <div className="absolute border-l-[2px] border-dashed  border-[#D9D9D9] left-5 top-0 h-full"></div>
               {steps.map((step, index) => (
                 <div key={index} className="flex items-center mt-10">
                   <div

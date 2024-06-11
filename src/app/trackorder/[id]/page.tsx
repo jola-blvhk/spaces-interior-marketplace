@@ -19,7 +19,7 @@ const TrackOrder = ({
         <title>Track Order | Spaces</title>
       </Head>
       <RootLayout>
-        <div className=" pt-20 md:pt-24 ">
+        <div className=" pt-24 md:pt-32 ">
           <TrackOrderPage trackingNumber={params.id} />
         </div>
       </RootLayout>
