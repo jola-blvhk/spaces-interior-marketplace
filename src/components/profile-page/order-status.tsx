@@ -44,7 +44,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
     if (status === "Unsuccessful") {
       // Handle retry logic
     } else if (status === "Ongoing") {
-      // Handle track logic
+      window.location.href = `/trackorder/${orderId}`;
     }
   };
 
