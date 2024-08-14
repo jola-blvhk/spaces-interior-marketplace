@@ -143,9 +143,9 @@ const Cart = () => {
               alt="empty cart"
               className=" m-auto w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
             />
-            <h3 className="text-center text-primary-black-90 text-sm md:text-base">
-              Your cart is empty is empty. Looks like you have not
-              <br /> added anything to your cart yet
+            <h3 className="text-center text-primary-black-90 text-sm md:text-base max-w-[450px]">
+              Your cart is empty is empty. Looks like you have not added
+              anything to your cart yet
             </h3>
             <div className="m-auto w-[150px] md:w-[180px]">
               <Button
