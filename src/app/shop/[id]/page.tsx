@@ -159,8 +159,8 @@ const ShopProduct = ({
               originalPrice={645000}
               currentPrice={600000}
               similarProducts={similarProducts}
-              rating={3}
-              numberofReviews={20}
+              rating={0}
+              numberofReviews={0}
               customerReviews={customerReviews}
               id={params?.id}
             />
