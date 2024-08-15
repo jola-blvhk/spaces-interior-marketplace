@@ -16,7 +16,7 @@ const NotFound = () => {
         <title>404 | Spaces</title>
       </Head>
       <RootLayout>
-        <div className=" pt-20 md:pt-24 ">
+        <div className=" pt-20 md:pt-24 padding-section">
           <Lottie
             animationData={LottieFile}
             loop={true}
