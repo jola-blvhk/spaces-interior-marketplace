@@ -23,7 +23,7 @@ const NotFound = () => {
             className=" w-[300px] md:w-[520px] max-w-[520px] m-auto mt-6 md:mt-16"
           />
           <h3 className="text-center text-sm md:text-base max-w-[474px] mb-7 text-[#454545] m-auto">
-            Sorry! This page your are looking for does not exist or is not
+            Sorry! This page you are looking for does not exist or is not
             available at the moment
           </h3>
           <div className="w-[180px] m-auto">
