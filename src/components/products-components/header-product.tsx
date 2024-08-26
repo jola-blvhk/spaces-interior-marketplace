@@ -76,6 +76,7 @@ const HeaderProduct: React.FC<HeaderProductProps> = ({
           )}
         </div>
       </div>
+
       {vendor && (
         <div className="my-5 lg:my-10">
           <Banner imageSrc={vendorLogoSrc} />

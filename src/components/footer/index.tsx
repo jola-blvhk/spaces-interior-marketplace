@@ -91,6 +91,28 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="text-center flex justify-center items-center gap-4 border-t py-4 md:py-7 border-secondary-green-100/50">
+        <p className=" text-[12px] md:text-sm">
+          Spaces 2024 | Website Designed and Developed by Ojuolape Bello and
+          Oluremi Bello
+        </p>
+        <Link
+          href="https://twitter.com/uxbabe?s=21"
+          className=" flex items-center justify-center"
+        >
+          <Image src={gmail} alt="gmail" className="w-5 h-5 md:w-5 md:h-5" />
+        </Link>
+        <Link
+          href="https://twitter.com/uxbabe?s=21"
+          className=" flex items-center justify-center"
+        >
+          <Image
+            src={linkedin}
+            alt="linkedin"
+            className="w-5 h-5 md:w-5 md:h-5"
+          />
+        </Link>
+      </div>
     </div>
   );
 };
